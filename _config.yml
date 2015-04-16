@@ -9,7 +9,7 @@ name: Alex Zhuang
 description: Web Developer from Somewhere
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: static/img/avatar.jpg
+avatar: /static/img/avatar.jpg
 
 #
 # Flags below are optional

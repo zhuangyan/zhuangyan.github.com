@@ -6,12 +6,9 @@ comments: true
 ---
 我们平常用django做的列表页面都会有很多查询条件。在提交查询时，views里会接收查询表单传递过来的参数，然后在queryset中根据查询条件进行过滤，最后要把过滤结果和本次查询参数在传到模板页面进行显示。django-filter组件把以上操作进行了封装，简化代码量。
 
-pypi主页：https://pypi.python.org/pypi/django-filter
-github项目主页：https://github.com/alex/django-filter
 
-使用方式：
+##基本使用方式：
 我对我们ERP项目的车辆管理列表用django-filter重写一下，进行学习。
-车辆模型如下:
 
 ```python
 class Cars(models.Model):
@@ -125,3 +122,62 @@ views中修改如下：
 {% endblock %}
 {% endraw %}    
 {% endhighlight %}
+上面例子只是通过车牌号和座位数进行直等的查询，我们一般情况下都需要实现按车牌号的模糊查询和座位数的范围查询。这需要我们把fields参数定义为字典形式，如下：
+{% highlight django %}
+class CarsFilter(django_filters.FilterSet):
+    class Meta:
+        model = Cars
+        fields = {'car': [ 'icontains'],
+                  'site': [ 'gte', 'lte'],
+                 }
+{% endhighlight %}
+order_by排序参数，可以让用户选择排序方式：
+{% highlight django %}
+class CarsFilter(django_filters.FilterSet):
+    class Meta:
+        model = Cars
+        fields = ['car', 'site']
+        order_by = ['car', 'site']
+{% endhighlight %}
+##高级用法：
+
+如果要在下拉列表中显示排序字段名称，需要定义为元组，如下：
+{% highlight django %}
+class CarsFilter(django_filters.FilterSet):
+    class Meta:
+        model = Cars
+        fields = ['car', 'site']
+        order_by = (
+            ('car','车牌号'),
+            ('site','座位数')
+        )
+{% endhighlight %}
+###RangeFilter
+如果想要查询座位数在一定范围内的车辆，除了可以使用'site': [ 'gte', 'lte']，还可以使用RangeFilter：
+{% highlight django %}
+class CarsFilter(django_filters.FilterSet):
+    site = RangeFilter()
+    class Meta:
+        model = Cars
+        fields = ['car', 'site']
+        order_by = (
+            ('car','车牌号'),
+            ('site','座位数')
+        )
+{% endhighlight %}
+###ChoiceFilter
+如果想要按车辆使用状态进行查询，需要使用ChoiceFilter：
+{% highlight django %}
+class CarsFilter(django_filters.FilterSet):
+    site = RangeFilter()
+    statu = ChoiceFilter(choices=Cars.STATU_CHOICE)
+    class Meta:
+        model = Cars
+        fields = ['car', 'site', 'statu']
+        order_by = (
+            ('car','车牌号'),
+            ('site','座位数')
+        )
+{% endhighlight %}
+
+[Home Page]: https://github.com/alex/django-filter

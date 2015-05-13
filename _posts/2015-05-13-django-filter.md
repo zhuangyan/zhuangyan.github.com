@@ -64,7 +64,7 @@ views中修改如下：
 
 模板cars_list.html的代码：
 
-```html
+```python
     <section id="serach-console">
         <hgroup>
             <form action="?method=search" method="get">

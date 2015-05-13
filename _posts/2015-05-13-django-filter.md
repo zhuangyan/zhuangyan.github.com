@@ -64,7 +64,7 @@ views中修改如下：
 
 模板cars_list.html的代码：
 
-```python
+{% highlight html+django %}
     <section id="serach-console">
         <hgroup>
             <form action="?method=search" method="get">
@@ -74,4 +74,4 @@ views中修改如下：
 
         </hgroup>
     </section>
-```
+{% endhighlight %}

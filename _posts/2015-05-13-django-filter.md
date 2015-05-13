@@ -123,7 +123,7 @@ views中修改如下：
 {% endraw %}    
 {% endhighlight %}
 上面例子只是通过车牌号和座位数进行直等的查询，我们一般情况下都需要实现按车牌号的模糊查询和座位数的范围查询。这需要我们把fields参数定义为字典形式，如下：
-{% highlight django %}
+{% highlight python %}
 class CarsFilter(django_filters.FilterSet):
     class Meta:
         model = Cars
@@ -132,7 +132,7 @@ class CarsFilter(django_filters.FilterSet):
                  }
 {% endhighlight %}
 order_by排序参数，可以让用户选择排序方式：
-{% highlight django %}
+{% highlight python %}
 class CarsFilter(django_filters.FilterSet):
     class Meta:
         model = Cars
@@ -142,7 +142,7 @@ class CarsFilter(django_filters.FilterSet):
 ##高级用法：
 
 如果要在下拉列表中显示排序字段名称，需要定义为元组，如下：
-{% highlight django %}
+{% highlight python %}
 class CarsFilter(django_filters.FilterSet):
     class Meta:
         model = Cars
@@ -154,7 +154,7 @@ class CarsFilter(django_filters.FilterSet):
 {% endhighlight %}
 ###RangeFilter
 如果想要查询座位数在一定范围内的车辆，除了可以使用'site': [ 'gte', 'lte']，还可以使用RangeFilter：
-{% highlight django %}
+{% highlight python %}
 class CarsFilter(django_filters.FilterSet):
     site = RangeFilter()
     class Meta:
@@ -167,7 +167,7 @@ class CarsFilter(django_filters.FilterSet):
 {% endhighlight %}
 ###ChoiceFilter
 如果想要按车辆使用状态进行查询，需要使用ChoiceFilter：
-{% highlight django %}
+{% highlight python %}
 class CarsFilter(django_filters.FilterSet):
     site = RangeFilter()
     statu = ChoiceFilter(choices=Cars.STATU_CHOICE)

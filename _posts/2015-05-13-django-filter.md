@@ -12,6 +12,7 @@ github项目主页：https://github.com/alex/django-filter
 使用方式：
 我对我们ERP项目的车辆管理列表用django-filter重写一下，进行学习。
 车辆模型如下:
+
 ```python
 class Cars(models.Model):
     STATU_CHOICE = (
@@ -37,14 +38,18 @@ class Cars(models.Model):
     class Meta:
         db_table = 'office_cars'
 ```
+
 新建一个FilterSet
+
 ```python
 class CarsFilter(django_filters.FilterSet):
     class Meta:
         model = Cars
         fields = ['car', 'site']
 ```
+
 views中修改如下：
+
 ```python
     querys = Cars.objects.filter(un_id=Mine.Unit.id, status=200)
     f = CarsFilter(request.GET, queryset=querys)
@@ -56,7 +61,9 @@ views中修改如下：
     }
     return render_to_response('cars_list.html', context)
 ```
+
 模板cars_list.html的代码：
+
 ```html
     <section id="serach-console">
         <hgroup>

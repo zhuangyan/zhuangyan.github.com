@@ -68,8 +68,7 @@ views中修改如下：
     <section id="serach-console">
         <hgroup>
             <form action="?method=search" method="get">
-                查找:
-                {{ filter.form }}
+                查找: {{ filter.form }}
                 <input class="button" type="submit" value="搜索" />
             </form>
 

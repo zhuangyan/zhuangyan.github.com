@@ -66,14 +66,62 @@ views中修改如下：
 
 {% highlight html+django %}
 {% raw %}
+    {% block body_search %}
     <section id="serach-console">
         <hgroup>
             <form action="?method=search" method="get">
-                查找: {{ filter.form }}
+                查找:
+                {{ filter.form }}
                 <input class="button" type="submit" value="搜索" />
             </form>
 
         </hgroup>
     </section>
+{% endblock %}
+
+{% block body_contents %}
+    <section id="editor-console">
+        {% load pagination_tags %}
+        <table class="data-list" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th width="2%"><input type="checkbox" id="check-console" value="-1"></th>
+                <th width="10%">车牌号</th>
+                <th width="10%">品牌</th>
+                <th width="10%">座位数</th>
+                <th width="10%">图片</th>
+                <th width="10%">保险公司</th>
+                <th width="10%">投保时间</th>
+                <th width="10%">经办人</th>
+                <th width="10%">使用状态</th>
+            </tr>
+            {% if filter %}
+                {% autopaginate filter 30 %}
+                {% for q in filter  %}
+                    <tr>
+                        <td><input type="checkbox" name="id" id="{{q.id}}" value="{{ q.id }}"></td>
+                        <td align="center">{{q.car}}</td>
+                        <td align="center">{{q.brand}}</td>
+                        <td align="center">{{q.site}}</td>
+                        <td align="center">
+                            {% if q.path != '' %}
+                                <a href="{{ q.path }}" target="_blank"><img src="{{ q.path }}" width="40px" height="30px"></a>
+                            {% endif %}
+                        </td>
+                        <td align="center">{{q.company}}</td>
+                        <td align="center">{{q.time|date:'Y-m-d'}}</td>
+                        <td align="center">{{q.person}}</td>
+                        <td align="center">{{q.get_statu_display}}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="9" style="color:#e00">空记录！</td>
+                </tr>
+            {% endif %}
+        </table>
+        <div >{% paginate %}</div>
+        <br/>
+    </section>
+{% endblock %}
 {% endraw %}    
 {% endhighlight %}

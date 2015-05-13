@@ -179,5 +179,16 @@ class CarsFilter(django_filters.FilterSet):
             ('site','座位数')
         )
 {% endhighlight %}
+###通用视图
+{% highlight python %}
+# urls.py
+from django.conf.urls import patterns, url
+from django_filters.views import FilterView
+from apps.office.cars.models import Cars
+
+urlpatterns = patterns('',
+    (r'^list/$', FilterView.as_view(model=Cars,template_name='cars_list.html')),
+)
+{% endhighlight %}
 
 [django-filter]: https://github.com/alex/django-filter

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 对 Java 内存模型的理解
 category: 科研
 comments: true

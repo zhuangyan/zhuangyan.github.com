@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: django常用组件学习1——django-filter
 ---
 

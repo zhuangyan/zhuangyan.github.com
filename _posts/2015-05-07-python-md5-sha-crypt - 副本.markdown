@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: python的加密模块(md5,sha,crypt)学习
 ---
 md5(Message-Digest Algorithm 5) 模块用于计算信息密文（信息摘要），得出一个128位的密文。sha模块跟md5相似，但生成的是160位的签名。使用方法是相同的。

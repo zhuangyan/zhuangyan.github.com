@@ -1,6 +1,7 @@
 ---
 layout: default
 title: django常用组件学习1——django-filter
+comments: true
 categories: [django]
 tags:
 - python

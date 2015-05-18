@@ -1,12 +1,6 @@
 ---
 layout: default
 title: django常用组件学习1——django-filter
-categories: [django]
-tags:
-- python
-- django
-- hacks
-comments: true
 ---
 
 我们平常用django做的列表页面都会有很多查询条件。在提交查询时，views里会接收查询表单传递过来的参数，然后在queryset中根据查询条件进行过滤，最后要把过滤结果和本次查询参数在传到模板页面进行显示。[django-filter][django-filter]组件把以上操作进行了封装，简化代码量。

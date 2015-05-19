@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: python的加密模块(md5,sha,crypt)学习
 categories: [python]
 comments: true

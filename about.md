@@ -11,4 +11,4 @@ Python programmer
 [arcgis@qq.com](mailto:arcgis@qq.com)
 
 ###我的微信
-<img src="/images/mmqrcode1432452023005.pngg" alt="我的微信" />
+<img src="/images/mmqrcode1432452023005.png" alt="我的微信" />

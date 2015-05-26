@@ -3,8 +3,12 @@ layout: page
 title: About
 permalink: /about/
 ---
-
-码农@沈阳
+###个人简介
+* 大龄码农，已婚.
+* 大学没毕业，感谢所有给我工作机会的公司！
+* 一直在努力提升中！
+* Life is short, I use python.
+* I Love Coding!
 
 ### 联系我
 <p><a href="mailto:arcgis@qq.com"><img src="/images/gmail.png" alt="我的邮箱"></a>&nbsp;<a target="__blank" href="http://weibo.com/zhuangyancn">
@@ -25,5 +29,5 @@ var duoshuoQuery = {short_name:"zhuangyan"};
 		ds.charset = 'UTF-8';
 		(document.getElementsByTagName('head')[0] 
 		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
+})();
+</script>

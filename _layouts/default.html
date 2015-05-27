@@ -70,8 +70,8 @@
 <script type="text/javascript">//<![CDATA[
 $(document).ready(function(){
   $("li", "#nav_ul").removeClass("active");
-  var page_id = {{ page.id }};
-  if(page_id == '/about/'){
+  var title = '{{ page.title }}';
+  if(title == '/about/'){
     $("#about").addClass("active");
   }else{
     $("#blog").addClass("active");

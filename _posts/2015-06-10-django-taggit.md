@@ -58,3 +58,19 @@ class Cars(models.Model):
     class Meta:
         db_table = 'office_cars'    
 {% endhighlight %}
+在命令行测试一下：
+{% highlight python %}
+In [1]: from apps.office.cars.models import Cars
+In [2]: car = Cars()
+In [3]: car.car=u'测试车1'
+In [4]: car.save()
+In [5]: car.tags.add(u'宝马',u'跑车')
+In [6]: car2 = Cars()
+In [7]: car2.car=u'测试车2'
+In [8]: car2.save()
+In [9]: car2.tags.add(u'摩托','跑车')
+In [10]: car2.tags.all()
+Out[10]: [<Tag: 摩托>, <Tag: 跑车]
+In [11]: Cars.objects.filter(tags__name__in=[u"跑车"])
+Out[12]: [<Cars: 测试车1>,<Cars: 测试车2>]
+{% endhighlight %}

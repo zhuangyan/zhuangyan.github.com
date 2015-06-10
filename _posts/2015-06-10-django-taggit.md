@@ -60,6 +60,7 @@ class Cars(models.Model):
 {% endhighlight %}
 在命令行测试一下：
 {% highlight python %}
+.\manage.py shell
 In [1]: from apps.office.cars.models import Cars
 In [2]: car = Cars()
 In [3]: car.car=u'测试车1'
@@ -73,4 +74,56 @@ In [10]: car2.tags.all()
 Out[10]: [<Tag: 摩托>, <Tag: 跑车]
 In [11]: Cars.objects.filter(tags__name__in=[u"跑车"])
 Out[12]: [<Cars: 测试车1>,<Cars: 测试车2>]
+{% endhighlight %}
+##结合ModelForm使用：
+使用forms接回request参数时会把输入的标签参数进行智能的分隔处理，分隔规则如下表。
+<table class="docutils" border="1">
+<colgroup>
+<col width="21%">
+<col width="32%">
+<col width="47%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Tag input string</th>
+<th class="head">Resulting tags</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>apple ball cat</td>
+<td><code class="docutils literal"><span class="pre">["apple",</span> <span class="pre">"ball",</span> <span class="pre">"cat"]</span></code></td>
+<td>No commas, so space delimited</td>
+</tr>
+<tr class="row-odd"><td>apple, ball cat</td>
+<td><code class="docutils literal"><span class="pre">["apple",</span> <span class="pre">"ball</span> <span class="pre">cat"]</span></code></td>
+<td>Comma present, so comma delimited</td>
+</tr>
+<tr class="row-even"><td>“apple, ball” cat dog</td>
+<td><code class="docutils literal"><span class="pre">["apple,</span> <span class="pre">ball",</span> <span class="pre">"cat",</span> <span class="pre">"dog"]</span></code></td>
+<td>All commas are quoted, so space delimited</td>
+</tr>
+<tr class="row-odd"><td>“apple, ball”, cat dog</td>
+<td><code class="docutils literal"><span class="pre">["apple,</span> <span class="pre">ball",</span> <span class="pre">"cat</span> <span class="pre">dog"]</span></code></td>
+<td>Contains an unquoted comma, so comma delimited</td>
+</tr>
+<tr class="row-even"><td>apple “ball cat” dog</td>
+<td><code class="docutils literal"><span class="pre">["apple",</span> <span class="pre">"ball</span> <span class="pre">cat",</span> <span class="pre">"dog"]</span></code></td>
+<td>No commas, so space delimited</td>
+</tr>
+<tr class="row-odd"><td>“apple” “ball dog</td>
+<td><code class="docutils literal"><span class="pre">["apple",</span> <span class="pre">"ball",</span> <span class="pre">"dog"]</span></code></td>
+<td>Unclosed double quote is ignored</td>
+</tr>
+</tbody>
+</table>
+注意：当“commit=False”时，需要用“save_m2m()”方法保存多对多关系数据，如下：
+{% highlight python %}
+if request.method == "POST":
+    form = MyFormClass(request.POST)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+        # Without this next line the tags won't be saved.
+        form.save_m2m()
 {% endhighlight %}

@@ -16,12 +16,12 @@ title: django常用组件学习2——django-taggit
 ##基本使用方式：
 我们按<a href="http://django-taggit.readthedocs.org/en/latest/getting_started.html" target="_blank">官方文档</a>来练习.
 安装
-{% highlight shell %}
+{% highlight html %}
 $ pip install django-taggit
 {% endhighlight %}
 一般不会有什么问题。
 第二步，在项目中使用，我想在前面我学习django-filter的项目里，按照文档“Add "taggit" to your project’s INSTALLED_APPS setting.”
 结果项目启动时报错。
-{% highlight html+django %}
+{% highlight html %}
 taggit.taggeditem: 'content_type' has a relation with model <class 'django.contrib.contenttypes.models.ContentType'>, which has either not been installed or is abstract.
 {% endhighlight %}

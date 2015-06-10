@@ -26,3 +26,26 @@ $ pip install django-taggit
 {% highlight powershell %}
 taggit.taggeditem: 'content_type' has a relation with model <class 'django.contrib.contenttypes.models.ContentType'>, which has either not been installed or is abstract.
 {% endhighlight %}
+这里因为还需要把“django.contrib.contenttypes”加入到INSTALLED_APPS中。
+然后运行manage.py syncdb 会生成表taggit_tag和taggit_taggeditem。我们可以查看一下这两个表的结构：
+{% highlight powershell %}
+PS .\manage.py dbshell
+SQLite version 3.8.7.2 2014-11-18 20:57:56
+Enter ".help" for usage hints.
+sqlite> .schema taggit_tag
+CREATE TABLE "taggit_tag" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(100) NOT NULL UNIQUE,
+    "slug" varchar(100) NOT NULL UNIQUE
+);
+sqlite> .schema taggit_taggeditem
+CREATE TABLE "taggit_taggeditem" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "tag_id" integer NOT NULL REFERENCES "taggit_tag" ("id"),
+    "object_id" integer NOT NULL,
+    "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id")
+);
+CREATE INDEX "taggit_taggeditem_5659cca2" ON "taggit_taggeditem" ("tag_id");
+CREATE INDEX "taggit_taggeditem_846f0221" ON "taggit_taggeditem" ("object_id");
+CREATE INDEX "taggit_taggeditem_37ef4eb4" ON "taggit_taggeditem" ("content_type_id");
+{% endhighlight %}

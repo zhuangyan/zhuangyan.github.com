@@ -26,7 +26,7 @@ $ pip install django-taggit
 {% highlight powershell %}
 taggit.taggeditem: 'content_type' has a relation with model <class 'django.contrib.contenttypes.models.ContentType'>, which has either not been installed or is abstract.
 {% endhighlight %}
-这里因为还需要把“django.contrib.contenttypes”加入到INSTALLED_APPS中。
+这里因为还需要把“django.contrib.contenttypes”加入到 INSTALLED_APPS 中。
 然后运行manage.py syncdb 会生成表taggit\_tag和taggit\_taggeditem。我们可以查看一下这两个表的结构：
 {% highlight powershell %}
 PS .\manage.py dbshell

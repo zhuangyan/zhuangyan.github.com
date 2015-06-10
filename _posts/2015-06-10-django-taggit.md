@@ -23,6 +23,6 @@ $ pip install django-taggit
 一般不会有什么问题。
 第二步，在项目中使用，我想在前面我学习django-filter的项目里，按照文档“Add "taggit" to your project’s INSTALLED_APPS setting.”
 结果项目启动时报错。
-{% highlight python %}
+{% highlight console %}
 taggit.taggeditem: 'content_type' has a relation with model <class 'django.contrib.contenttypes.models.ContentType'>, which has either not been installed or is abstract.
 {% endhighlight %}

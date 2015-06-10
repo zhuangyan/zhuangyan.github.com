@@ -128,6 +128,6 @@ if request.method == "POST":
         form.save_m2m()
 {% endhighlight %}
 ##其他：
-+  默认使用{% raw %}taggit_tag和taggit_taggeditem{% endblock %}表保存标签及与记录的关联关系数据，但是我们可以通过继承TaggedItemBase来自定义模型来保存相关数据。
++  默认使用{% raw %}taggit_tag和taggit_taggeditem{% endraw %}表保存标签及与记录的关联关系数据，但是我们可以通过继承TaggedItemBase来自定义模型来保存相关数据。
    参考<a href="http://django-taggit.readthedocs.org/en/latest/custom_tagging.html" target="_blank"> custom_tagging</a>
 +  实际应用中我们需要在前端实时提示现有的标签及使用情况，可以参与项目<a href="https://github.com/frankwiles/django-taggit-suggest" target="_blank">django-taggit-suggest</a>及项目<a href="https://github.com/feuervogel/django-taggit-templatetags">django-taggit-templatetags</a>以及文章<a href="http://charlesleifer.com/blog/suggesting-tags-django-taggit-and-jquery-ui/" target="_blank">Suggesting tags with django-taggit and jQuery UI</a>

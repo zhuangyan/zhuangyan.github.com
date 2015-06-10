@@ -50,7 +50,7 @@ CREATE INDEX "taggit_taggeditem_846f0221" ON "taggit_taggeditem" ("object_id");
 CREATE INDEX "taggit_taggeditem_37ef4eb4" ON "taggit_taggeditem" ("content_type_id");
 {% endhighlight %}
 下面我们来修改模型：
-{% highlight django %}
+{% highlight python+django %}
 from taggit.managers import TaggableManager
 class Cars(models.Model):
     # ... 原有字段略

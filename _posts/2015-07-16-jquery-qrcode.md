@@ -27,7 +27,7 @@ $("#code").qrcode({
     render: "table", //table方式 
     width: 200, //宽度 
     height:200, //高度 
-    text: "www.helloweba.com" //任意内容 
+    text: "www.zhuangyan.cn" //任意内容 
 }); 
 {% endhighlight %}
 这样就可以在页面中直接生成一个二维码，你可以用手机“扫一扫”功能读取二维码信息。

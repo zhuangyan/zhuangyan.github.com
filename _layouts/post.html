@@ -22,8 +22,8 @@ layout: default
 </div>
 <script type="text/javascript">
   $("#code").qrcode({
-  	height: 265,
-    width: 265,    
+  	height: 555,
+    width: 255,    
     text: "http://www.zhuangyan.cn{{ page.url }}"
   });
   $('.codepic').hover(function(){$('#code').fadeIn()},function(){$('#code').fadeOut()});
@@ -31,7 +31,6 @@ layout: default
     $('body,html').animate({scrollTop:0},500)
   });
   $(".backup").hide();
-  $("#code").hide();
   $(function() {
     $(window).scroll(function(){
       if ($(window).scrollTop()>500){

@@ -26,11 +26,12 @@ layout: default
     width: 150,    
     text: "http://www.zhuangyan.cn{{ page.url }}"
   });
-  $('.codepic').hover(function(){$('.code').fadeIn()},function(){$('.code').fadeOut()});
+  $('.codepic').hover(function(){$('#code').fadeIn()},function(){$('#code').fadeOut()});
   $('.backup').click(function(){
     $('body,html').animate({scrollTop:0},500)
   });
   $(".backup").hide();
+  $("#code").hide();
   $(function() {
     $(window).scroll(function(){
       if ($(window).scrollTop()>500){

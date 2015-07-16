@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-
+<script src="/static/js/jquery.qrcode.min.js"></script>
 <article class="post">
   <h1>{{ page.title }}</h1>
 
@@ -12,6 +12,15 @@ layout: default
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
+<div id="code"></div>
+
+<script type="text/javascript">
+  $("#code").qrcode({
+    width: 150,
+    height: 150,
+    text: "http:{{ site.url }}{{ page.url }}"
+  });
+</script>
 
   {% include duoshuo.html %}
 </article>

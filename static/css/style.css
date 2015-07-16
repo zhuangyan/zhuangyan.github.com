@@ -145,4 +145,4 @@ body {padding-top:40px;}
 .fixed div{position:relative;}
 .fixed a.backup{background:url(/static/img/fixed.jpg) 0 -117px no-repeat;height:58px;}
 .fixed a.backup:hover{background-position:-72px -116px;height:58px;}
-.fixed div img{position:absolute;left:-196px;width:196px;height:196px;top:-174px;display:none;}
+.fixed #code {position:absolute;left:-196px;width:196px;height:196px;top:-174px;display:none;}

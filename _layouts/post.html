@@ -6,13 +6,14 @@ layout: default
   <h1>{{ page.title }}</h1>
 
   <div class="entry">
+  	<div id="code" class="qrcode visible-lg"></div>
     {{ content }}
   </div>
 
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
-<div id="code"></div>
+
 
 <script type="text/javascript">
   $("#code").qrcode({

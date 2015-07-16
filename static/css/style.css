@@ -138,11 +138,11 @@ body {padding-top:40px;}
 /* fixed */
 .fixed{position:fixed;width:72px;height:176px;right:25px;bottom:50px;_position: absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));z-index:999;}
 .fixed a{display:block;width:72px;height:58px;}
-.book{background:url(../images/fixed.jpg) 0 0 no-repeat;}
+.book{background:url(/static/img/fixed.jpg) 0 0 no-repeat;}
 .book:hover{background-position:-72px 0;}
-.fixed a.codepic{background:url(../images/fixed.jpg) 0 -58px no-repeat;height:58px;}
+.fixed a.codepic{background:url(/static/img/fixed.jpg) 0 -58px no-repeat;height:58px;}
 .fixed a.codepic:hover{background-position:-72px -58px;}
 .fixed div{position:relative;}
-.fixed a.backup{background:url(../images/fixed.jpg) 0 -117px no-repeat;height:58px;}
+.fixed a.backup{background:url(/static/img/fixed.jpg) 0 -117px no-repeat;height:58px;}
 .fixed a.backup:hover{background-position:-72px -116px;height:58px;}
 .fixed div img{position:absolute;left:-196px;width:196px;height:196px;top:-174px;display:none;}

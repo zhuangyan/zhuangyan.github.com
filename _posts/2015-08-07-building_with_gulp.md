@@ -2,14 +2,6 @@
 layout: post
 title: Gulp开发教程(转)
 ---
-
-##### 
-[原文地址](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
-[译文地址](http://www.w3ctech.com/topic/134)
-
-----------
-
-
 对网站资源进行优化，并使用不同浏览器测试并不是网站设计过程中最有意思的部分，但是这个过程中的很多重复的任务能够使用正确的工具自动完成，从而使效率大大提高，这是让很多开发者觉得有趣的地方。
 
 Gulp是一个构建系统，它能通过自动执行常见任务，比如编译预处理CSS，压缩JavaScript和刷新浏览器，来改进网站开发的过程。通过本文，我们将知道如何使用Gulp来改变开发流程，从而使开发更加快速高效。
@@ -403,4 +395,8 @@ Grunt任务拥有大量的配置，会引用大量你实际上并不需要的对
 {% endhighlight %}
 
 因为Grunt比Gulp更加频繁地操作文件系统，所以使用数据流的Gulp总是比Grunt快。对于一个小的LESS文件，gulpfile.js通常需要6ms，而gruntfile.js则需要大概50ms——慢8倍多。这只是个简单的例子，对于长的文件，这个数字会增加得更显著。
+
+----------
+[原文地址](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
+[译文地址](http://www.w3ctech.com/topic/134)
 

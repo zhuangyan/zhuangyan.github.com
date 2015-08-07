@@ -1,10 +1,11 @@
 ---
 layout: post
-title: [转]
+title: Gulp开发教程(转)
 ---
 
-##### [原文地址](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
-      [译文地址](http://www.w3ctech.com/topic/134)
+##### 
+[原文地址](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
+[译文地址](http://www.w3ctech.com/topic/134)
 
 ----------
 

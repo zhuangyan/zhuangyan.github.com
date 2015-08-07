@@ -72,7 +72,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 在上面的例子中，gulp.src()函数用字符串匹配一个文件或者文件的编号（被称为“glob”）,然后创建一个对象流来代表这些文件，接着传递给uglify()函数，它接受文件对象之后返回有新压缩源文件的文件对象，最后那些输出的文件被输入gulp.dest()函数，并保存下来。
 
 整个数据流动过程如下图所示：
-![](http://p1.qhimg.com/t01759cebd478ca1a35.png)
+<img alt="Stream diagram." src="http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2014/06/01-streams-opt.png" height="360" width="413">
 
 当只有一个任务的时候，函数并不会起太大的作用。然而，仔细思考下面的代码：
 {% highlight javascript %}

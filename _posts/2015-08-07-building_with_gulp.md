@@ -88,7 +88,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 在运行这段程序之前，你需要先安装gulp,gulp-jshint,gulp-uglify和gulp-concat。
 
 这个任务会让所有的文件匹配js/*.js（比如js目录下的所有JavaScript文件），并且执行JSHint，然后打印输出结果，取消文件缩进，最后把他们合并起来，保存为build/app.js，整个过程如下图所示：
-![](http://p0.qhimg.com/t01c6591bd2705a2ee7.png)
+<img alt="Stream diagram." src="http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2014/06/02-steams-2-opt.png" height="309" width="500">
 
 如果你对Grunt 足够熟悉，就会注意到，Gulp和Grunt的工作方式很不一样。Grunt不使用数据流，而是使用文件，对文件执行单个任务然后保存到新的文件中，每个任务都会重复执行所有进程，文件系统频繁的处理任务会导致Grunt的运行速度比Gulp慢。
 

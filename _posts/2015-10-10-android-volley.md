@@ -116,7 +116,37 @@ ImageCache的定义如下（在ImageLoader.java里）：
 https://github.com/suwa-yuki/VolleySample/blob/master/src/jp/classmethod/android/sample/volley/BitmapCache.java
 ####3.4 使用自己定制的request
 我们也可以通过继承Request根据自己的需求来定制自己的request
+{% highlight java %}
+    @Override  
+    protected Response parseNetworkResponse(NetworkResponse response) {  
+        try {  
+            String json = new String(  
+                    response.data, HttpHeaderParser.parseCharset(response.headers));  
+            return Response.success(  
+                    gson.fromJson(json, clazz), HttpHeaderParser.parseCacheHeaders(response));  
+        } catch (UnsupportedEncodingException e) {  
+            return Response.error(new ParseError(e));  
+        } catch (JsonSyntaxException e) {  
+            return Response.error(new ParseError(e));  
+        }  
+    }  
+{% endhighlight %} 
+这段代码节选自： https://gist.github.com/ficusk/5474673
 
+里面使用的gson（com.google.gson.Gson）是JSON的序列化和反序列化的库，可以在JSON和java model object之间进行转换。
+
+以下是使用自定制request的例子：
+{% highlight java %}
+    @Override  
+    mRequestQueue.add( new GsonRequest(url, ListResponse.class, null,  
+        new Listener() {  
+            public void onResponse(ListResponse response) {  
+                appendItemsToList(response.item);  
+                notifyDataSetChanged();  
+            }  
+        }  
+    }  
+{% endhighlight %} 
 ###4 Volley的架构设计
 Volley使用了线程池来作为基础结构，主要分为主线程，cache线程和network线程。
 主线程和cache线程都只有一个，而NetworkDispatcher线程可以有多个，这样能解决比并行问题。如下图:

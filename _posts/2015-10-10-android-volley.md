@@ -20,9 +20,9 @@ title: Android 网络通信框架Volley简介
 
 比如以前从网上下载图片的步骤可能是这样的流程：
 
-    * 在ListAdapter#getView()里开始图像的读取。
-    * 通过AsyncTask等机制使用HttpURLConnection从服务器去的图片资源
-    * 在AsyncTask#onPostExecute()里设置相应ImageView的属性。
+*  在ListAdapter#getView()里开始图像的读取。
+*  通过AsyncTask等机制使用HttpURLConnection从服务器去的图片资源
+*  在AsyncTask#onPostExecute()里设置相应ImageView的属性。
 
 而在Volley下，只需要一个函数即可，详细见后面的例子。
 
@@ -34,12 +34,12 @@ title: Android 网络通信框架Volley简介
 ####1.2 Volley提供的功能
 简单来说，它提供了如下的便利功能：
 
-    * JSON，图像等的异步下载；
-    * 网络请求的排序（scheduling）
-    * 网络请求的优先级处理
-    * 缓存
-    * 多级别取消请求
-    * 和Activity和生命周期的联动（Activity结束时同时取消所有网络请求）
+*  JSON，图像等的异步下载；
+*  网络请求的排序（scheduling）
+*  网络请求的优先级处理
+*  缓存
+*  多级别取消请求
+*  和Activity和生命周期的联动（Activity结束时同时取消所有网络请求）
 ###2 使用前的准备
 引入Volley非常简单，首先，从git库先克隆一个下来：
 
@@ -102,9 +102,9 @@ ImageLoader构造函数的第二个参数是一个ImageCache的实例（严格�
 ImageCache的定义如下（在ImageLoader.java里）：
 {% highlight java %}
     /** 
-     * Simple cache adapter interface. If provided to the ImageLoader, it 
-     * will be used as an L1 cache before dispatch to Volley. Implementations 
-     * must not block. Implementation with an LruCache is recommended. 
+ *  Simple cache adapter interface. If provided to the ImageLoader, it 
+ *  will be used as an L1 cache before dispatch to Volley. Implementations 
+ *  must not block. Implementation with an LruCache is recommended. 
      */  
     public interface ImageCache {  
         public Bitmap getBitmap(String url);  
@@ -170,7 +170,7 @@ Volley里所有的请求结果会返回给主进程，如果在主进程里取�
 {% highlight java %}
     @Override  
     public void onStop() {  
-        for (Request  req : mInFlightRequests) {  
+        for (Request <?> req : mInFlightRequests) {  
             req.cancel();  
         }  
         ...  
@@ -199,8 +199,8 @@ Volley里所有的请求结果会返回给主进程，如果在主进程里取�
 
 从演讲的例子来看，Volley应该是简化了网络通信的一些开发，特别是针对如下两种情况：
 
-    * JSON对象
-    * 图片加载
+*  JSON对象
+*  图片加载
 
 但是这个东西也有不实用的地方，比如大数据（large payloads ），流媒体，这些case，还需要使用原始的方法，比如Download Manager等。
 总之，如果你要编写网络程序，是不是可以考虑开始使用Volley呢？

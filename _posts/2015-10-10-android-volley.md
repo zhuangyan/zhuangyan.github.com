@@ -7,7 +7,7 @@ title: Android 网络通信框架Volley简介
 
 ###1什么是Volley
 
-在这之前，我们在程序中需要和网络通信的时候，大体使用的东西莫过于AsyncTaskLoader，HttpURLConnection，AsyncTask，HTTPClient（Apache）等，今年的Google I/O 2013上，Volley发布了。Volley是Android平台上的网络通信库，能使网络通信更快，更简单，更健壮。
+在这之前，我们在程序中需要和网络通信的时候，大体使用的东西莫过于AsyncTaskLoader，HttpURLConnection，AsyncTask，HTTPClient（Apache）等，在2013年的Google I/O 2013上，Volley发布了。Volley是Android平台上的网络通信库，能使网络通信更快，更简单，更健壮。
 这是Volley名称的由来： a burst or emission of many things or a large amount at once
 在Google IO的演讲上，其配图是一幅发射火弓箭的图，有点类似流星。见下图：
 <em class="center"><img src="/static/img/volley1.png"></em>

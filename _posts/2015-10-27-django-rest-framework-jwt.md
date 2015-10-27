@@ -68,7 +68,9 @@ $ curl -X POST -H "Content-Type: application/json" -d '{"username":"admin","pass
 $ $ curl -H "Authorization: JWT <your_token>" http://localhost:8000/protected-url/
 {% endhighlight %}
 Authorization正确则会正常返回请求信息，如果头消息中没有Authorization会返回：{"detail":"Authentication credentials were not provided."}，Authorization中的token错误会返回“{"detail":"Error decoding signature."}”
+
 在windows下，你可以用restclient-ui图形化工具测试你的restful api
+
 <em class="center"><img src="/static/img/JWT_RESTClient_Test1.png"></em>
 <em class="center"><img src="/static/img/JWT_RESTClient_Test2.png"></em>
 

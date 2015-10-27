@@ -24,7 +24,7 @@ requests.get(‘https://api.github.com/user’, auth=(‘user’, ‘pass’))
 ###3.使用REST framework JWT实现JWT认证的RESTful API
 
 用pip 安装
-{% highlight shell %}
+{% highlight bash %}
     pip install djangorestframework-jwt 
 {% endhighlight %}
 settings.py设置：

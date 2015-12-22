@@ -11,6 +11,7 @@ Warning: Incorrect string value: '\xF0\x9F\x98\x81\xF0\x9F...' for column 'messa
 {% endraw %}
 {% endhighlight %}
 按百度查询到的方法进行如下操作：
+
 1)升级MySql到5.6
 
 2)/etc/mysql/my.cnf 添加：

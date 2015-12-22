@@ -2,10 +2,13 @@
 layout: post
 title: django mysql存储emoji表情的问题
 ---
-	我的API服务接口在处理手机传来的emoji表情出现的问题，暂时没有解决办法，先记录在这里！
-	问题是这样的，在mysql保存emoji表情时报错:
+我的API服务接口在处理手机传来的emoji表情出现的问题，暂时没有解决办法，先记录在这里！
+问题是这样的，在mysql保存emoji表情时报错:
+
 {% highlight java %}
+{% raw %}
 Warning: Incorrect string value: '\xF0\x9F\x98\x81\xF0\x9F...' for column 'message' at row 1
+{% endraw %}
 {% endhighlight %}
 按百度查询到的方法进行如下操作：
 1)升级MySql到5.6

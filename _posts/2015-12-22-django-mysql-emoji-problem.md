@@ -12,6 +12,7 @@ Warning: Incorrect string value: '\xF0\x9F\x98\x81\xF0\x9F...' for column 'messa
 {% endhighlight %}
 按百度查询到的方法进行如下操作：
 1)升级MySql到5.6
+
 2)/etc/mysql/my.cnf 添加：
 {% highlight java %}
 [client]
@@ -24,6 +25,7 @@ character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
 {% endhighlight %}
 修改后重启Mysql
+
 3)以root身份登录Mysql，修改环境变量，将character_set_client,character_set_connection,character_set_database,character_set_results,character_set_server 都修改成utf8mb4
 {% highlight java %}
 SET character_set_client = utf8mb4;
@@ -37,6 +39,7 @@ SET character_set_results = utf8mb4;
 	ALTER TABLE 表名 CHANGE 字段名 VARCHAR(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 {% endhighlight %} 	
 5)MySQLdb升级到1.2.5
+
 6)增加django的数据库连接参数：
 {% highlight java %}
   'OPTIONS': {'charset':'utf8mb4'}
@@ -56,6 +59,7 @@ SET character_set_results = utf8mb4;
     super(Connection, self).set_character_set(charset)
 OperationalError: (2019, "Can't initialize character set utf8mb4 (path: /usr/share/mysql/charsets/)")
 {% endhighlight %}  
+
 以上各种设置检查的几遍还是一样的错误，最后没办法在window上启动django服务，连接同一个mysql服务，结果是好用的，utf8mb4的表情可以正常保存到mysql数据库。
 所以只能断定mysql数据库设置是没有问题的，问题只能出现在django或者MySQLdb上。但django都是1.6.11，MySQLdb都是1.2.5,具体在window和linux下有什么差别还查不出来，此问题只能暂时记录一下，待以后有时间再解决了。
 

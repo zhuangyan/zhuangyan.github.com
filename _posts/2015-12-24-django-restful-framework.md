@@ -56,7 +56,7 @@ DRF就是Django REST framework，官网是http://www.django-rest-framework.org/�
     {% endhighlight %}  
 
 *  关系表的序列化
-   这个按官方文档就可以了，最重要的是模型里不要忘记写“related_name”
+   这个按<a href="http://www.django-rest-framework.org/api-guide/relations/" target="_blank">官方文档</a>就可以了，最重要的是模型里不要忘记写“related_name”
    {% highlight python %}
     class Album(models.Model):
     album_name = models.CharField(max_length=100)

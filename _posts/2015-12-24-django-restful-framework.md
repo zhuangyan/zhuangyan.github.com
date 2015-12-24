@@ -54,6 +54,16 @@ DRF就是Django REST framework，官网是http://www.django-rest-framework.org/�
         serializer_detail_class = UserDetailSerializer
     queryset = User.objects.all()
     {% endhighlight %}  
+    对不同的操作使用不同的序列化类也可以这样写：
+    {% highlight python %}
+    class DualSerializerViewSet(viewsets.ModelViewSet):
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.ListaGruppi
+        if self.action == 'retrieve':
+            return serializers.DettaglioGruppi
+        return serializers.Default # I dont' know what you want for create/destroy/update.
+    {% endhighlight %}  
 
 *  关系表的序列化
    这个按<a href="http://www.django-rest-framework.org/api-guide/relations/" target="_blank">官方文档</a>就可以了，最重要的是模型里不要忘记写“related_name”

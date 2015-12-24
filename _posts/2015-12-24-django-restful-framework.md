@@ -54,8 +54,8 @@ DRF就是Django REST framework，官网是http://www.django-rest-framework.org/�
         serializer_detail_class = UserDetailSerializer
     queryset = User.objects.all()
     {% endhighlight %}  
-    
-    对不同的操作使用不同的序列化类也可以这样写：
+
+  * 对不同的操作使用不同的序列化类也可以这样写：
     {% highlight python %}
     class DualSerializerViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):

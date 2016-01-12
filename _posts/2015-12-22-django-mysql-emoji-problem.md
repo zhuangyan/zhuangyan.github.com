@@ -42,12 +42,12 @@ SET character_set_results = utf8mb4;
 5)MySQLdb升级到1.2.5
 
 6)增加django的数据库连接参数：
-{% highlight java %}
+{% highlight Bash %}
   'OPTIONS': {'charset':'utf8mb4'}
 {% endhighlight %}  
 
 按以上操作完后，重启服务，结果django报错：
-{% highlight java %}
+{% highlight Bash %}
   File "/usr/python/lib/python2.7/site-packages/django/db/backends/__init__.py", line 115, in connect
     self.connection = self.get_new_connection(conn_params)
   File "/usr/python/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 435, in get_new_connection

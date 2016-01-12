@@ -48,7 +48,7 @@ Complete!
   {% endhighlight %}  
 
   * 再次安装MySQL-python
-    {% highlight java %}
+    {% highlight Bash %}
     [root@test MySQL-python-1.2.5]# python setup.py install
 running install
 running bdist_egg
@@ -410,7 +410,7 @@ error: command 'gcc' failed with exit status 1
 *  再次安装依然报错
    这回下载来mysql-connector-c-devel-6.1.6-1.linux_glibc2.5.x86_64.rpm和mysql-connector-c-shared-6.1.6-1.linux_glibc2.5.x86_64.rpm
    用rpm命令安装
-   {% highlight java %}
+   {% highlight Bash %}
     [root@test /]# rpm -ivh mysql-connector-c-devel-6.1.6-1.linux_glibc2.5.x86_64.rpm
     Preparing...                ########################################### [100%]
    1:mysql-connector-c-devel########################################### [100%]
@@ -420,7 +420,7 @@ error: command 'gcc' failed with exit status 1
    {% endhighlight %}
 
 *  这回build和install成功了
-  {% highlight java %}
+  {% highlight Bash %}
     [root@test MySQL-python-1.2.5]# python setup.py build
 running build
 running build_py
@@ -505,7 +505,7 @@ Finished processing dependencies for MySQL-python==1.2.5
    {% endhighlight %}
 
 *  但是import时报错
-    {% highlight java %}
+    {% highlight Bash %}
     >>> import MySQLdb
     /usr/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/_mysql.py:3: UserWarning: Module _mysql was already imported from /usr/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/_mysql.pyc, but /MySQL-python-1.2.5 is being added to sys.path
     Traceback (most recent call last):
@@ -519,7 +519,7 @@ Finished processing dependencies for MySQL-python==1.2.5
 
 *  经查得知是由于编译Python所用的编译器与编译MySQL-python所用编译器不同所致。
   需要g++重新编译_mysql.so
-  {% highlight java %}
+  {% highlight Bash %}
   [root@test MySQL-python-1.2.5]# cd build/
   [root@test build]# g++ -pthread -shared ./temp.linux-x86_64-2.7/_mysql.o -L/usr/lib64 -l mysqlclient_r -lpthread -lm -lrt -ldl -o ./lib.linux-x86_64-2.7/_mysql.so
   {% endhighlight %}

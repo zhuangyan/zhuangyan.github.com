@@ -5,7 +5,7 @@ title: django mysql存储emoji表情的问题
 我的API服务接口在处理手机传来的emoji表情出现的问题，暂时没有解决办法，先记录在这里！
 问题是这样的，在mysql保存emoji表情时报错:
 
-{% highlight java %}
+{% highlight Bash %}
 {% raw %}
 Warning: Incorrect string value: '\xF0\x9F\x98\x81\xF0\x9F...' for column 'message' at row 1
 {% endraw %}
@@ -15,7 +15,7 @@ Warning: Incorrect string value: '\xF0\x9F\x98\x81\xF0\x9F...' for column 'messa
 1)升级MySql到5.6
 
 2)/etc/mysql/my.cnf 添加：
-{% highlight java %}
+{% highlight Bash %}
 [client]
 default-character-set = utf8mb4
 [mysql]
@@ -28,7 +28,7 @@ collation-server = utf8mb4_unicode_ci
 修改后重启Mysql
 
 3)以root身份登录Mysql，修改环境变量，将character_set_client,character_set_connection,character_set_database,character_set_results,character_set_server 都修改成utf8mb4
-{% highlight java %}
+{% highlight Bash %}
 SET character_set_client = utf8mb4;
 SET character_set_connection = utf8mb4;
 SET character_set_results = utf8mb4;

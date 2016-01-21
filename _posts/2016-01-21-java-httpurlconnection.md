@@ -6,7 +6,7 @@ title: HttpURLConnection使用总结
 我们的Android程序使用HttpURLConnection请求数据接口服务，初次使用，遇到一些问题记录一下：
 
 * 最普通的GET请求
-  解压后按照标准的 python setup.py install方式安装，结果报错：
+
   {% highlight java %}
     url = new URL(MJConstant.SERVER_PATH + "api/meetings/"); //请求会议列表接口
     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
@@ -34,6 +34,7 @@ title: HttpURLConnection使用总结
   {% endhighlight %}
 
 * 获得返回的错误信息
+
   上面的请求在返回正常数据时是没问题的，但有时发生服务器错误返回HTTP 500或者Authorization不正确返回HTTP 403状态时.
   “urlConn.getInputStream()”会报“FileNotFoundException”的错误。
   我在<a href ="http://stackoverflow.com/questions/5379247/filenotfoundexception-while-getting-the-inputstream-object-from-httpurlconnectio" target="_blank">stackoverflow</a>找到了解决办法!
@@ -46,7 +47,8 @@ title: HttpURLConnection使用总结
   }
   {% endhighlight %}
 
-*向服务器POST JSON数据
+* 向服务器POST JSON数据
+
 {% highlight java %}
       HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
       urlConn.setRequestMethod("POST");
@@ -69,7 +71,8 @@ title: HttpURLConnection使用总结
       out.close();
 {% endhighlight %}
 
-*发送POST请求
+* 发送POST请求
+
 {% highlight java %}
 import java.io.*;
 import java.net.*;
@@ -107,7 +110,8 @@ class Test {
 }
 
 {% endhighlight %}
-*向服务器发送文件
+
+* 向服务器发送文件
 
 这个比较麻烦，但是有人给封装好了，拿来用吧！
 

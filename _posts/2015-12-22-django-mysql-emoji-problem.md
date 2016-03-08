@@ -64,5 +64,7 @@ OperationalError: (2019, "Can't initialize character set utf8mb4 (path: /usr/sha
 以上各种设置检查的几遍还是一样的错误，最后没办法在window上启动django服务，连接同一个mysql服务，结果是好用的，utf8mb4的表情可以正常保存到mysql数据库。
 所以只能断定mysql数据库设置是没有问题的，问题只能出现在django或者MySQLdb上。但django都是1.6.11，MySQLdb都是1.2.5,具体在window和linux下有什么差别还查不出来，此问题只能暂时记录一下，待以后有时间再解决了。
 
+2016年3月8日 更新：解决了，修改/usr/share/mysql/charsets/Index.xml 把 <charset name="utf8"> 修改为 <charset name="utf8mb4">
+
 
 

@@ -28,7 +28,7 @@ title: Android实现类似朋友圈显示全文的功能
         android:textSize="14sp" />
     {% endhighlight %}
 
-    重点就是，怎样判断当前的textview里的全部文字是不是能够显示三行以上，再把showAllTv显示出来呢？textview确实有个getLineCount方法可以获得显示的行数，但是这个值只能控件绘画后才能获取，Adapter的getView中获得的行数全部为0，因为控件还没有绘画。我在百度之后发现以下方法是比较靠谱的，就是对textview的绘画事件进行监听，在绘画完成前判断行数并修改相关控件属性，代码如下：
+重点就是，怎样判断当前的textview里的全部文字是不是能够显示三行以上，再把showAllTv显示出来呢？textview确实有个getLineCount方法可以获得显示的行数，但是这个值只能控件绘画后才能获取，Adapter的getView中获得的行数全部为0，因为控件还没有绘画。我在百度之后发现以下方法是比较靠谱的，就是对textview的绘画事件进行监听，在绘画完成前判断行数并修改相关控件属性，代码如下：
 
     {% highlight java %}
         final TextView fContentTv = holder.contentTv;
@@ -65,5 +65,7 @@ title: Android实现类似朋友圈显示全文的功能
         });
     {% endhighlight %}
 
+来个效果图：
+<em class="center"><img src="/static/img/zhmjsyq.png"></em>
 
 

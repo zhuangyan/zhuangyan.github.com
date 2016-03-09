@@ -2,10 +2,10 @@
 layout: post
 title: Android实现类似朋友圈显示全文的功能
 ---
-    项目中要实现一个类似朋友圈显示收起全文的功能，这个功能看起来简单，但对于我这个新手来说确实费了些时间。
+项目中要实现一个类似朋友圈显示收起全文的功能，这个功能看起来简单，但对于我这个新手来说确实费了些时间。
+首先，在adpter_item.xml中定义textview的lines="3",然后定义个“全文”按钮，默认不显示，如下：
 
-    首先，在adpter_item.xml中定义textview的lines="3",然后定义个“全文”按钮，默认不显示，如下：
-    {% highlight java %}
+    {% highlight xml %}
     <TextView
         android:id="@+id/contentTv"
         android:layout_width="wrap_content"

@@ -31,38 +31,38 @@ title: Android实现类似朋友圈显示全文的功能
 重点就是，怎样判断当前的textview里的全部文字是不是能够显示三行以上，再把showAllTv显示出来呢？textview确实有个getLineCount方法可以获得显示的行数，但是这个值只能控件绘画后才能获取，Adapter的getView中获得的行数全部为0，因为控件还没有绘画。我在百度之后发现以下方法是比较靠谱的，就是对textview的绘画事件进行监听，在绘画完成前判断行数并修改相关控件属性，代码如下：
 
     {% highlight java %}
-        final TextView fContentTv = holder.contentTv;
-        final TextView fShowAllTv = holder.showAllTv;
-        ViewTreeObserver vto =fContentTv.getViewTreeObserver();
-        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                                     @Override
-                                     public boolean onPreDraw() {
-                                         int lineCount = fContentTv.getLineCount();
-                                         Log.i(TAG, "onPreDraw: "+ lineCount);
-                                         if(lineCount>3&&fShowAllTv.getText().equals("全文")){
-                                             fContentTv.setLines(3);
-                                             fShowAllTv.setVisibility(View.VISIBLE);
-                                         }
-                                         return true;
-                                     }
-                                 }
-        );
+final TextView fContentTv = holder.contentTv;
+final TextView fShowAllTv = holder.showAllTv;
+ViewTreeObserver vto =fContentTv.getViewTreeObserver();
+vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+         @Override
+         public boolean onPreDraw() {
+             int lineCount = fContentTv.getLineCount();
+             Log.i(TAG, "onPreDraw: "+ lineCount);
+             if(lineCount>3&&fShowAllTv.getText().equals("全文")){
+                 fContentTv.setLines(3);
+                 fShowAllTv.setVisibility(View.VISIBLE);
+             }
+             return true;
+         }
+     }
+);
 
-        fShowAllTv.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fShowAllTv.getText().equals("全文")){
-                    fContentTv.setText(content);
-                    fContentTv.setEllipsize(null);
-                    fShowAllTv.setText("收起");
-                    fContentTv.setSingleLine(false);
-                }else{
-                    fContentTv.setLines(3);
-                    fContentTv.setEllipsize(TextUtils.TruncateAt.END);
-                    fShowAllTv.setText("全文");
-                }
-            }
-        });
+fShowAllTv.setOnClickListener(new OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (fShowAllTv.getText().equals("全文")){
+            fContentTv.setText(content);
+            fContentTv.setEllipsize(null);
+            fShowAllTv.setText("收起");
+            fContentTv.setSingleLine(false);
+        }else{
+            fContentTv.setLines(3);
+            fContentTv.setEllipsize(TextUtils.TruncateAt.END);
+            fShowAllTv.setText("全文");
+        }
+    }
+});
     {% endhighlight %}
 
 来个效果图：

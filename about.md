@@ -3,7 +3,8 @@ layout: page
 title: About
 permalink: /about/
 ---
-###个人简介
+
+### 个人简介
 * 大龄码农，已婚.
 * 大学没毕业，感谢所有给我工作机会的公司！
 * 一直在努力提升中！
@@ -16,9 +17,9 @@ permalink: /about/
 <br/>
 </p>
 
-###我的微信
+### 我的微信
 <img src="/images/mmqrcode1432452023005.png" width="128px" height="128px" alt="我的微信" />
-###给我留言
+### 给我留言
 <div class="ds-thread" data-thread-key="about_zhuangyan" data-title="about" data-url="/about/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"zhuangyan"};

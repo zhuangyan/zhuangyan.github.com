@@ -19,6 +19,7 @@ permalink: /about/
 
 ### 我的微信
 <img src="/images/mmqrcode1432452023005.png" width="128px" height="128px" alt="我的微信" />
+
 ### 给我留言
 <div class="ds-thread" data-thread-key="about_zhuangyan" data-title="about" data-url="/about/"></div>
 <script type="text/javascript">

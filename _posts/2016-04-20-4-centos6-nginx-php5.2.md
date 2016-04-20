@@ -31,19 +31,3 @@ title: centos6.5上部署PHP服务
 [root@template ~]# /usr/local/php/sbin/php-fpm start
 {% endhighlight %}
 
-
-## 整合Nginx与PHP 
-
-
-
-## 测试
-
-  我们在nginx的配置文件里面已经定义了PHP网站的存放路径，路径为/usr/local/nginx/conf/html下面我们在这个目录下新建一个PHP页面网页，文件名为test.php，内容如下
-
-    在文件中输入以下内容
-
-{% highlight Bash %}
-<?php
-    phpinfo();
-?>
-重启PHP与nginx后,在浏览器中输入http://ip/test.php，查看是否可能解析PHP文件。

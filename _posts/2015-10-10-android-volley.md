@@ -5,7 +5,7 @@ title: Android 网络通信框架Volley简介
  Volley主页 https://android.googlesource.com/platform/frameworks/volley
  http://www.youtube.com/watch?v=yhv8l9F44qo&feature=player_embedded
 
-###1什么是Volley
+### 1什么是Volley
 
 在这之前，我们在程序中需要和网络通信的时候，大体使用的东西莫过于AsyncTaskLoader，HttpURLConnection，AsyncTask，HTTPClient（Apache）等，在2013年的Google I/O 2013上，Volley发布了。Volley是Android平台上的网络通信库，能使网络通信更快，更简单，更健壮。
 这是Volley名称的由来： a burst or emission of many things or a large amount at once
@@ -14,7 +14,7 @@ title: Android 网络通信框架Volley简介
 其实，从这幅图，我们也可以看出来，Volley特别适合数据量不大但是通信频繁的场景。
 
 
-####1.1Volley引入的背景
+#### 1.1Volley引入的背景
 
 在以前，我们可能面临如下很多麻烦的问题。
 
@@ -31,7 +31,7 @@ title: Android 网络通信框架Volley简介
 再有，比如ListView的时候，我们滚动过快，可能导致有些网络请求返回的时候，早已经滚过了当时的位置，根本没必要显示在list里了，虽然我们可以通过ViewHolder来保持url等来实现防止两次取得，但是那些已经没有必须要的数据，还是会浪费系统的各种资源。
 
 
-####1.2 Volley提供的功能
+#### 1.2 Volley提供的功能
 简单来说，它提供了如下的便利功能：
 
 *  JSON，图像等的异步下载；
@@ -40,7 +40,7 @@ title: Android 网络通信框架Volley简介
 *  缓存
 *  多级别取消请求
 *  和Activity和生命周期的联动（Activity结束时同时取消所有网络请求）
-###2 使用前的准备
+### 2 使用前的准备
 引入Volley非常简单，首先，从git库先克隆一个下来：
 
 {% highlight java %}
@@ -51,9 +51,9 @@ title: Android 网络通信框架Volley简介
 
 注意，这个库要求最低SDK版本为Froyo，即至少要设置android:minSdkVersion为8以上。
 
-###3 使用例子
+### 3 使用例子
 下面简单看看如何使用Volley
-####3.1 最简单的get请求
+#### 3.1 最简单的get请求
 这个例子很简单，从网络取得JSON对象，然后打印出来。
 {% highlight java %}
 
@@ -67,7 +67,7 @@ title: Android 网络通信框架Volley简介
                 }, null));  
     mQueue.start();  
 {% endhighlight %}    
-####3.2 给ImageView设置图片源
+#### 3.2 给ImageView设置图片源
 {% highlight java %}
     // imageView是一个ImageView实例  
     // ImageLoader.getImageListener的第二个参数是默认的图片resource id  
@@ -76,7 +76,7 @@ title: Android 网络通信框架Volley简介
     mImageLoader.get(url, listener);    
 {% endhighlight %} 
 ImageLoader的方法都需要从主线程里来调用。
-####3.3 使用NetworkImageView
+#### 3.3 使用NetworkImageView
 Volley提供了一个新的控件NetworkImageView来代替传统的ImageView，这个控件的图片属性可以通过
 {% highlight java %}
       mImageView.setImageUrl(url, imageLoader)     
@@ -114,7 +114,7 @@ ImageCache的定义如下（在ImageLoader.java里）：
 下面的网址一个lru的cache实现例子，请参考：
 
 https://github.com/suwa-yuki/VolleySample/blob/master/src/jp/classmethod/android/sample/volley/BitmapCache.java
-####3.4 使用自己定制的request
+#### 3.4 使用自己定制的request
 我们也可以通过继承Request根据自己的需求来定制自己的request
 {% highlight java %}
     @Override  
@@ -147,7 +147,7 @@ https://github.com/suwa-yuki/VolleySample/blob/master/src/jp/classmethod/android
         }  
     }  
 {% endhighlight %} 
-###4 Volley的架构设计
+### 4 Volley的架构设计
 Volley使用了线程池来作为基础结构，主要分为主线程，cache线程和network线程。
 主线程和cache线程都只有一个，而NetworkDispatcher线程可以有多个，这样能解决比并行问题。如下图:
 <em class="center"><img src="/static/img/volley2.png"></em>
@@ -195,7 +195,7 @@ Volley里所有的请求结果会返回给主进程，如果在主进程里取�
     ...   
 }
 {% endhighlight %}
-###5 总结
+### 5 总结
 
 从演讲的例子来看，Volley应该是简化了网络通信的一些开发，特别是针对如下两种情况：
 

@@ -7,7 +7,9 @@ title: 使用jquery.qrcode生成二维码
 qrcode其实是通过使用jQuery实现图形渲染，画图，支持canvas（HTML5）和table两种方式，您可以到<a href="https://github.com/jeromeetienne/jquery-qrcode" target="_blank">https://github.com/jeromeetienne/jquery-qrcode</a>获取最新的代码。
 
 ## 如何使用
+
 ### 首先在页面中加入jquery库文件和qrcode插件
+
 {% highlight html %}
 <script type="text/javascript" src="jquery.js"></script> 
 <script type="text/javascript" src="jquery.qrcode.min.js"></script> 

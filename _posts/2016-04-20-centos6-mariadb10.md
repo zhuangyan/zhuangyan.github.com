@@ -8,8 +8,8 @@ title: centos6.5上安装MariaDB10.1
 ## 添加ＹＵＭ源,如下
 
 {% highlight Bash %}
-[root@template ~]$ cd /etc/yum.repos.d 
-[root@template yum.repos.d]$ vi MariaDB.repo
+[root@template ~]# cd /etc/yum.repos.d 
+[root@template yum.repos.d]# vi MariaDB.repo
 {% endhighlight %}
 
 {% highlight ini %}
@@ -23,22 +23,22 @@ gpgcheck=1
 
 ## 使用YUM安装MariaDB
 {% highlight Bash %}
-[root@template yum.repos.d]$ sudo yum -y install MariaDB-client MariaDB-server MariaDB-devel
+[root@template yum.repos.d]# sudo yum -y install MariaDB-client MariaDB-server MariaDB-devel
 {% endhighlight %}
 
 ## 启动数据库
 {% highlight Bash %}
-[root@template yum.repos.d]$ sudo service mysql start  
+[root@template yum.repos.d]# sudo service mysql start  
 {% endhighlight %}
 
 ## 改Root的密码
 {% highlight Bash %}
-[root@template yum.repos.d]$ mysqladmin -u root password 'passwd'
+[root@template yum.repos.d]# mysqladmin -u root password 'passwd'
 {% endhighlight %}
 
 ## 配置过程访问
 {% highlight Bash %}
-[root@template ~]#mysqladmin -u root password ‘passwd’.'
+[root@template ~]# mysqladmin -u root password ‘passwd’.'
 [root@template ~]# mysql -u root -p 
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -85,6 +85,6 @@ collation-server = utf8mb4_unicode_ci
 
 ## 重启服务
 {% highlight Bash %}
-[root@template ~]#service  mysql restart
+[root@template ~]# service  mysql restart
 {% endhighlight %}
 

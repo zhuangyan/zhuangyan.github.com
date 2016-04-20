@@ -14,7 +14,9 @@ title: django常用组件学习2——django-taggit
 
 
 组件的github主页为https://github.com/alex/django-taggit
+
 ## 基本使用方式：
+
 我们按<a href="http://django-taggit.readthedocs.org/en/latest/getting_started.html" target="_blank">官方文档</a>来练习.
 安装
 {% highlight html %}

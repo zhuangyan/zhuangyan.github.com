@@ -33,39 +33,7 @@ title: centos6.5上部署PHP服务
 
 
 ## 整合Nginx与PHP 
-修改nginx的配置文件
-打开nginx.conf 去掉下面几行的注释，
-{% highlight Bash %}
-#location ~ \.php$ {
-#    root           html;
-#    fastcgi_pass   127.0.0.1:9000;
-#    fastcgi_index  index.php;
-#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-#    include        fastcgi_params;
-#}
-{% endhighlight %}
-将
-{% highlight Bash %}
 
-fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-{% endhighlight %}
-
-改为
-{% highlight Bash %}
-
-fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-{% endhighlight %}
-
-找到
-{% highlight Bash %}
-
-location / {
-          root   html;
-          index  index.html index.htm;
-        }
-{% endhighlight %}
-
-在index.htm后面添加index.php
 
 
 ## 测试

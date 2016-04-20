@@ -72,7 +72,7 @@ Query OK, 0 rows affected (0.00 sec)
 {% endhighlight %}
 my.cnf中添加如下配置：
 
-{% highlight ini %}
+{% highlight Bash %}
 [client]
 default-character-set = utf8mb4
 [mysql]

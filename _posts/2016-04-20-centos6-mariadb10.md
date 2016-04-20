@@ -38,7 +38,6 @@ gpgcheck=1
 
 ## 配置过程访问
 {% highlight Bash %}
-[root@template ~]# mysqladmin -u root password ‘passwd’.'
 [root@template ~]# mysql -u root -p 
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.

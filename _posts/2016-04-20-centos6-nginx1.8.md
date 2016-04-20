@@ -8,33 +8,33 @@ title: centos6.5上安装Nginx1.8
 ## 准备安装资源
 
 {% highlight Bash %}
-# cd /home/src/
-# wget http://nginx.org/download/nginx-1.8.1.tar.gz
+[root@template ~]# cd /home/src/
+[root@template src]# wget http://nginx.org/download/nginx-1.8.1.tar.gz
 {% endhighlight %}
 
 ## 环境准备
 
 {% highlight Bash %}
-# yum -y install gcc gcc-c++ autoconf automake make
-# yum -y install zlib zlib-devel openssl openssl--devel pcre pcre-devel
+[root@template ~]# yum -y install gcc gcc-c++ autoconf automake make
+[root@template ~]# yum -y install zlib zlib-devel openssl openssl--devel pcre pcre-devel
 {% endhighlight %}
 
 ## 安装nginx
 {% highlight Bash %}
-# tar zxvf nginx-1.8.1.tar.gz
-# cd nginx-1.8.1
-# make && make install
+[root@template src]# tar zxvf nginx-1.8.1.tar.gz
+[root@template src]# cd nginx-1.8.1
+[root@template nginx-1.8.1]# make && make install
 {% endhighlight %}
 
 ## 启动nginx
 {% highlight Bash %}
-# /usr/local/nginx/sbin/nginx
+[root@template ~]# /usr/local/nginx/sbin/nginx
 {% endhighlight %}
 用浏览器访问服务器IP，如果显示“Welcome to nginx!”，说明安装成功，如果无响应，用“service iptables stop”关闭防火墙再试。
 
 ## 制作nginx管理脚本
 {% highlight Bash %}
-# vi /etc/init.d/nginx
+[root@template ~]# vi /etc/init.d/nginx
 {% endhighlight %}
 内容如下：
 {% highlight Bash %}
@@ -150,11 +150,11 @@ esac
 {% endhighlight %}
 为脚本设置权限
 {% highlight Bash %}
-# chmod 755 /etc/init.d/nginx
+[root@template ~]# chmod 755 /etc/init.d/nginx
 {% endhighlight %}
 
 ## 设置nginx自启动
 {% highlight Bash %}
-# chkconfig --add nginx
-# chkconfig nginx on
+[root@template ~]# chkconfig --add nginx
+[root@template ~]# chkconfig nginx on
 {% endhighlight %}

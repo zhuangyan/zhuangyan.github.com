@@ -7,7 +7,7 @@ title: Gulp开发教程(转)
 Gulp是一个构建系统，它能通过自动执行常见任务，比如编译预处理CSS，压缩JavaScript和刷新浏览器，来改进网站开发的过程。通过本文，我们将知道如何使用Gulp来改变开发流程，从而使开发更加快速高效。
 
 
-###What Is Gulp?
+### What Is Gulp?
 
 [Gulp](http://gulpjs.com/)是一个构建系统，开发者可以使用它在网站开发过程中自动执行常见任务。Gulp是基于Node.js构建的，因此Gulp源文件和你用来定义任务的Gulp文件都被写进了JavaScript（或者CoffeeScript）里。前端开发工程师还可以用自己熟悉的语言来编写任务去lint JavaScript和CSS、解析模板以及在文件变动时编译LESS文件（当然这些只是一小部分例子）。
 
@@ -19,7 +19,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 
 
 
-###Installing Gulp
+### Installing Gulp
 
 安装Gulp的过程十分简单。首先，需要在全局安装Gulp包：
 
@@ -30,7 +30,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 `npm install --save-dev gulp`
 
 
-###Using Gulp
+### Using Gulp
 
 现在我们创建一个Gulp任务来压缩JavaScript文件。首先创建一个名为gulpfile.js的文件，这是定义Gulp任务的地方，它可以通过gulp命令来运行，接着把下面的代码放到gulpfile.js文件里面。
 {% highlight javascript %}
@@ -65,7 +65,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 如果你对数据流非常熟悉（其实大多数前端开发人员并不熟悉），上面所提供的代码对你来说就没有太大意义了。
 
 
-###STREAMS
+### STREAMS
 
 数据流能够通过一系列的小函数来传递数据，这些函数会对数据进行修改，然后把修改后的数据传递给下一个函数。
 
@@ -95,7 +95,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 如果想要获取更加全面的数据流知识，请查看“[Stream Handbook](https://github.com/substack/stream-handbook)”.
 
 
-###GULP.SRC()
+### GULP.SRC()
 
 gulp.src()方法输入一个glob(比如匹配一个或多个文件的字符串)或者glob数组，然后返回一个可以传递给插件的数据流。
 
@@ -113,7 +113,7 @@ js目录下包含了压缩和未压缩的JavaScript文件，现在我们想要�
 `gulp.src(['js/**/*.js', '!js/**/*.min.js'])`
 
 
-###DEFINING TASKS
+### DEFINING TASKS
 
 gulp.task()函数通常会被用来定义任务。当你定义一个简单的任务时，需要传入任务名字和执行函数两个属性。
 {% highlight javascript %}
@@ -136,7 +136,7 @@ gulp.task()函数通常会被用来定义任务。当你定义一个简单的任
 现在，当执行css任务时，Gulp会先执行greet任务，然后在它结束后再调用你定义的函数。
 
 
-###DEFAULT TASKS
+### DEFAULT TASKS
 
 你可以定义一个在gulp开始运行时候默认执行的任务，并将这个任务命名为“default”：
 {% highlight javascript %}
@@ -174,7 +174,7 @@ Gulp上有超过600种插件供你选择，你可以在[插件页面](http://gul
 其他两个插件的作用很清楚：uglify()函数压缩代码，concat(‘app.js’)函数将所有文件合并到一个叫app.js的文件中。
 
 
-###GULP-LOAD-PLUGINS
+### GULP-LOAD-PLUGINS
 
 我发现gulp-load-plugin模块十分有用，它能够自动地从package.json中加载任意Gulp插件然后把它们附加到一个对象上。它的基本用法如下所示：
 {% highlight javascript %}
@@ -219,7 +219,7 @@ Gulp上有超过600种插件供你选择，你可以在[插件页面](http://gul
 三月初发布的Gulp-load-plugins0.4.0版本添加了延迟加载功能，提高了插件的性能，因为插件在使用的时候才会被加载进来，你不用担心package.json里未被使用的插件影响性能（但是你需要把他们清理掉）。换句话说，如果你在执行任务时只需要两个插件，那么其他不相关的插件就不会被加载。
 
 
-###WATCHING FILES
+### WATCHING FILES
 
 Gulp可以监听文件的修改动态，然后在文件被改动的时候执行一个或多个任务。这个特性十分有用（对我来说，这可能是Gulp中最有用的一个功能）。你可以保存LESS文件，接着Gulp会自动把它转换为CSS文件并更新浏览器。
 
@@ -266,11 +266,11 @@ Watcher对象也包含了一些可以调用的方法：
 * watcher.remove(filepath) 从watcher中移除个别文件
 
 
-###Reloading Changes In The Browser
+### Reloading Changes In The Browser
 
 当一个文件被修改或者Gulp任务被执行时可以用Gulp来加载或者更新网页。LiveReload和BrowserSync插件就可以用来实现在游览器中加载更新的内容。
 
-####LIVERELOAD
+#### LIVERELOAD
 
 [LiveReload](http://livereload.com/)结合了浏览器扩展（包括[Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)），在发现文件被修改时会实时更新网页。它可以和[gulp-watch](https://www.npmjs.org/package/gulp-watch)插件或者前面描述的gulp-watch()函数一起使用。下面有一个[gulp-livereload](https://github.com/vohof/gulp-livereload)仓库中的README文件提到的例子:
 {% highlight javascript %}
@@ -291,7 +291,7 @@ Watcher对象也包含了一些可以调用的方法：
 
 这会监听到所有与less/*.less相匹配的文件的变化。一旦监测到变化，就会生成css并保存，然后重新加载网页.
 
-####BROWSERSYNC
+#### BROWSERSYNC
 
 [BroserSync](http://browsersync.io/)在浏览器中展示变化的功能与LiveReload非常相似，但是它有更多的功能。
 
@@ -342,7 +342,7 @@ BrowserSync不需要使用浏览器插件，因为它本身就可以为你提供
 此外BrowserSync的开发者还写了很多关于[BrowserSync+Gulp](https://github.com/shakyShane/gulp-browser-sync)仓库的其他用途。
 
 
-###Why Gulp?
+### Why Gulp?
 
 前面提到过，Gulp是[为数不多](https://gist.github.com/callumacrae/9231589)的使用JavaScript开发的构建工具之一，也有其他不是用JavaScript开发的构建工具，比如Rake，那么我们为什么要选择Gulp呢?
 

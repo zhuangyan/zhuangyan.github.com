@@ -12,11 +12,14 @@ title: centos6.5上安装MariaDB10.1
 [root@template yum.repos.d]$ vi MariaDB.repo
 {% endhighlight %}
 
-> [mariadb] 
+{% highlight ini %}
+[mariadb] 
 name = MariaDB 
 baseurl = http://yum.mariadb.org/10.1/centos6-amd64 
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB 
 gpgcheck=1
+{% endhighlight %}
+
 
 ## 使用YUM安装MariaDB
 {% highlight Bash %}
@@ -68,7 +71,9 @@ Query OK, 0 rows affected (0.00 sec)
 [root@template ~]#vi /etc/my.cnf
 {% endhighlight %}
 my.cnf中添加如下配置：
-> [client]
+
+{% highlight ini %}
+[client]
 default-character-set = utf8mb4
 [mysql]
 default-character-set = utf8mb4
@@ -76,6 +81,7 @@ default-character-set = utf8mb4
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
+{% endhighlight %}
 
 ## 重启服务
 {% highlight Bash %}

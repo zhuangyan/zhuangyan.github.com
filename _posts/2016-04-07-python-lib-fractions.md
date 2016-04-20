@@ -147,9 +147,7 @@ Fraction(1, 1)
 '13/9
 {% endhighlight %}
 
-**5 GCD
-
-**
+**5 GCD**
 
 这不是Fraction类的一部分，它是在fractions库中的。利用它你可以快速找到两个数的最大公约数。
 

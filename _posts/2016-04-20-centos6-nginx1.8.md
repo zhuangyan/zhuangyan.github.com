@@ -1,0 +1,160 @@
+---
+layout: post
+title: centos6.5上安装Nginx1.8
+---
+
+  本文记录我在联通沃云服务器上部署Nginx1.8服务的过程
+
+## 准备安装资源
+
+{% highlight Bash %}
+# cd /home/src/
+# wget http://nginx.org/download/nginx-1.8.1.tar.gz
+{% endhighlight %}
+
+## 环境准备
+
+{% highlight Bash %}
+# yum -y install gcc gcc-c++ autoconf automake make
+# yum -y install zlib zlib-devel openssl openssl--devel pcre pcre-devel
+{% endhighlight %}
+
+## 安装nginx
+{% highlight Bash %}
+# tar zxvf nginx-1.8.1.tar.gz
+# cd nginx-1.8.1
+# make && make install
+{% endhighlight %}
+
+## 启动nginx
+{% highlight Bash %}
+# /usr/local/nginx/sbin/nginx
+{% endhighlight %}
+用浏览器访问服务器IP，如果显示“Welcome to nginx!”，说明安装成功，如果无响应，用“service iptables stop”关闭防火墙再试。
+
+## 制作nginx管理脚本
+{% highlight Bash %}
+# vi /etc/init.d/nginx
+{% endhighlight %}
+内容如下：
+{% highlight Bash %}
+#!/bin/sh
+#
+# nginx - this script starts and stops the nginx daemon
+#
+# chkconfig:   - 85 15
+# description:  Nginx is an HTTP(S) server, HTTP(S) reverse \
+#               proxy and IMAP/POP3 proxy server
+# processname: nginx
+# config:      /usr/local/nginx/conf/nginx.conf
+# pidfile:     /var/run/nginx.pid
+  
+# Source function library.
+. /etc/rc.d/init.d/functions
+  
+# Source networking configuration.
+. /etc/sysconfig/network
+  
+# Check that networking is up.
+[ "$NETWORKING" = "no" ] && exit 0
+  
+nginx="/usr/local/nginx/sbin/nginx"
+prog=$(basename $nginx)
+
+NGINX_CONF_FILE="/usr/local/nginx/conf/nginx.conf"
+  
+[ -f /etc/sysconfig/nginx ] && . /etc/sysconfig/nginx
+  
+lockfile=/var/lock/subsys/nginx  
+
+start() {
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    echo -n $"Starting $prog: "
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+  
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -QUIT
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+  
+restart() {
+    configtest || return $?
+    stop
+    sleep 1
+    start
+}
+  
+reload() {
+    configtest || return $?
+    echo -n $"Reloading $prog: "
+    killproc $nginx -HUP
+    RETVAL=$?
+    echo
+}
+  
+force_reload() {
+    restart
+}
+  
+configtest() {
+  $nginx -t -c $NGINX_CONF_FILE
+}
+  
+rh_status() {
+    status $prog
+}
+  
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+  
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart|configtest)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+            ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
+        exit 2
+esac 
+{% endhighlight %}
+为脚本设置权限
+{% highlight Bash %}
+# chmod 755 /etc/init.d/nginx
+{% endhighlight %}
+
+## 设置nginx自启动
+{% highlight Bash %}
+# chkconfig --add nginx
+# chkconfig nginx on
+{% endhighlight %}

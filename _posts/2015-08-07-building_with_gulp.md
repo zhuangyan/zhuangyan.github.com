@@ -145,7 +145,7 @@ gulp.task()函数通常会被用来定义任务。当你定义一个简单的任
     });
 {% endhighlight %}
 
-###PLUGINS
+### PLUGINS
 
 Gulp上有超过600种插件供你选择，你可以在[插件页面](http://gulpjs.com/plugins/)或者npm上搜索gulpplugin来浏览插件列表。有些拥有“gulpfriendly”标签的插件，他们不能算插件，但是能在Gulp上正常运行。
 需要注意的是，当直接在npm里搜索时，你无法知道某一插件是否在黑名单上（你需要滚动到插件页面底部才能看到）。

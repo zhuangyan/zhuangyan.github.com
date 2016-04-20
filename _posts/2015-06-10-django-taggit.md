@@ -14,7 +14,7 @@ title: django常用组件学习2——django-taggit
 
 
 组件的github主页为https://github.com/alex/django-taggit
-##基本使用方式：
+## 基本使用方式：
 我们按<a href="http://django-taggit.readthedocs.org/en/latest/getting_started.html" target="_blank">官方文档</a>来练习.
 安装
 {% highlight html %}
@@ -75,7 +75,7 @@ Out[10]: [<Tag: 摩托>, <Tag: 跑车]
 In [11]: Cars.objects.filter(tags__name__in=[u"跑车"])
 Out[12]: [<Cars: 测试车1>,<Cars: 测试车2>]
 {% endhighlight %}
-##结合ModelForm使用：
+## 结合ModelForm使用：
 使用forms接回request参数时会把输入的标签参数进行智能的分隔处理，分隔规则如下表。
 <table class="docutils" border="1">
 <colgroup>
@@ -127,7 +127,7 @@ if request.method == "POST":
         # Without this next line the tags won't be saved.
         form.save_m2m()
 {% endhighlight %}
-##其他：
+## 其他：
 +  默认使用【TAGGIT\_TAG】和【TAGGIT\_TAGGEDITEM】表保存标签及与记录的关联关系数据，但是我们可以通过继承TaggedItemBase来自定义模型来保存相关数据。
    参考<a href="http://django-taggit.readthedocs.org/en/latest/custom_tagging.html" target="_blank"> custom_tagging</a>
 +  实际应用中我们需要在前端实时提示现有的标签及使用情况，可以参与项目<a href="https://github.com/frankwiles/django-taggit-suggest" target="_blank">django-taggit-suggest</a>及项目<a href="https://github.com/feuervogel/django-taggit-templatetags">django-taggit-templatetags</a>以及文章<a href="http://charlesleifer.com/blog/suggesting-tags-django-taggit-and-jquery-ui/" target="_blank">Suggesting tags with django-taggit and jQuery UI</a>

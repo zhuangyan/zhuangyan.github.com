@@ -6,7 +6,7 @@ title: django常用组件学习1——django-filter
 我们平常用django做的列表页面都会有很多查询条件。在提交查询时，views里会接收查询表单传递过来的参数，然后在queryset中根据查询条件进行过滤，最后要把过滤结果和本次查询参数在传到模板页面进行显示。[django-filter](https://github.com/alex/django-filter)组件把以上操作进行了封装，简化代码量。
 
 
-##基本使用方式：
+## 基本使用方式：
 我对我们ERP项目的车辆管理列表用django-filter重写一下，进行学习。
 
 ```python
@@ -138,7 +138,7 @@ class CarsFilter(django_filters.FilterSet):
         fields = ['car', 'site']
         order_by = ['car', 'site']
 {% endhighlight %}
-##高级用法：
+## 高级用法：
 
 如果要在下拉列表中显示排序字段名称，需要定义为元组，如下：
 {% highlight python %}
@@ -151,7 +151,7 @@ class CarsFilter(django_filters.FilterSet):
             ('site','座位数')
         )
 {% endhighlight %}
-###RangeFilter
+### RangeFilter
 如果想要查询座位数在一定范围内的车辆，除了可以使用'site': [ 'gte', 'lte']，还可以使用RangeFilter：
 {% highlight python %}
 class CarsFilter(django_filters.FilterSet):
@@ -164,7 +164,7 @@ class CarsFilter(django_filters.FilterSet):
             ('site','座位数')
         )
 {% endhighlight %}
-###ChoiceFilter
+### ChoiceFilter
 如果想要按车辆使用状态进行查询，需要使用ChoiceFilter：
 {% highlight python %}
 class CarsFilter(django_filters.FilterSet):
@@ -178,7 +178,7 @@ class CarsFilter(django_filters.FilterSet):
             ('site','座位数')
         )
 {% endhighlight %}
-###通用视图
+### 通用视图
 {% highlight python %}
 # urls.py
 from django.conf.urls import patterns, url

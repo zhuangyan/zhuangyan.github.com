@@ -5,7 +5,7 @@ title: JWT认证的RESTful API
 
  又开始写手机应用的服务端了，在前一公司，不想学安卓客户端，自己选择在项目中写过服务端接口。现在想学客户端开发了，但是由于项目人员的情况，还得由我来写服务端。四年前写服务端是用java,用session方式对客户端进行鉴权。因为现在都流行RESTful API风格了，查询文档发现有个叫“JWT”的鉴权方式更加符合RESTful的规范。
 
-###1.几种http api鉴权方式
+### 1.几种http api鉴权方式
 
 *  使用在HTTP规范中的Basic Auth，这个配置也是相当的简单，在nginx端针对路由location配置下就可以用了 。原理上，客户端必须在每个子响应是附加它们的凭证（credenbtial），包括他的账号和密码 。如果这些凭证通过了，那么用户的信息就会被传递到服务端应用。
 requests.get(‘https://api.github.com/user’, auth=(‘user’, ‘pass’))
@@ -17,12 +17,12 @@ requests.get(‘https://api.github.com/user’, auth=(‘user’, ‘pass’))
 *  JWT(JSON Web Token)方案，给客户端的是公钥，然后用公钥把数据加密发送给服务端，服务端在根据来源的信息，使用对应的私钥来解析数据。这样就能保证数据的安全性。类似https的方式 JWT里面会含有这么几个字段。
 
 
-###2.JSONWebTokenAuthentication和SessionAuthentication的比较
+### 2.JSONWebTokenAuthentication和SessionAuthentication的比较
 
 通过比较可以看出，使用JWT可以省去服务端读取Session的步骤，这样更符合RESTful的规范。但是对于客户端（或App端）来说，为 了保存用户授权信息，仍然需要通过Cookie或类似的机制进行本地保存。因此JWT是用来取代服务端的Session而非客户端Cookie的方案，当 然对于客户端本地存储，HTML5提供了Cookie之外更多的解决方案（localStorage/sessionStorage），究竟采用哪种存储方式，其实从Js操作上来看没有本质上的差异，不同的选择更多是出于安全性的考虑。
 
 
-###3.使用REST framework JWT实现JWT认证的RESTful API
+### 3.使用REST framework JWT实现JWT认证的RESTful API
 
 用pip 安装
 {% highlight bash %}

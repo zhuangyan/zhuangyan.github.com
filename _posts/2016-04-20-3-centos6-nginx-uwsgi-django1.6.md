@@ -122,6 +122,7 @@ def application(env, start_response):
 
 ## uwsgi启动脚本制作
 {% highlight Bash %}
+[root@template ~]# mkdir /etc/uwsgi
 [root@template ~]# vi /etc/uwsgi/uwsgi.ini
 {% endhighlight %}
 内容如下：

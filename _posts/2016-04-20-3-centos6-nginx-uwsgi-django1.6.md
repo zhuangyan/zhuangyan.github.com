@@ -311,3 +311,4 @@ exit $?
 [root@template ~]# chkconfig --add uwsgi
 [root@template ~]# chkconfig uwsgi on
 {% endhighlight %}
+

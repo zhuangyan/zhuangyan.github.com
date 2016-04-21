@@ -318,7 +318,7 @@ exit $?
 {% endhighlight %}
 location / 相关部分修改为如下内内容：
 {% highlight ngnix %}
-ocation / {
+location / {
            include  uwsgi_params;
             uwsgi_pass  127.0.0.1:9090;
             uwsgi_param UWSGI_SCRIPT syzhmj.wsgi; 

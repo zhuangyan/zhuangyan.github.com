@@ -97,7 +97,7 @@ LCMS_ROOT = "/usr/lib64/"
 {% endhighlight %}
 
 ## 测试uwsgi
-新建web.py文件，内容如下
+新建test.py文件，内容如下
 {% highlight python %}
 def application(env, start_response):
     start_response('200 OK', [('Content-Type','text/html')])

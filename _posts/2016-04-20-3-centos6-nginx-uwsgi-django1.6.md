@@ -82,7 +82,7 @@ LCMS_ROOT = "/usr/lib64/"
 
 ## 安装数据引擎MySQLdb
 {% highlight Bash %}
-[root@template ~]# yum -y mysql
+[root@template ~]# yum -y install mysql
 [root@template ~]# cd src
 [root@template src]# wget --no-check-certificate https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-1.2.5.zip
 [root@template src]# unzip MySQL-python-1.2.5.zip 

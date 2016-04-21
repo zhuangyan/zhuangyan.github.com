@@ -312,3 +312,20 @@ exit $?
 [root@template ~]# chkconfig uwsgi on
 {% endhighlight %}
 
+## uwsgi和ngnix整合
+{% highlight Bash %}
+[root@template ~]# vi /usr/local/nginx/conf/nginx.conf
+{% endhighlight %}
+location / 相关部分修改为如下内内容：
+{% highlight ngnix %}
+ocation / {
+           include  uwsgi_params;
+            uwsgi_pass  127.0.0.1:9090;
+            uwsgi_param UWSGI_SCRIPT syzhmj.wsgi; 
+            uwsgi_param UWSGI_CHDIR /home/django/wwwroot;
+            index  index.html index.htm;
+            client_max_body_size 35m;
+        }
+{% endhighlight %}
+
+

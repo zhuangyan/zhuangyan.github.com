@@ -141,7 +141,7 @@ pidfile = /usr/local/logs/uwsgi9090.pid
 daemonize = /usr/local/logs/uwsgi9090.log
 {% endhighlight %}
 {% highlight Bash %}
-[root@template ~]# vi /etc/uwsgi/uwsgi
+[root@template ~]# vi /etc/init.d/uwsgi
 {% endhighlight %}
 内容如下：
 {% highlight Bash %}

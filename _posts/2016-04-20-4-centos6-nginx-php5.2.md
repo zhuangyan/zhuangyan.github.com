@@ -9,17 +9,36 @@ title: centos6.5上部署PHP服务
 
 {% highlight Bash %}
 [root@template ~]# cd /home/src/
-[root@template src]# wget http://us.php.net/distributions/php-5.2.17.tar.gz
+[root@template src]# wget http://120.52.72.53/museum.php.net/c3pr90ntcsf0/php5/php-5.2.17.tar.gz
 [root@template src]# wget http://php-fpm.org/downloads/php-5.2.17-fpm-0.5.14.diff.gz
 {% endhighlight %}
 
 ## 安装PHP
 
 {% highlight Bash %}
+[root@template src]#yum -y install libjpeg-devel libpng-devel libxml2-devel
+[root@template src]# tar -xvzf php-5.2.17.tar.gz
 [root@template src]# tar -xvzf php-5.2.17.tar.gz
 [root@template src]# gzip -cd php-5.2.17-fpm-0.5.14.diff.gz | sudo patch -d php-5.2.17 -p1
 [root@template php-5.2.17]# cd php-5.2.17
-[root@template php-5.2.17]# ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/lib  --enable-fastcgi --enable-fpm
+[root@template php-5.2.17]# ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/lib  --enable-fastcgi --enable-fpm  --with-mysql=/usr/lib64/mysql --with-gd --enable-gd-native-ttf --with-zlib-dir=/usr/local/zlib --with-png-dir --with-jpeg-dir=/usr/local/jpeg6/ 
+{% endhighlight %}
+如果configure出现类似如下错误：
+{% highlight Bash %}
+configure: error: libjpeg.(a|so) not found 
+configure: error: libpng.(a|so) not found 
+configure: error: Cannot find libmysqlclient under /usr.
+{% endhighlight %}
+请执行以下命令：
+{% highlight Bash %}
+ln -s /usr/lib64/libjpeg.so /usr/lib/libjpeg.so
+ln -s /usr/lib64/libpng.so /usr/lib/libpng.so
+mkdir /usr/lib/mysql
+cp -r /usr/lib64/mysql /usr/lib/
+{% endhighlight %}
+
+
+{% highlight Bash %}
 [root@template php-5.2.17]# make
 [root@template php-5.2.17]# make install
 [root@template php-5.2.17]# cp php.ini-dist /usr/local/php/etc/php.ini

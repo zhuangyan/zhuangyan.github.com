@@ -91,7 +91,7 @@ location / {
 
 ## 测试
 
-  我们在nginx的配置文件里面已经定义了PHP网站的存放路径，路径为/usr/local/nginx/conf/html下面我们在这个目录下新建一个PHP页面网页，文件名为test.php,内容如下:  
+  我们在nginx的配置文件里面已经定义了PHP网站的存放路径，路径为/usr/local/nginx/html下面我们在这个目录下新建一个PHP页面网页，文件名为test.php,内容如下:  
 
 {% highlight Bash %}
 <?php

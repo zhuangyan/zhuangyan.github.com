@@ -81,11 +81,7 @@ img.full {width:100%;}
     box-shadow:         0 0 10px 0px rgba(0,0,0,.3);
 }
 
-.main .article ul, .main .article ol {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 1em;
-}
+
 .main .pagination {
     line-height: 32px;
     padding-top: 20px;
@@ -110,6 +106,7 @@ img.full {width:100%;}
 .main .pagination-list {
     margin-left: 10px;
     width: 550px;
+    list-style-type: none;
     height: 32px;
     line-height: 32px;
     float: left;

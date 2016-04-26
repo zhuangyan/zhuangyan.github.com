@@ -217,3 +217,9 @@ body {padding-top:40px;}
   .timeline-block:before { margin-left: -18px; }
   .timeline-content { margin: 15px 20px; margin-right: 0; }
   .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; } }
+.tc-title { font-size: 1.2rem; }
+.tc-title > a { transition: 0.2s; }
+.tc-title > a:hover { color: #1abc9c; text-decoration: none; }
+
+.tc-tags { margin-top: 2px; font-size: .8rem; }
+.tc-tags a { display: inline-block; padding: 1px 5px; background-color: #627281; color: white; border-radius: 3px; }  

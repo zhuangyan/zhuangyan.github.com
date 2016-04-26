@@ -80,7 +80,10 @@ $(document).ready(function(){
   var title = '{{ page.title }}';
   if(title == 'About'){
     $("#about").addClass("active");
-  }else{
+  }else if(title == 'Archives'){
+    $("#archives").addClass("active");
+  }
+  else{
     $("#blog").addClass("active");
   }
 });

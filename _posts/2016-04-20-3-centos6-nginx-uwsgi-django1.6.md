@@ -1,6 +1,7 @@
 ---
 layout: post
 title: centos6.5上部署django服务
+tags: ["服务器", "nginx","django"]
 ---
 
   本文记录我在联通沃云服务器上部署Django服务的过程，Nginx安装已上篇文章中说明。本文主要说明使用uwsgi整合nginx和django的过程。

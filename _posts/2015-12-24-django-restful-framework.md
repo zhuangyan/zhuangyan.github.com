@@ -1,6 +1,7 @@
 ---
 layout: post
 title: django常用组件学习3——DRF
+tags: ["django","drf"]
 ---
 DRF就是Django REST framework，官网是http://www.django-rest-framework.org/，我正在使用它来实现我们的移动APP数据接口，感觉非常的爽。
 下面是对使用中出现的问题进行一些记录。

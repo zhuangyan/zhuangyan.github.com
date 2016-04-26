@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用jquery.qrcode生成二维码
+tags: ["javascript","jquery"]
 ---
 听说公司技术部的建站系统实现了网页自动生成二维码的功能，我也研究下，发现用qrcode实现实在太简单了。
 

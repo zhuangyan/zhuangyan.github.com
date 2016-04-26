@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Android的URLEncoder编码问题
+tags: ["android", "urlencoder"]
 ---
 我们安卓客户端与服务接口进行交换时需要对字符串参数进行URLEncoder编码。测试时发现，用java.net.URLEncoder类encode以后,会把空格转变成"+"。由于服务端是用python写的，用urllib.unquote无法正常解码。
 

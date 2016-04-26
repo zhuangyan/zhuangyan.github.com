@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Python中分数的相关使用教程
+tags: ["python"]
 ---
 这篇文章主要介绍了Python中分数的相关使用教程,主要涉及分数的计算、约分等简单操作，是Python学习过程当中的基础，需要的朋友可以参考下。
 

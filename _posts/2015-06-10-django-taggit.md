@@ -1,6 +1,7 @@
 ---
 layout: post
 title: django常用组件学习2——django-taggit
+tags: ["django"]
 ---
   标签(tag)是比较新兴的一种信息管理方式，与经典的分类的区别在于：
 

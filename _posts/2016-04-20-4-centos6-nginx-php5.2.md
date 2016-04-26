@@ -1,6 +1,7 @@
 ---
 layout: post
 title: centos6.5上部署PHP服务
+tags: ["服务器", "nginx","php"]
 ---
 
   本文记录我在联通沃云服务器上部署PHP服务的过程，Nginx安装已在<a href="/2-centos6-nginx1.8" target="_blank">前篇文章</a>中说明。本文主要说整合nginx和php的过程。

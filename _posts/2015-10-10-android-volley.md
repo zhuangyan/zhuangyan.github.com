@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Android 网络通信框架Volley简介
+tags: ["android","volley"]
 ---
  Volley主页 https://android.googlesource.com/platform/frameworks/volley
  http://www.youtube.com/watch?v=yhv8l9F44qo&feature=player_embedded

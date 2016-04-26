@@ -1,6 +1,7 @@
 ---
 layout: post
 title: centos6.5上进行两台服务器之间的文件双向同步
+tags: ["服务器", "centos"]
 ---
 
   由于用户的头像在PC端和APP端都可以进行更改，所以需要同步两台服务器的头像目录，为便可以相互访问。Django服务器的存储目录为“/home/django/wwwroot/stores/avatar”，PHP服务器的存储目录为“/usr/local/nginx/html/data/upload/shop/avatar”。我选择了用“unison+inotify”的方案来解决，步骤如下：

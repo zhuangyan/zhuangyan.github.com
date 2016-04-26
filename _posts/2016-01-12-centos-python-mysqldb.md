@@ -1,6 +1,7 @@
 ---
 layout: post
 title: centos下安装MySQL-python
+tags: ["centos","mysql-python"]
 ---
 linux环境下安装MySQL-python比较复杂，现在记录一下我在centos6.5上面安装MySQL-python-1.2.5的过程。
 

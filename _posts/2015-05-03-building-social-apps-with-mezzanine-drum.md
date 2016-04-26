@@ -1,14 +1,7 @@
 ---
 layout: post
 title: 'Building Social Apps with Mezzanine: Drum'
-tags:
-- mezzanine
-- django
-- python
-- drum
-- orm
-- sql
-- open source
+tags: ["django","mezzanine","python","orm"]
 ---
 
 [Mezzanine][mezzanine] has come a long way over the last few years, now powering [hundreds of rich, content-driven sites][mezzanine-sites]. For the most part these sites follow a similar pattern, one which Mezzanine is heavily geared towards: [B2C][b2c] sites comprised of [heterogeneous, hierarchical content][mezzanine-content-architecture]. In this regard Mezzanine has been a huge success, however in its entirety it's capable of quite a lot more. Out of the box it provides a range of useful utilities, that aren't particularly geared towards a typical corporate site, but instead are aimed at a more social style of web application. These include things such as [public user accounts][mezzanine-accounts] with configurable profiles, [threaded comment discussions][mezzanine-comments], [ratings][mezzanine-ratings], and much more - features that form the foundation of many of today's most popular social web apps. This presents Mezzanine as a great foundation for building all types of social web applications, not just corporate, content-driven sites.

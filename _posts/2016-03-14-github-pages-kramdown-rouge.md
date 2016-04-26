@@ -1,6 +1,7 @@
 ---
 layout: post
 title: GitHub Pages更新Markdown的解释器及语法高亮库
+tags: ["github", "markdown"]
 ---
 今天发现邮箱里有github发送给我的"Page build warning"标题的邮件，邮件内容说我用的语法高亮库“pygments”和Markdown的解释器“redcarpet”以后都将不再支持了，需要更新为“rouge”和“kramdown”。
 

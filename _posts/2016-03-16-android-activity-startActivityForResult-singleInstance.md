@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 调用startActivityForResult后onActivityResult立刻响应，返回当前页onActivityResult不响应的问题 
+tags: ["android"]
 ---
 做为新手被这个问题困扰了一上午，下午才想起百度搜索。原来很多人都遇到过同样的问题，原因是和Activity的加载方式有关。
 在AndroidManifest.xml中设置android:launchMode="singleInstance"或者在运行时设置intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)都会导致无法接收返回值的问题。

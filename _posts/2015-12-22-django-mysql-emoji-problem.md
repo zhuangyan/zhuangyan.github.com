@@ -1,6 +1,7 @@
 ---
 layout: post
 title: django mysql存储emoji表情的问题
+tags: ["django","emoji"]
 ---
 我的API服务接口在处理手机传来的emoji表情出现的问题，暂时没有解决办法，先记录在这里！
 问题是这样的，在mysql保存emoji表情时报错:

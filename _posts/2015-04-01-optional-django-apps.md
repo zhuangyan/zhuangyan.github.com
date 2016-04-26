@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Optional Django Apps
-tags:
-- python
-- django
-- hacks
+tags: ["python","django","hacks"]
 ---
 
 A project of mine contains a number of third-party apps that are development

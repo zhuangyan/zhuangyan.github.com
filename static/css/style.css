@@ -206,14 +206,14 @@ body {padding-top:40px;}
 .timeline-content:before { content: ' '; height: 0; width: 0; position: absolute; border-top: 8px solid transparent; border-bottom: 8px solid transparent; top: auto; }
 .timeline-content a { color: #555; font-weight: normal; }
 
-@media (min-width: 48em) { .timeline-container:before { left: 50%; }
+@media (min-width: 96em) { .timeline-container:before { left: 50%; }
   .timeline-block:before { left: 50%; }
   .timeline-block:nth-child(even) .timeline-content { float: right; }
   .timeline-block:nth-child(even) .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; }
   .timeline-block:nth-child(odd) .timeline-content { text-align: right; float: left; }
   .timeline-block:nth-child(odd) .timeline-content:before { border-left: 8px solid #e9f0f5; margin-left: 10px; }
   .timeline-content { width: 46.5%; } }
-@media (max-width: 48em) { .timeline-container { padding-left: 15px; }
+@media (max-width: 96em) { .timeline-container { padding-left: 15px; }
   .timeline-block:before { margin-left: -18px; }
   .timeline-content { margin: 15px 20px; margin-right: 0; }
   .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; } }

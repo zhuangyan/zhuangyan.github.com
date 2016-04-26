@@ -16,7 +16,8 @@ layout: default
     </article>
   {% endfor %}
 </div>
-<nav role="navigation">
+
+<div class="main">
     {% if paginator.total_pages > 1 %}
     <nav class="pagination fn-clear">
         <span class="pagination-icon"><i class=" icon-copy"></i></span>
@@ -31,4 +32,4 @@ layout: default
         </ul>
     </nav>
     {% endif %}
-  </nav>
+</div>

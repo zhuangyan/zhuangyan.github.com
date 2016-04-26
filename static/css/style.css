@@ -193,3 +193,27 @@ body {padding-top:40px;}
 .fixed a.backup{background:url(/static/img/fixed.jpg) 0 -117px no-repeat;height:58px;}
 .fixed a.backup:hover{background-position:-72px -116px;height:58px;}
 .fixed #code {position:absolute;left:-196px;width:196px;height:196px;top:-50px;display:none;}
+
+.timeline-container { margin: 20px 0; position: relative; }
+.timeline-container:before { content: ' '; width: 4px; margin-left: -2px; top: 10px; background-color: #e9f0f5; height: 100%; position: absolute; }
+
+.timeline-block { margin: 10px; position: relative; pointer-events: none; }
+.timeline-block:before { content: ' '; width: 16px; height: 16px; margin-left: -8px; margin-top: 0px; border-radius: 8px; background-color: #1abc9c; position: absolute; top: 10px; transition: 0.3s; }
+.timeline-block:after { content: ' '; display: table; clear: both; }
+.timeline-block:hover:before { background-color: #55e7ca; }
+
+.timeline-content { padding: 10px; background-color: #e9f0f5; position: relative; pointer-events: auto; }
+.timeline-content:before { content: ' '; height: 0; width: 0; position: absolute; border-top: 8px solid transparent; border-bottom: 8px solid transparent; top: auto; }
+.timeline-content a { color: #555; font-weight: normal; }
+
+@media (min-width: 48em) { .timeline-container:before { left: 50%; }
+  .timeline-block:before { left: 50%; }
+  .timeline-block:nth-child(even) .timeline-content { float: right; }
+  .timeline-block:nth-child(even) .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; }
+  .timeline-block:nth-child(odd) .timeline-content { text-align: right; float: left; }
+  .timeline-block:nth-child(odd) .timeline-content:before { border-left: 8px solid #e9f0f5; margin-left: 10px; }
+  .timeline-content { width: 46.5%; } }
+@media (max-width: 48em) { .timeline-container { padding-left: 15px; }
+  .timeline-block:before { margin-left: -18px; }
+  .timeline-content { margin: 15px 20px; margin-right: 0; }
+  .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; } }

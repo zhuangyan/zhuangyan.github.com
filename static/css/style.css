@@ -5,7 +5,7 @@ Copyright Stephen McDonald. Please see LICENSE.
 https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 
 */
-body {font-size:20px;padding-top: 70px; -webkit-text-size-adjust: 100%;}
+body {font-size:16px;padding-top: 70px; -webkit-text-size-adjust: 100%;}
 .container {width:666px; font-family:Palatino, Georgia, serif;}
 footer {border-top:3px solid #eee; margin:30px 0; padding-top:13px;}
 .site-avatar {
@@ -217,9 +217,9 @@ body {padding-top:40px;}
   .timeline-block:before { margin-left: -18px; }
   .timeline-content { margin: 15px 20px; margin-right: 0; }
   .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; } }
-.tc-title { font-size: 1.2rem; }
+.tc-title { font-size: 2.4rem; }
 .tc-title > a { transition: 0.2s; }
 .tc-title > a:hover { color: #1abc9c; text-decoration: none; }
 
-.tc-tags { margin-top: 2px; font-size: .8rem; }
+.tc-tags { margin-top: 2px; font-size: 1.6rem; }
 .tc-tags a { display: inline-block; padding: 1px 5px; background-color: #627281; color: white; border-radius: 3px; }  

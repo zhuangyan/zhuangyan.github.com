@@ -81,6 +81,49 @@ img.full {width:100%;}
     box-shadow:         0 0 10px 0px rgba(0,0,0,.3);
 }
 
+
+.main .pagination {
+    line-height: 32px;
+    padding-top: 20px;
+
+}
+.main .pagination li {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.main .pagination-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    color: #fefefe;
+    background: #99b9c4;
+}
+.main .pagination-list {
+    margin-left: 10px;
+    width: 550px;
+    height: 32px;
+    line-height: 32px;
+    float: left;
+}
+.main .pagination-list li a {
+    width: 32px;
+    height: 32px;
+    display: block;
+    background: #f2eeec;
+    text-align: center;
+}
+.main .pagination-list .current a {
+    background: #e54e4d;
+    color: #fefefe;
+}
+
+
+
 #coderwall {display:none; margin:30px -40px 20px 0;}
 #coderwall h6 {margin-bottom:15px;}
 #coderwall img, .noborder {

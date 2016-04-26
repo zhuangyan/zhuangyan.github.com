@@ -123,7 +123,10 @@ img.full {width:100%;}
     color: #fefefe;
 }
 
-
+.main .pagination-list li a:hover {
+    color: #45625d;
+    border-bottom: none;
+}
 
 #coderwall {display:none; margin:30px -40px 20px 0;}
 #coderwall h6 {margin-bottom:15px;}

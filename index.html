@@ -20,7 +20,6 @@ layout: default
 <div class="main">
     {% if paginator.total_pages > 1 %}
     <nav class="pagination fn-clear">
-        <span class="pagination-icon"><i class=" icon-copy"></i></span>
         <ul class="pagination-list">
             {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}

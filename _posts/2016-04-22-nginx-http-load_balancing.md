@@ -29,7 +29,55 @@ tags: ["服务器", "nginx","负载均衡"]
     } 
 {% endhighlight %}
 
-## 高级用法
+## 多应用按域名分发
+   就是写多个upstream配置到不同的server中，如：
+   {% highlight nginx %}
+    upstream django  {
+            server  192.168.1.108:80;
+            server  192.168.1.109:80;
+            server  192.168.1.110:80;
+            server  192.168.1.111:80;
+    }
+    upstream php  {
+            server  192.168.1.112:80;
+            server  192.168.1.113:80;
+    }
+{% endhighlight %}
+
+{% highlight nginx %}
+    server {
+        listen       80;
+        server_name  www.zhuangyan.cn;
+        #charset koi8-r;
+        #access_log  logs/host.access.log  main;
+        location / {
+            proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_buffering off;
+          proxy_pass http://php;
+        }
+       
+    }
+
+    server {
+        listen       80;
+        server_name  app.zhuangyan.cn;
+        location / {
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_buffering off;
+          proxy_pass http://django;
+      }
+      location ~/static/ {
+            root  /home/django/;
+            index  index.html index.htm;
+      }      
+    }
+{% endhighlight %}
+
+## 其他配置
    
-   按权重分配什么的高级用法，请参考<a href="http://nginx.org/en/docs/http/load_balancing.html" target="_blank">官方文档</a>。    
+   按权重分配什么的配置，请参考<a href="http://nginx.org/en/docs/http/load_balancing.html" target="_blank">官方文档</a>。    
 

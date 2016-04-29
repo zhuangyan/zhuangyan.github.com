@@ -7,6 +7,7 @@ tags: ["php", "mysqli"]
   根据<a href="http://www.zhuangyan.cn/4-centos6-nginx-php5.2/" target="_blank">Nginx和PHP整合部署</a>的记录，我部署上我们的程序，但是报了“mysqli.isn't exists”的错误。因为我编译PHP时没有安装mysqli的扩展，于是我百度一下怎么来安装这个扩展。
 
   百度出来的文章一般是这样的：
+  
   >  添加扩展的基本步骤：
 	1、进入php源代码目录：# cd php-5.2.17
 	2、再进入要添加的mysqli扩展源码目录：# cd ext/mysqli/

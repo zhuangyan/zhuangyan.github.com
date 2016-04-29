@@ -9,7 +9,7 @@ tags: ["服务器", "nginx","php"]
 ## 准备安装资源
 
 {% highlight Bash %}
-[root@template ~]# cd /home/src/
+[root@template ~]# cd ~/src/
 [root@template src]# wget http://120.52.72.53/museum.php.net/c3pr90ntcsf0/php5/php-5.2.17.tar.gz
 [root@template src]# wget http://php-fpm.org/downloads/php-5.2.17-fpm-0.5.14.diff.gz
 {% endhighlight %}

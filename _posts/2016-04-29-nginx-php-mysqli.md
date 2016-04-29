@@ -7,6 +7,7 @@ tags: ["php", "mysqli"]
   根据<a href="http://www.zhuangyan.cn/4-centos6-nginx-php5.2/" target="_blank">Nginx和PHP整合部署</a>的记录，我部署上我们的程序，但是报了“mysqli.isn't exists”的错误。因为我编译PHP时没有安装mysqli的扩展，于是我百度一下怎么来安装这个扩展。
 
   百度出来的文章一般是这样的：
+
 >  添加扩展的基本步骤：  
 >	1、进入php源代码目录：# cd php-5.2.17  
 >	2、再进入要添加的mysqli扩展源码目录：# cd ext/mysqli/  
@@ -27,6 +28,7 @@ tags: ["php", "mysqli"]
   问题解决后，我再来研究下编译选项里的“mysqlnd"和"libmysqlclient"的区别，官方文档里写的在php5.2及以下版本中mysqlnd is not supporte mysqli，而libmysqlclient是可以用“--with-mysqli=/path/to/mysql_config”的。
 
   总的来说，关于PHP的MySQL扩展总结如下：
+  
 > 可以使用的PHP MySQL拓展有1)mysql 2）mysqli  3）pdo
 > 其中因为mysql是面向过程的，而且无法使用新版本MySQL带来的一些高级特性，现在已经不推荐使用。推荐使用mysqli以及pdo拓展。
 > 但是这三种数据库访问方式，在PHP拓展的角度上看，还是比较上层的拓展，依赖更底层的库去连接和访问数据库。

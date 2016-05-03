@@ -15,10 +15,10 @@ iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
 {% endhighlight %}
 
-再用命令 iptables -L -n 查看 是否设置好， 好看到全部 DROP 了 
-这样的设置好了，我们只是临时的， 重启服务器还是会恢复原来没有设置的状态 
-还要使用 service iptables save 进行保存 
-看到信息 firewall rules 防火墙的规则 其实就是保存在 /etc/sysconfig/iptables 
+再用命令 iptables -L -n 查看 是否设置好， 好看到全部 DROP 了  
+这样的设置好了，我们只是临时的， 重启服务器还是会恢复原来没有设置的状态  
+还要使用 service iptables save 进行保存  
+看到信息 firewall rules 防火墙的规则 其实就是保存在 /etc/sysconfig/iptables  
 可以打开文件查看 vi /etc/sysconfig/iptables
 
 ##  开放某个端口

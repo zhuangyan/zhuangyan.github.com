@@ -15,17 +15,11 @@ iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
 {% endhighlight %}
 
-再用命令 iptables -L -n 查看 是否设置好， 好看到全部 DROP 了
-
-这样的设置好了，我们只是临时的， 重启服务器还是会恢复原来没有设置的状态
-
-还要使用 service iptables save 进行保存
-
-看到信息 firewall rules 防火墙的规则 其实就是保存在 /etc/sysconfig/iptables
-
+再用命令 iptables -L -n 查看 是否设置好， 好看到全部 DROP 了 
+这样的设置好了，我们只是临时的， 重启服务器还是会恢复原来没有设置的状态 
+还要使用 service iptables save 进行保存 
+看到信息 firewall rules 防火墙的规则 其实就是保存在 /etc/sysconfig/iptables 
 可以打开文件查看 vi /etc/sysconfig/iptables
-
-
 
 ##  开放某个端口
 
@@ -47,31 +41,21 @@ target     prot opt source               destination
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0           tcp spt:22
 {% endhighlight %}
 
-现在Linux服务器只打开了22端口，用putty.exe测试一下是否可以链接上去。
-
-可以链接上去了，说明没有问题。
-
-最后别忘记了保存 对防火墙的设置
-
+现在Linux服务器只打开了22端口，用putty.exe测试一下是否可以链接上去。 
+可以链接上去了，说明没有问题。 
+最后别忘记了保存 对防火墙的设置 
 通过命令：service iptables save 进行保存
-
 {% highlight Bash %}
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
 {% endhighlight %}
 
-针对这2条命令进行一些讲解吧
-
--A 参数就看成是添加一条 INPUT 的规则
-
--p 指定是什么协议 我们常用的tcp 协议，当然也有udp 例如53端口的DNS
-
-到时我们要配置DNS用到53端口 大家就会发现使用udp协议的
-
-而 --dport 就是目标端口 当数据从外部进入服务器为目标端口
-
-反之 数据从服务器出去 则为数据源端口 使用 --sport
-
+针对这2条命令进行一些讲解吧 
+-A 参数就看成是添加一条 INPUT 的规则 
+-p 指定是什么协议 我们常用的tcp 协议，当然也有udp 例如53端口的DNS 
+到时我们要配置DNS用到53端口 大家就会发现使用udp协议的 
+而 --dport 就是目标端口 当数据从外部进入服务器为目标端口 
+反之 数据从服务器出去 则为数据源端口 使用 --sport 
 -j 就是指定是 ACCEPT 接收 或者 DROP 不接收
 
 ## 禁止某个IP访问

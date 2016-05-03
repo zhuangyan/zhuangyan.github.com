@@ -4,7 +4,7 @@ layout: default
 <script src="/static/js/jquery.qrcode.min.js"></script>
 <article class="post">
   <h1>{{ page.title }}</h1>
-  {% if page.tags.size > 0%}<b>标签：</b>{% for tag in page.tags %}{% if tag != "" %}<a href="/tags.html#{{ tag }}"><i>{{ tag }}</i></a>{% if forloop.index != page.tags.size %}, {% endif %}{% endif %}{% endfor %}{% endif %}
+  {% if page.tags.size > 0%}<b>标签：</b>{% for tag in page.tags %}{% if tag != "" %}<a href="/tags/#{{ tag }}"><i>{{ tag }}</i></a>{% if forloop.index != page.tags.size %}, {% endif %}{% endif %}{% endfor %}{% endif %}
   <div class="entry">
     {{ content }}
   </div>

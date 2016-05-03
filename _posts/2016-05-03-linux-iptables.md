@@ -102,43 +102,59 @@ iptables -D INPUT 2
 而回应的数据包。
 下面我们要禁止这些没有通过请求回应的数据包，统统把它们堵住掉。
 iptables 提供了一个参数 是检查状态的，下面我们来配置下 22 和 80 端口，防止无效的数据包。
+{% highlight Bash %}
 iptables -A OUTPUT -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+{% endhighlight %}
+
 可以看到和我们以前使用的：
+{% highlight Bash %}
 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+{% endhighlight %}
+
 多了一个状态判断。
 同样80端口也一样， 现在删掉原来的2条规则，
-iptables -L -n --line-number    这个是查看规则而且带上编号。我们看到编号就可以
-删除对应的规则了。
+{% highlight Bash %}
+iptables -L -n --line-number    这个是查看规则而且带上编号。我们看到编号就可以删除对应的规则了。
 iptables -D OUTPUT 1     这里的1表示第一条规则。
+{% endhighlight %}
+
 当你删除了前面的规则， 编号也会随之改变。看到了吧。
 好，我们删除了前面2个规则，22端口还可以正常使用，说明没问题了
 下面进行保存，别忘记了，不然的话重启就会还原到原来的样子。
+{% highlight Bash %}
 service iptables save    进行保存。
 Saving firewall rules to /etc/sysconfig/iptables:          [ OK ]
+{% endhighlight %}
 其实就是把刚才设置的规则写入到 /etc/sysconfig/iptables 文件中。
 
 ## DNS端口53设置
 
 下面我们来看看如何设置iptables来打开DNS端口，DNS端口对应的是53
 大家看到我现在的情况了吧，只开放22和80端口， 我现在看看能不能解析域名。
-hostwww.google.com    输入这个命令后，一直等待，说明DNS不通
-出现下面提示 ：
+{% highlight Bash %}
+host www.google.com    输入这个命令后，一直等待，说明DNS不通出现下面提示 ：
 ;; connection timed out; no servers could be reached
 ping 一下域名也是不通
 [root@localhost ~pingwww.google.com
 ping: unknown hostwww.google.com
+{% endhighlight %}
 我这里的原因就是 iptables 限制了53端口。
 有些服务器，特别是Web服务器减慢，DNS其实也有关系的，无法发送包到DNS服务器导致的。
 下面演示下如何使用 iptables 来设置DNS 53这个端口，如果你不知道 域名服务端口号，你
 可以用命令 : grep domain /etc/services
+{% highlight Bash %}
 [root@localhost ~grep domain /etc/services
 domain          53/tcp                          # name-domain server
 domain          53/udp
 domaintime      9909/tcp                        # domaintime
 domaintime      9909/udp                        # domaintime
+{% endhighlight %}
+
 看到了吧， 我们一般使用 udp 协议。
 好了， 开始设置。。。
+{% highlight Bash %}
 iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+{% endhighlight %}
 这是我们 ping 一个域名，数据就是从本机出去，所以我们先设置 OUTPUT，
 我们按照ping这个流程来设置。
 然后 DNS 服务器收到我们发出去的包，就回应一个回来
@@ -186,6 +202,8 @@ www-china.l.google.com has address 64.233.189.99
 正常可以解析 google 域名。
 ping 方面可能还要设置些东西。
 用 nslookup 看看吧
+{% highlight Bash %}
+
 [root@localhost ~nslookup
 >www.google.com
 Server:         192.168.1.1
@@ -199,16 +217,22 @@ Name:   www-china.l.google.com
 Address: 64.233.189.99
 Name:   www-china.l.google.com
 Address: 64.233.189.104
+{% endhighlight %}
+
 说明本机DNS正常， iptables 允许53这个端口的访问。
 
 ## iptables对ftp的设置
 
 现在我开始对ftp端口的设置，按照我们以前的视频，添加需要开放的端口
 ftp连接端口有2个 21 和 20 端口，我现在添加对应的规则。
+{% highlight Bash %}
+
 [root@localhost rootiptables -A INPUT -p tcp --dport 21 -j ACCEPT
 [root@localhost rootiptables -A INPUT -p tcp --dport 20 -j ACCEPT
 [root@localhost rootiptables -A OUTPUT -p tcp --sport 21 -j ACCEPT
 [root@localhost rootiptables -A OUTPUT -p tcp --sport 20 -j ACCEPT
+{% endhighlight %}
+
 好，这样就添加完了，我们用浏览器访问一下ftp,出现超时。
 所以我刚才说 ftp 是比较特殊的端口，它还有一些端口是 数据传输端口，
 例如目录列表， 上传 ，下载 文件都要用到这些端口。
@@ -225,12 +249,16 @@ pasv_max_port=31000
 然后保存退出。
 这两句话的意思告诉vsftpd, 要传输数据的端口范围就在30001到31000 这个范围内传送。
 这样我们使用 iptables 就好办多了，我们就打开 30001到31000 这些端口。
+{% highlight Bash %}
 [root@localhost rootiptables -A INPUT -p tcp --dport 30001:31000 -j ACCEPT
 [root@localhost rootiptables -A OUTPUT -p tcp --sport 30001:31000 -j ACCEPT
 [root@localhost rootservice iptables save
+{% endhighlight %}
+
 最后进行保存， 然后我们再用浏览器范围下 ftp。可以正常访问
 用个账号登陆上去，也没有问题，上传一些文件上去看看。
 看到了吧，上传和下载都正常。。 再查看下 iptables 的设置
+{% highlight Bash %}
 [root@localhost rootiptables -L -n
 Chain INPUT (policy DROP)
 target     prot opt source               destination
@@ -246,6 +274,7 @@ ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0          tcp spt:22
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0          tcp spt:21
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0          tcp spt:20
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0          tcp spts:30001:31000
+{% endhighlight %}
 这是我为了演示ftp特殊端口做的简单规则，大家可以添加一些对数据包的验证
 例如 -m state --state ESTABLISHED,RELATED 等等要求更加高的验证
 

@@ -16,9 +16,13 @@ iptables -P OUTPUT DROP
 {% endhighlight %}
 
 再用命令 iptables -L -n 查看 是否设置好， 好看到全部 DROP 了
+
 这样的设置好了，我们只是临时的， 重启服务器还是会恢复原来没有设置的状态
+
 还要使用 service iptables save 进行保存
+
 看到信息 firewall rules 防火墙的规则 其实就是保存在 /etc/sysconfig/iptables
+
 可以打开文件查看 vi /etc/sysconfig/iptables
 
 
@@ -44,37 +48,60 @@ ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0           tcp spt:22
 {% endhighlight %}
 
 现在Linux服务器只打开了22端口，用putty.exe测试一下是否可以链接上去。
+
 可以链接上去了，说明没有问题。
+
 最后别忘记了保存 对防火墙的设置
+
 通过命令：service iptables save 进行保存
+
 {% highlight Bash %}
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
 {% endhighlight %}
 
 针对这2条命令进行一些讲解吧
+
 -A 参数就看成是添加一条 INPUT 的规则
+
 -p 指定是什么协议 我们常用的tcp 协议，当然也有udp 例如53端口的DNS
+
 到时我们要配置DNS用到53端口 大家就会发现使用udp协议的
+
 而 --dport 就是目标端口 当数据从外部进入服务器为目标端口
+
 反之 数据从服务器出去 则为数据源端口 使用 --sport
+
 -j 就是指定是 ACCEPT 接收 或者 DROP 不接收
 
 ## 禁止某个IP访问
 
 1台Linux服务器,2台windows xp 操作系统进行访问
+
 Linux服务器ip 192.168.1.99
+
 xp1 ip: 192.168.1.2
+
 xp2 ip: 192.168.1.8
+
 下面看看我2台xp 都可以访问的
+
 192.168.1.2 这是 xp1 可以访问的，
+
 192.168.1.8 xp2 也是可以正常访问的。
+
 那么现在我要禁止 192.168.1.2 xp1 访问， xp2 正常访问，
+
 下面看看演示
+
 通过命令 iptables -A INPUT -p tcp -s 192.168.1.2 -j DROP
+
 这里意思就是 -A 就是添加新的规则， 怎样的规则呢？ 由于我们访问网站使用tcp的，
+
 我们就用 -p tcp , 如果是 udp 就写udp，这里就用tcp了， -s就是 来源的意思，
+
 ip来源于 192.168.1.2 ，-j 怎么做 我们拒绝它 这里应该是 DROP
+
 好，看看效果。好添加成功。下面进行验证 一下是否生效
 一直出现等待状态 最后 该页无法显示 ，这是 192.168.1.2 xp1 的访问被拒绝了。
 再看看另外一台 xp 是否可以访问， 是可以正常访问的 192.168.1.8 是可以正常访问的

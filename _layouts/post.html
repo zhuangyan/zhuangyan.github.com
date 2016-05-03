@@ -10,9 +10,30 @@ layout: default
   </div>
 
   <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
+    Written on {{ page.date | date:"%Y-%m-%d" }}
   </div>
-
+  <!-- next and previous -->
+<div style="margin-top:15px; margin-bottom:10px">
+  {%if page.previous%}
+  <span class="next">
+    上篇：
+    <a href="{{page.previous.url}}">
+      {{page.previous.title}}
+    </a>
+  </span>
+  {%endif%} 
+  {%if page.next%}
+  <div style="float:right">
+  <span class="prev" >
+    下篇：
+    <a href="{{page.next.url}}">
+      {{page.next.title}}
+    </a>
+  </span>
+  </div>
+  {%endif%}
+</div>
+<hr>
   <!-- JiaThis Button BEGIN -->
     <div id="ckepop">
       <span class="jiathis_txt">分享到：</span>

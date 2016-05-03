@@ -9,9 +9,12 @@ tags: ["linux", "iptables"]
 ##  关闭所有的 INPUT FORWARD OUTPUT
 
 下面是命令实现：
+{% highlight Bash %}
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
+{% endhighlight %}
+
 再用命令 iptables -L -n 查看 是否设置好， 好看到全部 DROP 了
 这样的设置好了，我们只是临时的， 重启服务器还是会恢复原来没有设置的状态
 还要使用 service iptables save 进行保存
@@ -23,9 +26,13 @@ iptables -P OUTPUT DROP
 ##  开放某个端口
 
 下面我只打开22端口，看我是如何操作的，就是下面2个语句
+{% highlight Bash %}
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+{% endhighlight %}
+
 再查看下 iptables -L -n 是否添加上去, 看到添加了
+{% highlight Bash %}
 Chain INPUT (policy DROP)
 target     prot opt source               destination
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0           tcp dpt:22
@@ -34,12 +41,17 @@ target     prot opt source               destination
 Chain OUTPUT (policy DROP)
 target     prot opt source               destination
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0           tcp spt:22
+{% endhighlight %}
+
 现在Linux服务器只打开了22端口，用putty.exe测试一下是否可以链接上去。
 可以链接上去了，说明没有问题。
 最后别忘记了保存 对防火墙的设置
 通过命令：service iptables save 进行保存
+{% highlight Bash %}
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+{% endhighlight %}
+
 针对这2条命令进行一些讲解吧
 -A 参数就看成是添加一条 INPUT 的规则
 -p 指定是什么协议 我们常用的tcp 协议，当然也有udp 例如53端口的DNS
@@ -71,10 +83,12 @@ ip来源于 192.168.1.2 ，-j 怎么做 我们拒绝它 这里应该是 DROP
 
 首先我们要知道 这条规则的编号，每条规则都有一个编号
 通过 iptables -L -n --line-number 可以显示规则和相对应的编号
+{% highlight Bash %}
 num target     prot opt source               destination
 1    DROP       tcp -- 0.0.0.0/0            0.0.0.0/0           tcp dpt:3306
 2    DROP       tcp -- 0.0.0.0/0            0.0.0.0/0           tcp dpt:21
 3    DROP       tcp -- 0.0.0.0/0            0.0.0.0/0           tcp dpt:80
+{% endhighlight %}
 多了 num 这一列， 这样我们就可以 看到刚才的规则对应的是 编号2
 那么我们就可以进行删除了
 iptables -D INPUT 2
@@ -128,11 +142,19 @@ iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
 这是我们 ping 一个域名，数据就是从本机出去，所以我们先设置 OUTPUT，
 我们按照ping这个流程来设置。
 然后 DNS 服务器收到我们发出去的包，就回应一个回来
+{% highlight Bash %}
 iptables -A INPUT -p udp --sport 53 -j ACCEPT
+{% endhighlight %}
+
 同时还要设置
+{% highlight Bash %}
 iptables -A INPUT -p udp --dport 53 -j ACCEPT
 iptables -A OUTPUT -p udp --sport 53 -j ACCEPT
+{% endhighlight %}
+
 好了， 下面开始测试下， 可以用 iptables -L -n 查看设置情况，确定没有问题就可以测试了
+{% highlight Bash %}
+
 [root@localhost ~iptables -L -n
 Chain INPUT (policy DROP)
 target     prot opt source               destination
@@ -148,13 +170,19 @@ ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0           tcp spt:22 state ESTA
 ACCEPT     tcp -- 0.0.0.0/0            0.0.0.0/0           tcp spt:80 state ESTABLISHED
 ACCEPT     udp -- 0.0.0.0/0            0.0.0.0/0           udp dpt:53
 ACCEPT     udp -- 0.0.0.0/0            0.0.0.0/0           udp spt:53
+{% endhighlight %}
+
 可以测试一下 是否 DNS 可以通过iptables 了。
+{% highlight Bash %}
+
 [root@localhost ~hostwww.google.com
 www.google.comis an alias forwww.l.google.com.
 www.l.google.comis an alias for www-china.l.google.com.
 www-china.l.google.com has address 64.233.189.104
 www-china.l.google.com has address 64.233.189.147
 www-china.l.google.com has address 64.233.189.99
+{% endhighlight %}
+
 正常可以解析 google 域名。
 ping 方面可能还要设置些东西。
 用 nslookup 看看吧

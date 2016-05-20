@@ -70,7 +70,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 {% endhighlight %}
 
-我只为了一个主分区(p)
+我只分了一个主分区(p)
 
 ## 格式化
 

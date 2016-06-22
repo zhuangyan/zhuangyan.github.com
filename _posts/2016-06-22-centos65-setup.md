@@ -5,7 +5,7 @@ tags: ["linux"]
 ---
 
 
-##  NFS服务简介
+###  NFS服务简介
 
 
 NFS 是Network File System的缩写，即网络文件系统。一种使用于分散式文件系统的协定，由Sun公司开发，于1984年向外公布。功能是通过网络让不同的机器、不同的操作系统能够彼此分享个别的数据，让应用程序在客户端通过网络访问位于服务器磁盘中的数据，是在类Unix系统间实现磁盘文件共享的一种方法。
@@ -14,7 +14,7 @@ NFS 是Network File System的缩写，即网络文件系统。一种使用于分
 
 　　NFS在文件传送或信息传送过程中依赖于RPC协议。RPC，远程过程调用 (Remote Procedure Call) 是能使客户端执行其他系统中程序的一种机制。NFS本身是没有提供信息传输的协议和功能的，但NFS却能让我们通过网络进行资料的分享，这是因为NFS使用了一些其它的传输协议。而这些传输协议用到这个RPC功能的。可以说NFS本身就是使用RPC的一个程序。或者说NFS也是一个RPC SERVER。所以只要用到NFS的地方都要启动RPC服务，不论是NFS SERVER或者NFS CLIENT。这样SERVER和CLIENT才能通过RPC来实现PROGRAM PORT的对应。可以这么理解RPC和NFS的关系：NFS是一个文件系统，而RPC是负责负责信息的传输。
 
-##  系统环境
+###  系统环境
 
 系统平台：CentOS release 5.6 (Final)
 
@@ -24,7 +24,7 @@ NFS Server IP：192.168.1.107
 
 SELINUX=disabled
 
-##  安装NFS服务
+###  安装NFS服务
 
 1、先用rpm -qa命令查看所需安装包（nfs-utils、rpcbind）是否已经安装：
 
@@ -75,7 +75,7 @@ Starting NFS daemon:                                       [  OK  ]
 [root@local /]# chkconfig nfs on
 {% endhighlight %}
 
-## 客户端挂载配置
+### 客户端挂载配置
 
 1、创建一个挂载点：
 {% highlight Bash %}

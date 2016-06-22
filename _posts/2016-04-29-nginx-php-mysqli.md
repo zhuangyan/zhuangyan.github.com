@@ -21,7 +21,7 @@ tags: ["php", "mysqli"]
 >	在下面添加extension = "mysqli.so" 保存即可  
 >	extension_dir="/usr/local/php/lib/php/extensions/no-debug-non-zts-20060613/"  
 >	extension = "mysqli.so"  
->	6、重启apache：# service httpd restart  
+>	6、重启nginx：# service nginx restart  
 
   按上面的文章操作到第3步的时候，会提示没有“with-mysqli”这个选项。到这里就困扰了我好长时间，最好还是找到了官网的安装说明<a href="http://php.net/manual/en/mysqli.installation.php" target="_blank">http://php.net/manual/en/mysqli.installation.php</a>。虽然正文的内容我也看懂，但是在评论中找到了一个有用的信息，就是“yum install php-mysqli”，执行完这个命令就生成了mysqli.so这个文件。虽然后来我修改完配置文件又重启了几次nginx还不好使，但是我终于想起来要重启下php-fpm了。
 

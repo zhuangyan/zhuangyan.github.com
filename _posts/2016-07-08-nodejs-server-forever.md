@@ -11,8 +11,37 @@ server { listen 80; server_name mui.zhugyan.cn; location / { proxy_pass http://l
 就可以了。
 
 然后再用nohup命令以后台形式启动nodejs的web服务。
-
+```bash
+nohup node /root/bsml/bin/www &
+```
 这样nodejs服务就可以通过域名来访问了。
 
 不过经过两天的运行，发现用nohup启动的后台服务总是会挂掉，所以我们需要使用其他守护方式启动，当进程挂了自动重启。
 通过搜索发现https://github.com/zapty/forever-service可以满足我的需求。
+
+```bash
+npm install -g forever
+npm install -g forever-service
+```
+然后为我们的站点创建个服务：
+
+```bash
+[root@msp-w03 conf]# 
+forever-service install muid --script /root/bsml/bin/www
+forever-service version 0.5.7
+Platform - CentOS release 6.5 (Final)
+muid provisioned successfully
+Commands to interact with service muid
+Start   - "sudo service muid start"
+Stop    - "sudo service muid stop"
+Status  - "sudo service muid status"
+Restart - "sudo service muid restart"
+```
+这个命令就在“/etc/init.d/”在生成了一个启动脚本“muid”，里面的“Start，Stop，Status，Restart”参数都全了。
+最后我们在把muid加入到自启动服务里：
+
+```bash
+chkconfig --add muid
+chkconfig muid on
+```
+

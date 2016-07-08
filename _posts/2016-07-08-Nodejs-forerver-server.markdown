@@ -1,19 +1,53 @@
 ---
 layout: post
-title: è¿™æ˜¯ä¸ªæµ‹è¯•é¡µé¢
+title: nodejsç”Ÿäº§ç¯å¢ƒéƒ¨ç½²
 tags: ["nodejs","æœåŠ¡å™¨"]
 ---
-  Ç°¶ËÍ¬Ñ§Ğ´ÁËÒ»¸önodejsµÄÍøÕ¾£¬ÈÃÎÒ°ïÃ¦¸ø²¿Êğµ½ÎÒÃÇµÄweb·şÎñÆ÷ÉÏ¡£ÎÒÒÔÇ°´ÓÀ´Ã»ÓĞÔÚÉú²ú»·¾³ÉÏ²¿Êğ¹ınodejsµÄ·şÎñ£¬ÕâÌ¨·şÎñÆ÷ÉÏÏÖÔÚÒ²Ö»ÓĞÒ»¸önginx+uwsgiµÄÍøÕ¾ÔÚÔËĞĞ¡£
-ºÃÔÚnginx»¹ÊÇºÜ¼òµ¥µÄ£¬Ö±½ÓÔÚnginx.confÀï¼ÓÉÏÒ»¸öserverÅäÖÃ¾Í¿ÉÒÔÁË¡£
+
+  å‰ç«¯åŒå­¦å†™äº†ä¸€ä¸ªnodejsçš„ç½‘ç«™ï¼Œè®©æˆ‘å¸®å¿™ç»™éƒ¨ç½²åˆ°æˆ‘ä»¬çš„webæœåŠ¡å™¨ä¸Šã€‚æˆ‘ä»¥å‰ä»æ¥æ²¡æœ‰åœ¨ç”Ÿäº§ç¯å¢ƒä¸Šéƒ¨ç½²è¿‡nodejsçš„æœåŠ¡ï¼Œè¿™å°æœåŠ¡å™¨ä¸Šç°åœ¨ä¹Ÿåªæœ‰ä¸€ä¸ªnginx+uwsgiçš„ç½‘ç«™åœ¨è¿è¡Œã€‚
+å¥½åœ¨nginxè¿˜æ˜¯å¾ˆç®€å•çš„ï¼Œç›´æ¥åœ¨nginx.confé‡ŒåŠ ä¸Šä¸€ä¸ªserveré…ç½®å°±å¯ä»¥äº†ã€‚
 
 {% highlight nginx %}
 server { listen 80; server_name mui.zhugyan.cn; location / { proxy_pass http://localhost:3000; } }
 {% endhighlight }
 
-È»ºóÔÙÓÃnohupÃüÁîÒÔºóÌ¨ĞÎÊ½Æô¶¯nodejsµÄweb·şÎñ
+ç„¶åå†ç”¨nohupå‘½ä»¤ä»¥åå°å½¢å¼å¯åŠ¨nodejsçš„webæœåŠ¡
 
 {% highlight bash %}
 nohup node /root/bsml/bin/www &
 {% endhighlight }
 
-ÕâÑùnodejs·şÎñ¾Í¿ÉÒÔÍ¨¹ıÓòÃûÀ´·ÃÎÊÁË¡£
+è¿™æ ·nodejsæœåŠ¡å°±å¯ä»¥é€šè¿‡åŸŸåæ¥è®¿é—®äº†ã€‚
+
+ä¸è¿‡ç»è¿‡ä¸¤å¤©çš„è¿è¡Œï¼Œå‘ç°ç”¨nohupå¯åŠ¨çš„åå°æœåŠ¡æ€»æ˜¯ä¼šæŒ‚æ‰ï¼Œæ‰€ä»¥æˆ‘ä»¬éœ€è¦ä½¿ç”¨å…¶ä»–å®ˆæŠ¤æ–¹å¼å¯åŠ¨ï¼Œå½“è¿›ç¨‹æŒ‚äº†è‡ªåŠ¨é‡å¯ã€‚
+é€šè¿‡æœç´¢å‘ç°https://github.com/zapty/forever-serviceå¯ä»¥æ»¡è¶³æˆ‘çš„éœ€æ±‚ã€‚
+å®‰è£…è¯´æ˜å®‰è£…éå¸¸æ–¹ä¾¿ï¼š
+
+{% highlight bash %}
+npm install -g forever
+npm install -g forever-service
+{% endhighlight }
+
+ç„¶åä¸ºæˆ‘ä»¬çš„ç«™ç‚¹åˆ›å»ºä¸ªæœåŠ¡ï¼š
+
+{% highlight bash %}
+[root@msp-w03 conf]# 
+forever-service install muid --script /root/bsml/bin/www
+forever-service version 0.5.7
+Platform - CentOS release 6.5 (Final)
+muid provisioned successfully
+Commands to interact with service muid
+Start   - "sudo service muid start"
+Stop    - "sudo service muid stop"
+Status  - "sudo service muid status"
+Restart - "sudo service muid restart"
+{% endhighlight }
+
+è¿™ä¸ªå‘½ä»¤å°±åœ¨â€œ/etc/init.d/â€åœ¨ç”Ÿæˆäº†ä¸€ä¸ªå¯åŠ¨è„šæœ¬â€œmuidâ€ï¼Œé‡Œé¢çš„â€œStartï¼ŒStopï¼ŒStatusï¼ŒRestartâ€å‚æ•°éƒ½å…¨äº†ã€‚
+æœ€åæˆ‘ä»¬åœ¨æŠŠmuidåŠ å…¥åˆ°è‡ªå¯åŠ¨æœåŠ¡é‡Œï¼š
+
+{% highlight bash %}
+chkconfig --add muid
+chkconfig muid on
+{% endhighlight }
+

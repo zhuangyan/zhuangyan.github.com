@@ -19,14 +19,13 @@ nohup node /root/bsml/bin/www &
 不过经过两天的运行，发现用nohup启动的后台服务总是会挂掉，所以我们需要使用其他守护方式启动，当进程挂了自动重启。
 通过搜索发现https://github.com/zapty/forever-service可以满足我的需求。
 
-```sh
+```python
 npm install -g forever
 npm install -g forever-service
 ```
 然后为我们的站点创建个服务：
 
-```sh
-[root@msp-w03 conf]# 
+```python
 forever-service install muid --script /root/bsml/bin/www
 forever-service version 0.5.7
 Platform - CentOS release 6.5 (Final)

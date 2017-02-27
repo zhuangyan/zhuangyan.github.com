@@ -196,8 +196,6 @@ body {padding-top:40px;}
 .fixed a.backup{background:url(/static/img/fixed.jpg) 0 -117px no-repeat;height:58px;}
 .fixed a.backup:hover{background-position:-72px -116px;height:58px;}
 .fixed #code {position:absolute;left:-196px;width:196px;height:196px;top:-50px;display:none;}
-@media screen and(max-width:1024px)
-{.fixed {display:none}}
 
 .timeline-container { margin: 20px 0; position: relative; }
 .timeline-container:before { content: ' '; width: 4px; margin-left: -2px; top: 10px; background-color: #e9f0f5; height: 100%; position: absolute; }

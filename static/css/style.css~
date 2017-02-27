@@ -196,6 +196,8 @@ body {padding-top:40px;}
 .fixed a.backup{background:url(/static/img/fixed.jpg) 0 -117px no-repeat;height:58px;}
 .fixed a.backup:hover{background-position:-72px -116px;height:58px;}
 .fixed #code {position:absolute;left:-196px;width:196px;height:196px;top:-50px;display:none;}
+@media screen and(min-width:1024px)
+{.fixed {display:none}}
 
 .timeline-container { margin: 20px 0; position: relative; }
 .timeline-container:before { content: ' '; width: 4px; margin-left: -2px; top: 10px; background-color: #e9f0f5; height: 100%; position: absolute; }
@@ -215,7 +217,8 @@ body {padding-top:40px;}
   .timeline-block:nth-child(even) .timeline-content:before { border-right: 8px solid #e9f0f5; margin-left: -18px; }
   .timeline-block:nth-child(odd) .timeline-content { text-align: right; float: left; }
   .timeline-block:nth-child(odd) .timeline-content:before { border-left: 8px solid #e9f0f5; margin-left: 10px; }
-  .timeline-content { width: 46.5%; } }
+  .timeline-content { width: 46.5%; } 
+  .fixed {display:none}}
 @media (max-width: 96em) { .timeline-container { padding-left: 15px; }
   .timeline-block:before { margin-left: -18px; }
   .timeline-content { margin: 15px 20px; margin-right: 0; }

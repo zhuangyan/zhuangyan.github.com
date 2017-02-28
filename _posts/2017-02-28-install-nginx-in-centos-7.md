@@ -182,6 +182,10 @@ exit 2
 esac
 {% endhighlight %}
 
+{% highlight shell %}
+# chmod +x /etc/init.d/nginx
+{% endhighlight %}
+
 设置系统服务
 {% highlight shell %}
 # cd /etc/systemd/system

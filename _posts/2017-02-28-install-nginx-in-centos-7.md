@@ -34,7 +34,7 @@ tags: ["bootstrap","前端"]
 [root@centos7 ~]# mkdir src
 [root@centos7 ~]# cd src
 [root@centos7 src]# tar -zxvf nginx-1.11.10.tar.gz 
-[root@centos7 src]# cd  cd nginx-1.11.10
+[root@centos7 src]# cd nginx-1.11.10
 {% endhighlight %}
 
 ### 编译及安装

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 在centos7上有源码安装nginx
+title: 在centos7上用源码安装nginx
 tags: ["bootstrap","前端"]
 ---
 

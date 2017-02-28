@@ -191,9 +191,6 @@ esac
 内容如下：
 
 {% highlight shell %}
-# cd /etc/systemd/system
-# vi nginx.service
-{% endhighlight %}
 [Unit]
 Description=nginx 
 After=network.target 

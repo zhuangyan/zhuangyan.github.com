@@ -79,7 +79,6 @@ daemonize       = /etc/uwsgi/uwsgi.log
 pidfile         = /etc/uwsgi/flask.pid
 
 # Flask config start
-#socket = 0.0.0.0:44380
 socket = 127.0.0.1:44380
 
 pythonpath = /home/nginx/wwwroot
@@ -143,7 +142,19 @@ WantedBy=multi-user.target
 # systemctl start uwsgi.service
 {% endhighlight %}
 
+### 整合nginx
+参考上一篇文章：<a href="http://www.zhuangyan.cn/install-nginx-in-centos-7/" target="_blank">在centos7上用源码安装nginx</a>。
+修改nginx.conf
+{% highlight shell %}
+ 		location ~/static/ {
+            root  /home/nginx/wwwroot/app;
+    	} 
+        location / {
+            include      /etc/nginx/uwsgi_params;
+            uwsgi_pass   127.0.0.1:44380;
+        }
 
+{% endhighlight %}
 
 
 

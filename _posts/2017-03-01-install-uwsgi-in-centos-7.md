@@ -146,13 +146,13 @@ WantedBy=multi-user.target
 参考上一篇文章：<a href="http://www.zhuangyan.cn/install-nginx-in-centos-7/" target="_blank">在centos7上用源码安装nginx</a>。
 修改nginx.conf
 {% highlight shell %}
- 		location ~/static/ {
-            root  /home/nginx/wwwroot/app;
-    	} 
-        location / {
-            include      /etc/nginx/uwsgi_params;
-            uwsgi_pass   127.0.0.1:44380;
-        }
+location ~/static/ {
+	root  /home/nginx/wwwroot/app;
+} 
+location / {
+	include      /etc/nginx/uwsgi_params;
+	uwsgi_pass   127.0.0.1:44380;
+}
 
 {% endhighlight %}
 

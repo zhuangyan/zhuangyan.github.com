@@ -29,10 +29,10 @@ tags: ["服务器","nginx"]
 
 下载并解压源码
 {% highlight shell %}
-[root@centos7 src]#  wget http://nginx.org/download/nginx-1.11.10.tar.gz  
-[root@centos7 ~]# tar -zxvf nginx-1.11.10.tar.gz 
 [root@centos7 ~]# mkdir src
 [root@centos7 ~]# cd src
+[root@centos7 src]#  wget http://nginx.org/download/nginx-1.11.10.tar.gz  
+[root@centos7 src]# tar -zxvf nginx-1.11.10.tar.gz 
 [root@centos7 src]# tar -zxvf nginx-1.11.10.tar.gz 
 [root@centos7 src]# cd nginx-1.11.10
 {% endhighlight %}

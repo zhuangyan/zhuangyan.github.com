@@ -21,15 +21,13 @@ permalink: /about/
 <img src="/images/mmqrcode1432452023005.png" width="128px" height="128px" alt="我的微信" />
 
 ### 给我留言
-<div class="ds-thread" data-thread-key="about_zhuangyan" data-title="about" data-url="/about/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"zhuangyan"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href,
+    sourceId: "about_zhuangyan",
+    productKey: "fa9c2b176140449d97292ea502ee96c8",
+    target: "cloud-tie-wrapper"
+  };
 </script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>

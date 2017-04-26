@@ -5,14 +5,16 @@ permalink: /about/
 ---
 
 ### 个人简介
+<a target="__blank" href="https://www.codewars.com/users/zhuangyan/">
+<img src="https://www.codewars.com/users/zhuangyan/badges/large" alt="CodeWars">
+</a>
+
 * 大龄码农，已婚.
 * 大学没毕业，感谢所有给我工作机会的公司！
 * 一直在努力提升中！
 * Life is short, I use python.
 * I Love Coding!
-<a target="__blank" href="https://www.codewars.com/users/zhuangyan/">
-<img src="https://www.codewars.com/users/zhuangyan/badges/large" alt="CodeWars">
-</a>
+
 ### 联系我
 
 <p>

@@ -1,20 +1,15 @@
-<div class="col-xs-12" ng-show="direcCtrl.found.length">
-  <table>
-    <tr>
-      <td> </td>
-      <td>Menu Item Name</td>
-      <td>Short Name</td>
-      <td>Description</td>
-    </tr>
-      <tr ng-repeat="item in direcCtrl.found">
-        <td>
-          <button type="button" class="table-button"
-                  ng-click="direcCtrl.onRemove({index: $index});">Don't want this one!</button>
-        </td>
-        <td>{{item.name}}</td>
-        <td>{{item.short_name}}</td>
-        <td>{{item.description}}</td>
-      </tr>
-  </table>
+<br>
+<br>
+
+<div>
+	<ol>
+		<ul ng-repeat='item in found'>
+		<br>
+			Name: {{item.name}} <br>
+			Short Name: {{item.short_name}} <br>
+			Description: {{item.description}} <br>
+			<button ng-click='onRemove({index: $index})'>Don't want this one!</button>
+		</ul>
+	</ol>
 </div>
-<div class="error col-xs-12" ng-if="direcCtrl.showNothingFound"> Nothing found </div>
+<div>{{empty}}</div>

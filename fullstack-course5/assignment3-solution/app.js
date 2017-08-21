@@ -1,99 +1,82 @@
-(function () {
+(function() {
+  'use strict';
+  angular.module('NarrowItDownApp', [])
+    .controller('NarrowItDownController', NarrowItDownController)
+    .service('MenuSearchService', MenuSearchService)
+    .directive('foundItems', FoundItemsDirective);
 
-angular.module('NarrowItDownApp', [])
-.controller('NarrowItDownController', NarrowItDownController)
-.service('MenuSearchService', MenuSearchService)
-.directive('foundItems', FoundItemsDirective);
+  function FoundItemsDirective() {
+    var ddo = {
+      templateUrl: 'foundItems.html',
+      scope: {
+        found: '<',
+        onRemove: '&'
+      },
+      controller: FoundItemsDirectiveController,
+      controllerAs: 'list',
+      bindToController: true
+    };
+    return ddo;
+  }
 
-// This is the directive which is used to display the content on the screen
-function FoundItemsDirective() {
-	var ddo = {
-		restrict: 'E',
-		templateUrl: 'foundItems.html',
-		scope: {
-			found: '<',
-			onRemove: '&',
-			empty: '<'
-		}
-	};
-	return ddo;
+  function FoundItemsDirectiveController() {
+    var list = this;
+
+    list.isEmpty = function() {
+      return list.found != undefined && list.found.length === 0;
+    }
+  }
+
+  NarrowItDownController.$inject = ['MenuSearchService'];
+  function NarrowItDownController(MenuSearchService) {
+    var controller = this;
+
+    controller.searchTerm = "";
+
+    controller.narrowIt = function() {
+      if (controller.searchTerm === "") {
+        controller.items = [];
+        return;
+      }
+      var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
+      promise.then(function(response) {
+        controller.items = response;
+      })
+      .catch(function(error) {
+        console.log("Something went wrong", error);
+      });
+    };
+
+    controller.removeItem = function(index) {
+      controller.items.splice(index, 1);
+    };
+  }
+
+  MenuSearchService.$inject = ['$http'];
+  function MenuSearchService($http) {
+    var service = this;
+
+    service.getMatchedMenuItems = function(searchTerm) {
+        return $http({
+          method: 'GET',
+          url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
+        }).then(function (result) {
+        // process result and only keep items that match
+        var items = result.data.menu_items;
+
+        var foundItems = [];
+
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].description.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
+            foundItems.push(items[i]);
+          }
+        }
+
+        // return processed items
+        return foundItems;
+      });
+    };
+  }
+
 }
-
-// This is the controller which is used to call different kind of methods using the MenuSearchService
-NarrowItDownController.$inject = ['MenuSearchService'];
-function NarrowItDownController (MenuSearchService) {
-	var ctrl = this;
-
-	ctrl.searchTerm = '';
-	ctrl.empty = '';
-
-	ctrl.searchItem = function () {
-
-		if (ctrl.searchTerm !== '') {
-			var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
-			promise.then(function(result) {
-				ctrl.found = result;
-				ctrl.empty = MenuSearchService.isEmpty();
-			})
-			.catch(function(error) {
-			console.log(error);
-			});
-		}
-		else {
-			ctrl.empty = MenuSearchService.isEmpty();
-			console.log(ctrl.empty);
-		};
-	};
-
-
-	ctrl.remove = function (itemIndex) {
-		return MenuSearchService.removeItem(itemIndex);
-	}
-
-}
-
-// This is the service which is called for data processing which is then injected into NarrowItDownController
-MenuSearchService.$inject = ['$http'];
-function MenuSearchService ($http, searchTerm) {
-	var service = this;
-	var foundItems = [];
-	var emptyMessage = 'Nothing Found';
-
-	service.getMatchedMenuItems = function (searchTerm) {
-
-		searchTerm = searchTerm.trim().toLowerCase();
-
-		return $http ({
-			method: "GET",
-			url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
-		})
-		.then(function(response) {
-
-			for(var i=0; i<response.data.menu_items.length; i++) {
-
-				if (response.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1) {
-					foundItems.push(response.data.menu_items[i]);
-				}
-				// else{
-				// 	service.isEmpty();
-				// }
-			}
-			return foundItems;
-
-		}).catch(function(errorResponse) {
-			console.log(errorResponse);
-		});
-	};
-
-	service.removeItem = function (itemIndex) {
-		foundItems.splice(itemIndex, 1);
-		return foundItems;
-	};
-
-	service.isEmpty = function () {
-		console.log(emptyMessage);
-		return emptyMessage;
-	};
-}
-
-})();
+)();

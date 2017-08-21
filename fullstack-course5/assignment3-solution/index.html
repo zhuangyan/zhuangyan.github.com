@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="angular.min.js"></script>
+    <script src="lib/angular.min.js"></script>
     <script src="app.js"></script>
   </head>
-<body>
-   <div class="container" ng-controller='NarrowItDownController as ctrl'>
-    <h1>Narrow Down Your Chinese Menu Choices</h1>
+<body ng-controller="NarrowItDownController as narrowItCtrl">
+   <div class="container">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model='ctrl.searchTerm'>
+      <input type="text" ng-model="narrowItCtrl.searchStr" placeholder="search term" class="form-control">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click='ctrl.searchItem()'>Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="narrowItCtrl.onNarrowItDownCLick()">Narrow It Down For Me!</button>
     </div>
 
     <!-- found-items should be implemented as a component -->
-    <found-items found='ctrl.found' on-remove='ctrl.remove(index)' empty='ctrl.empty'></found-items>
-  </div>
 
+    <!-- <found-items found-items="...." on-remove="(index)"></found-items> -->
+
+    <found-items found="narrowItCtrl.found"
+                 on-remove="narrowItCtrl.removeItem(index)"
+                 show-nothing-found="narrowItCtrl.showNothingFound"></found-items>
+
+  </div>
 </body>
 </html>

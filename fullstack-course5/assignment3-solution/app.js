@@ -1,82 +1,95 @@
-(function() {
+(function () {
   'use strict';
+
   angular.module('NarrowItDownApp', [])
-    .controller('NarrowItDownController', NarrowItDownController)
-    .service('MenuSearchService', MenuSearchService)
-    .directive('foundItems', FoundItemsDirective);
+  .controller('NarrowItDownController', NarrowItDownController)
+  .service('MenuSearchService', MenuSearchService)
+  .constant('ApiBaseURL', 'https://davids-restaurant.herokuapp.com')
+  .directive('foundItems', FoundItemsDirective);
+
 
   function FoundItemsDirective() {
     var ddo = {
       templateUrl: 'foundItems.html',
       scope: {
         found: '<',
-        onRemove: '&'
+        onRemove: '&',
+        showNothingFound: '='
       },
       controller: FoundItemsDirectiveController,
-      controllerAs: 'list',
+      controllerAs: 'direcCtrl',
       bindToController: true
     };
+
     return ddo;
   }
 
   function FoundItemsDirectiveController() {
-    var list = this;
-
-    list.isEmpty = function() {
-      return list.found != undefined && list.found.length === 0;
-    }
+    var direcCtrl = this;
   }
 
   NarrowItDownController.$inject = ['MenuSearchService'];
-  function NarrowItDownController(MenuSearchService) {
-    var controller = this;
+  function NarrowItDownController (MenuSearchService) {
 
-    controller.searchTerm = "";
+    var menu = this;
+    menu.showNothingFound = false;
+    menu.searchStr = "";
+    menu.found = [];
 
-    controller.narrowIt = function() {
-      if (controller.searchTerm === "") {
-        controller.items = [];
-        return;
+    menu.onNarrowItDownCLick = function () {
+      menu.showNothingFound = false;
+
+      if(menu.searchStr!=undefined && menu.searchStr.length>0) {
+        var loadAllMenuItemsPromise = MenuSearchService.getAllMenuItems();
+
+        loadAllMenuItemsPromise.then(function (response) {
+          menu.found = MenuSearchService.getMatchedMenuItems(response.data, menu.searchStr);
+
+          menu.showNothingFound = !(menu.found.length>0);
+        })
+        .catch(function (error) {
+          menu.showNothingFound = true;
+          console.log("ERROR!! Not able to load MenuItems.");
+        });
       }
-      var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
-      promise.then(function(response) {
-        controller.items = response;
-      })
-      .catch(function(error) {
-        console.log("Something went wrong", error);
-      });
+      else {
+        menu.showNothingFound = true;
+        menu.found = [];
+      }
     };
 
-    controller.removeItem = function(index) {
-      controller.items.splice(index, 1);
+    menu.removeItem = function (itemIndex) {
+      menu.found.splice(itemIndex, 1);
     };
+
   }
 
-  MenuSearchService.$inject = ['$http'];
-  function MenuSearchService($http) {
+  MenuSearchService.$inject = ['$http', 'ApiBaseURL'];
+  function MenuSearchService($http, ApiBaseURL) {
     var service = this;
 
-    service.getMatchedMenuItems = function(searchTerm) {
-        return $http({
-          method: 'GET',
-          url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
-        }).then(function (result) {
-        // process result and only keep items that match
-        var items = result.data.menu_items;
-
-        var foundItems = [];
-
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].description.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
-            foundItems.push(items[i]);
-          }
-        }
-
-        // return processed items
-        return foundItems;
+    service.getAllMenuItems = function () {
+      var response = $http({
+        method: "GET",
+        url: (ApiBaseURL + '/menu_items.json')
       });
+
+      return response;
+    };
+
+    service.getMatchedMenuItems = function (reqData, searchStr) {
+      var allMenuItem = reqData.menu_items;
+      var matchedMenuItems = [];
+
+      for(var i=0; i<allMenuItem.length; i++) {
+        var tempDesc = allMenuItem[i].description;
+        if(tempDesc.toLowerCase().indexOf(searchStr.toLowerCase()) !== -1) {
+          matchedMenuItems.push(allMenuItem[i]);
+        }
+      }
+
+      return matchedMenuItems;
     };
   }
 
-}
-)();
+})();

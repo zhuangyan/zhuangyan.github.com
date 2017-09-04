@@ -1,0 +1,70 @@
+<div class="container">
+  <fieldset>
+    <legend style="color:white">Registration</legend>
+    <form name='regForm' class="form-vertical" novalidate>
+
+    <label for="firstName">First Name *</label>
+      <input type="text" class="form-control ng-untouched ng-empty ng-invalid ng-invalid-required" name="firstName" placeholder="Enter First Name"
+        ng-model="regCtrl.user.firstName"
+        required>
+        <span
+          ng-if="regForm.firstName.$error.required && regForm.firstName.$touched">
+          First name required
+        </span>
+        <br>
+
+    <label for="lastName">Last Name *</label>
+      <input type="text" class="form-control ng-untouched ng-empty ng-invalid ng-invalid-required" name="lastName" placeholder="Enter Last Name"
+        ng-model="regCtrl.user.lastName"
+        required>
+        <span
+          ng-if="regForm.lastName.$error.required && regForm.lastName.$touched">
+          Last name required
+        </span>
+        <br>
+
+    <label for="email">E-mail *</label>
+      <input type="email" class="form-control ng-untouched ng-empty ng-invalid ng-invalid-required" name="email" placeholder="Enter Email"
+        ng-model="regCtrl.user.email"
+        required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+    <label for="Phone Number">Phone Number *</label>
+      <input type="text" class="form-control ng-untouched ng-empty ng-invalid ng-invalid-required" name="phone" placeholder="Enter Phone (###-###-####)"
+        ng-model="regCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+    <label for="favDish">Favorite Dish *</label>
+      <input type="text" class="form-control ng-untouched ng-empty ng-invalid ng-invalid-required" name="favDish" placeholder="Favorite dish - Short Name"
+        ng-model="regCtrl.user.favDish"
+        on-keypress="regCtrl.validateFavDish($event)"
+        required>
+        <span
+          ng-if="regForm.favDish.$error.required && regForm.favDish.$touched">
+          Favorite dish required
+        </span>
+       <span
+          ng-if="regCtrl.invalidFavDish && !(regForm.favDish.$error.required && regForm.favDish.$touched)">
+          No such menu number exists
+        </span>
+        <br>
+
+      <button style="margin-top: 10px;" class="btn btn-primary"
+        ng-disabled="regForm.$invalid || regCtrl.invalidFavDish"
+        ng-click="regCtrl.submit()">Submit</button>
+
+        <div style="margin-top: 10px;" ng-if="regCtrl.saved">
+          <span>
+            Successfully saved
+          </span>
+        </div>
+    </form>
+  </fieldset>
+</div>

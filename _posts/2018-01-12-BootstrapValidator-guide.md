@@ -159,7 +159,7 @@ $(formName).data("bootstrapValidator").resetForm();
 {% endhighlight %}
 
 #### 手动触发表单验证
-{% highlight javascript %}
+{% highlight html %}
 
 //触发全部验证
 $(formName).data(“bootstrapValidator”).validate();
@@ -169,7 +169,7 @@ $(formName).data(“bootstrapValidator”).validateField('fieldName');
 
 
 #### 获取当前表单验证状态
-{% highlight javascript %}
+{% highlight html %}
 
 // flag = true/false 
 var flag = $(formName).data(“bootstrapValidator”).isValid();
@@ -177,7 +177,7 @@ var flag = $(formName).data(“bootstrapValidator”).isValid();
 
 
 ####　根据指定字段名称获取验证对象
-{% highlight javascript %}
+{% highlight html %}
 
 // element = jq对象 / null
 var element = $(formName).data(“bootstrapValidator”).getFieldElements('fieldName');

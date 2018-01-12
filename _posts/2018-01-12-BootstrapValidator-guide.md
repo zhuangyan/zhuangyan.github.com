@@ -212,3 +212,121 @@ var element = $(formName).data(“bootstrapValidator”).getFieldElements('field
         //提交逻辑
     });
 {% endhighlight %}
+
+### 常用验证规则
+
+1.判断字段是否为空
+
+{% highlight html %}
+ notEmpty: {
+          message: '用户名必填不能为空'
+    }
+{% endhighlight %}
+
+2.字段长度判断
+
+{% highlight html %}
+stringLength: {
+          min: 6,
+          max: 30,
+          message: '用户名长度不能小于6位或超过30位'
+   },
+{% highlight html %}
+          
+3.通过正则表达式进行验证
+{% highlight html %}
+
+regexp: {
+        regexp: /^[A-Z\s]+$/i,
+        message: '名字只能由字母字符和空格组成。'
+    }
+{% highlight html %}
+                    
+4.大小写验证
+{% highlight html %}
+
+stringCase: {
+        message: '姓氏必须只包含大写字符。',
+        case: 'upper'//其他值或不填表示只能小写字符
+    },
+{% highlight html %}
+                    
+5.两个字段不相同的判断
+{% highlight html %}
+
+different: {
+          field: 'password',
+          message: '用户名和密码不能相同。'
+        }
+{% highlight html %}
+                    
+6.email验证
+{% highlight html %}
+
+emailAddress: {
+            message: 'The input is not a valid email address'
+        }
+{% highlight html %}
+                   
+7.日期格式验证
+{% highlight html %}
+date: {
+         format: 'YYYY/MM/DD',
+         message: '日期无效'
+                    }
+{% highlight html %}
+                    
+8.纯数字验证
+{% highlight html %}
+
+ digits: {
+        message: '该值只能包含数字。'
+    }
+{% highlight html %}
+    
+9.ajax验证
+{% highlight html %}
+
+threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
+remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+        url: 'exist2.do',//验证地址
+        message: '用户已存在',//提示消息
+        delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+        type: 'POST'//请求方式
+    },
+{% highlight html %}
+                     
+10.复选框验证
+{% highlight html %}
+
+choice: {
+        min: 2,
+        max: 4,
+        message: '请选择2-4项'
+    }
+{% highlight html %}
+                    
+11.密码确认
+{% highlight html %}
+identical: {
+        field: 'confirmPassword',
+        message: 'The password and its confirm are not the same'
+    },
+{% highlight html %}
+                    
+12.判断输入数字是否符合大于18小于100
+{% highlight html %}
+
+greaterThan: {
+            value: 18
+        },
+lessThan: {
+            value: 100
+        }
+{% highlight html %}
+                    
+13.uri验证
+{% highlight html %}
+    uri: {}
+{% highlight html %}
+ 

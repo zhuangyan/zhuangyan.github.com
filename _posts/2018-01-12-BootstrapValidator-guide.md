@@ -58,12 +58,12 @@ boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
 {% highlight javascript %}
     $(function () {
         $('form').bootstrapValidator({
-　　　　　　　　message: 'This value is not valid',
-            　feedbackIcons: {
-    　　　　　　　　valid: 'glyphicon glyphicon-ok',
-    　　　　　　　　invalid: 'glyphicon glyphicon-remove',
-    　　　　　　　　validating: 'glyphicon glyphicon-refresh'
-    　　　　　　　　   },
+            message: 'This value is not valid',
+                feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+                },
             fields: {
                 username: {
                     message: '用户名验证失败',
@@ -190,8 +190,8 @@ var element = $(formName).data(“bootstrapValidator”).getFieldElements('field
 {% highlight javascript %}
 
  $("buttonName").on("click", function(){
-     //获取表单对象
-    var bootstrapValidator = form.data('bootstrapValidator');
+        //获取表单对象
+        var bootstrapValidator = form.data('bootstrapValidator');
         //手动触发验证
         bootstrapValidator.validate();
         if(bootstrapValidator.isValid()){

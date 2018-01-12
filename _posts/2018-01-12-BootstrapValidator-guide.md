@@ -149,6 +149,7 @@ boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
 {% highlight javascript %}
 
 $(formName).data(“bootstrapValidator”).updateStatus("fieldName",  "NOT_VALIDATED",  null );
+{% endhighlight %}
 
 #### 重置表单所有验证规则
 {% highlight javascript %}
@@ -185,6 +186,7 @@ var element = $(formName).data(“bootstrapValidator”).getFieldElements('field
 
 #### 当提交按钮是普通按钮 
 {% highlight javascript %}
+
  $("buttonName").on("click", function(){
      //获取表单对象
     var bootstrapValidator = form.data('bootstrapValidator');
@@ -201,6 +203,7 @@ var element = $(formName).data(“bootstrapValidator”).getFieldElements('field
 
 会在success之前自动触发表单验证
 {% highlight javascript %}
+
  var bootstrapValidator = form.data('bootstrapValidator');
     bootstrapValidator.on('success.form.bv', function (e) {
         e.preventDefault();

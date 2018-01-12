@@ -231,7 +231,8 @@ stringLength: {
           max: 30,
           message: '用户名长度不能小于6位或超过30位'
    },
-{% highlight html %}
+{% endhighlight %}
+
           
 3.通过正则表达式进行验证
 {% highlight html %}
@@ -240,7 +241,8 @@ regexp: {
         regexp: /^[A-Z\s]+$/i,
         message: '名字只能由字母字符和空格组成。'
     }
-{% highlight html %}
+{% endhighlight %}
+
                     
 4.大小写验证
 {% highlight html %}
@@ -249,7 +251,8 @@ stringCase: {
         message: '姓氏必须只包含大写字符。',
         case: 'upper'//其他值或不填表示只能小写字符
     },
-{% highlight html %}
+{% endhighlight %}
+
                     
 5.两个字段不相同的判断
 {% highlight html %}
@@ -258,7 +261,8 @@ different: {
           field: 'password',
           message: '用户名和密码不能相同。'
         }
-{% highlight html %}
+{% endhighlight %}
+
                     
 6.email验证
 {% highlight html %}
@@ -266,7 +270,8 @@ different: {
 emailAddress: {
             message: 'The input is not a valid email address'
         }
-{% highlight html %}
+{% endhighlight %}
+
                    
 7.日期格式验证
 {% highlight html %}
@@ -274,7 +279,8 @@ date: {
          format: 'YYYY/MM/DD',
          message: '日期无效'
                     }
-{% highlight html %}
+{% endhighlight %}
+
                     
 8.纯数字验证
 {% highlight html %}
@@ -282,7 +288,8 @@ date: {
  digits: {
         message: '该值只能包含数字。'
     }
-{% highlight html %}
+{% endhighlight %}
+
     
 9.ajax验证
 {% highlight html %}
@@ -294,7 +301,8 @@ remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当
         delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
         type: 'POST'//请求方式
     },
-{% highlight html %}
+{% endhighlight %}
+
                      
 10.复选框验证
 {% highlight html %}
@@ -304,7 +312,8 @@ choice: {
         max: 4,
         message: '请选择2-4项'
     }
-{% highlight html %}
+{% endhighlight %}
+
                     
 11.密码确认
 {% highlight html %}
@@ -312,7 +321,8 @@ identical: {
         field: 'confirmPassword',
         message: 'The password and its confirm are not the same'
     },
-{% highlight html %}
+{% endhighlight %}
+
                     
 12.判断输入数字是否符合大于18小于100
 {% highlight html %}
@@ -323,10 +333,12 @@ greaterThan: {
 lessThan: {
             value: 100
         }
-{% highlight html %}
+{% endhighlight %}
+
                     
 13.uri验证
 {% highlight html %}
     uri: {}
-{% highlight html %}
+{% endhighlight %}
+
  

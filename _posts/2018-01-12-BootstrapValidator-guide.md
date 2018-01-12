@@ -148,13 +148,13 @@ boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
 
 ### 常用事件
 #### 重置某一单一验证字段验证规则
-{% highlight javascript %}
+{% highlight html %}
 
 $(formName).data(“bootstrapValidator”).updateStatus("fieldName",  "NOT_VALIDATED",  null );
 {% endhighlight %}
 
 #### 重置表单所有验证规则
-{% highlight javascript %}
+{% highlight html %}
 $(formName).data("bootstrapValidator").resetForm();
 {% endhighlight %}
 

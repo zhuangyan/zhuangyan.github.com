@@ -217,7 +217,7 @@ var element = $(formName).data(“bootstrapValidator”).getFieldElements('field
 
 1.判断字段是否为空
 
-{% highlight html %}
+{% highlight javascript %}
  notEmpty: {
           message: '用户名必填不能为空'
     }
@@ -225,7 +225,7 @@ var element = $(formName).data(“bootstrapValidator”).getFieldElements('field
 
 2.字段长度判断
 
-{% highlight html %}
+{% highlight javascript %}
 stringLength: {
           min: 6,
           max: 30,
@@ -235,7 +235,7 @@ stringLength: {
 
           
 3.通过正则表达式进行验证
-{% highlight html %}
+{% highlight javascript %}
 
 regexp: {
         regexp: /^[A-Z\s]+$/i,
@@ -245,7 +245,7 @@ regexp: {
 
                     
 4.大小写验证
-{% highlight html %}
+{% highlight javascript %}
 
 stringCase: {
         message: '姓氏必须只包含大写字符。',
@@ -255,7 +255,7 @@ stringCase: {
 
                     
 5.两个字段不相同的判断
-{% highlight html %}
+{% highlight javascript %}
 
 different: {
           field: 'password',
@@ -265,7 +265,7 @@ different: {
 
                     
 6.email验证
-{% highlight html %}
+{% highlight javascript %}
 
 emailAddress: {
             message: 'The input is not a valid email address'
@@ -274,7 +274,7 @@ emailAddress: {
 
                    
 7.日期格式验证
-{% highlight html %}
+{% highlight javascript %}
 date: {
          format: 'YYYY/MM/DD',
          message: '日期无效'
@@ -283,7 +283,7 @@ date: {
 
                     
 8.纯数字验证
-{% highlight html %}
+{% highlight javascript %}
 
  digits: {
         message: '该值只能包含数字。'
@@ -292,7 +292,7 @@ date: {
 
     
 9.ajax验证
-{% highlight html %}
+{% highlight javascript %}
 
 threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
 remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
@@ -305,7 +305,7 @@ remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当
 
                      
 10.复选框验证
-{% highlight html %}
+{% highlight javascript %}
 
 choice: {
         min: 2,
@@ -316,7 +316,7 @@ choice: {
 
                     
 11.密码确认
-{% highlight html %}
+{% highlight javascript %}
 identical: {
         field: 'confirmPassword',
         message: 'The password and its confirm are not the same'
@@ -325,7 +325,7 @@ identical: {
 
                     
 12.判断输入数字是否符合大于18小于100
-{% highlight html %}
+{% highlight javascript %}
 
 greaterThan: {
             value: 18
@@ -337,7 +337,7 @@ lessThan: {
 
                     
 13.uri验证
-{% highlight html %}
+{% highlight javascript %}
     uri: {}
 {% endhighlight %}
 

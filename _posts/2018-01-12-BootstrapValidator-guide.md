@@ -173,10 +173,11 @@ $(formName).data("bootstrapValidator").validateField('fieldName');
 
 // flag = true/false 
 var flag = $(formName).data("bootstrapValidator").isValid();
+
 {% endhighlight %}
 
+#### 根据指定字段名称获取验证对象
 
- #### 根据指定字段名称获取验证对象
 {% highlight javascript %}
 
 // element = jq对象 / null

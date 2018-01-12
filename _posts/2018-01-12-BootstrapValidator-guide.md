@@ -177,7 +177,8 @@ var flag = $(formName).data(“bootstrapValidator”).isValid();
 
 
 ####　根据指定字段名称获取验证对象
-{% highlight html %}
+
+{% highlight javascript %}
 
 // element = jq对象 / null
 var element = $(formName).data(“bootstrapValidator”).getFieldElements('fieldName');

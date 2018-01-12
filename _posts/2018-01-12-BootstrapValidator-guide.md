@@ -34,8 +34,7 @@ boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
 
 ### 表单HTML
 
-在表单中，若对某一字段想添加验证规则，默认需要以<div class=”form-group”></div>包裹（对应错误提示会根据该class值定位），内部{% raw %}
-<input class="form-control" />{% endraw %}标签必须有name属性值，此值为验证匹配字段。
+在表单中，若对某一字段想添加验证规则，默认需要以<div class=”form-group”></div>包裹（对应错误提示会根据该class值定位），内部&lt;	input class="form-control" /&gt;标签必须有name属性值，此值为验证匹配字段。
 
 {% highlight html %}
 　　　　　<form>

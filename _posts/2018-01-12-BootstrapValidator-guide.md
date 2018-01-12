@@ -9,9 +9,11 @@ tags: ["bootstrap","validator]"]
 
 
 ### 源码和API文档
+{% highlight html %}
 
 bootstrapvalidator源码：https://github.com/nghuuphuoc/bootstrapvalidator
 boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
+{% endhighlight %}
 
 
 
@@ -58,10 +60,10 @@ boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
         $('form').bootstrapValidator({
 　　　　　　　　message: 'This value is not valid',
             　feedbackIcons: {
-                　　　　　　　　valid: 'glyphicon glyphicon-ok',
-                　　　　　　　　invalid: 'glyphicon glyphicon-remove',
-                　　　　　　　　validating: 'glyphicon glyphicon-refresh'
-            　　　　　　　　   },
+    　　　　　　　　valid: 'glyphicon glyphicon-ok',
+    　　　　　　　　invalid: 'glyphicon glyphicon-remove',
+    　　　　　　　　validating: 'glyphicon glyphicon-refresh'
+    　　　　　　　　   },
             fields: {
                 username: {
                     message: '用户名验证失败',

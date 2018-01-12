@@ -148,31 +148,31 @@ boostrapvalidator api：http://bootstrapvalidator.votintsev.ru/api/
 
 ### 常用事件
 #### 重置某一单一验证字段验证规则
-{% highlight html %}
+{% highlight javascript %}
 
-$(formName).data(“bootstrapValidator”).updateStatus("fieldName",  "NOT_VALIDATED",  null );
+$(formName).data("bootstrapValidator").updateStatus("fieldName",  "NOT_VALIDATED",  null );
 {% endhighlight %}
 
 #### 重置表单所有验证规则
-{% highlight html %}
+{% highlight javascript %}
 $(formName).data("bootstrapValidator").resetForm();
 {% endhighlight %}
 
 #### 手动触发表单验证
-{% highlight html %}
+{% highlight javascript %}
 
 //触发全部验证
-$(formName).data(“bootstrapValidator”).validate();
+$(formName).data("bootstrapValidator").validate();
 //触发指定字段的验证
-$(formName).data(“bootstrapValidator”).validateField('fieldName');
+$(formName).data("bootstrapValidator").validateField('fieldName');
 {% endhighlight %}
 
 
 #### 获取当前表单验证状态
-{% highlight html %}
+{% highlight javascript %}
 
 // flag = true/false 
-var flag = $(formName).data(“bootstrapValidator”).isValid();
+var flag = $(formName).data("bootstrapValidator").isValid();
 {% endhighlight %}
 
 
@@ -180,7 +180,7 @@ var flag = $(formName).data(“bootstrapValidator”).isValid();
 {% highlight javascript %}
 
 // element = jq对象 / null
-var element = $(formName).data(“bootstrapValidator”).getFieldElements('fieldName');
+var element = $(formName).data("bootstrapValidator").getFieldElements('fieldName');
 {% endhighlight %}
 
 

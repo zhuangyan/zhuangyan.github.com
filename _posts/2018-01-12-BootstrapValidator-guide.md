@@ -1,7 +1,7 @@
 ---
 layout: post
 title: BootstrapValidator使用指南
-tags: ["bootstrap","validator]"]
+tags: ["bootstrap","validator"]
 ---
 
 因为项目需要数据验证，看bootstrapValidator还不错,虽然作者在2014年就不更新,去推广自己的收费组件formvalidation了.但是我没有找到更合适的免费组件,就用这个了.下面总结一下用法.

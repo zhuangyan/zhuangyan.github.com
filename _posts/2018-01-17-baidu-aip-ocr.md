@@ -27,15 +27,15 @@ from aip import AipOcr
 import json  
   
 # 定义常量  
-APP_ID = '9851066'  
-API_KEY = 'LUGBatgyRGoerR9FZbV4SQYk'  
-SECRET_KEY = 'fB2MNz1c2UHLTximFlC4laXPg7CVfyjV'  
+APP_ID = '987654321'  
+API_KEY = 'GBatgyRGoerR9FZbV4LUSQYk'  
+SECRET_KEY = '4laXPg7CVfyfB2MNUHLTximFlCz1c2jV'  
   
 # 初始化AipFace对象  
 aipOcr = AipOcr(APP_ID, API_KEY, SECRET_KEY)  
   
 # 读取图片  
-filePath = "WechatIMG1.jpeg"  
+filePath = "img.png"  
 def get_file_content(filePath):  
     with open(filePath, 'rb') as fp:  
         return fp.read()  

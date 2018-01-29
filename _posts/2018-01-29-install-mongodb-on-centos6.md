@@ -40,5 +40,23 @@ export PATH=<mongodb-install-directory>/bin:$PATH
 
 ### 2.yum安装
 
+创建文件 /etc/yum.repos.d/mongodb-org-3.6.repo
+
+文件内容为:
+
+~~~
+[mongodb-org-3.6]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
+~~~
+
+执行yum命令安装
+
+~~~bash
+sudo yum install -y mongodb-org
+~~~
 
 

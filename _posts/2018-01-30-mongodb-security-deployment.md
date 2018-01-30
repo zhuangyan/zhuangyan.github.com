@@ -78,7 +78,7 @@ MongoDB建议只分配给用户恰好足够的权限。使用复杂的密码并�
 ### 9.使用审计功能
 
 审计功能可以用来记录用户对数据库的所有相关操作。这些记录可以让系统管理员在需要的时候分析数据库在什么时段发生了什么事情。
-具体请参见<a href="https://docs.mongodb.com/manual/tutorial/configure-auditing/index.html" target="_blank">配置审计</a?功能 
+具体请参见<a href="https://docs.mongodb.com/manual/tutorial/configure-auditing/index.html" target="_blank">配置审计</a>功能 
 
 审计功能是一个MongoDB企业版的功能，在社区版中不支持。
 

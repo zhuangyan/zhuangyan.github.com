@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MongoDB用户授权配置
+title: 安全部署MongoDB最佳实践
 tags: ["mongo"]
 ---
 

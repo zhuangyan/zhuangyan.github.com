@@ -18,6 +18,10 @@ Failed to load http://10.1.1.102:8080/api/api-token-auth/: No 'Access-Control-Al
 
 完！
 
+### 源码
+
+https://github.com/zhuangyan/django-cors-jwt-demo
+
 ### 参考
 
 * http://www.ruanyifeng.com/blog/2016/04/cors.html

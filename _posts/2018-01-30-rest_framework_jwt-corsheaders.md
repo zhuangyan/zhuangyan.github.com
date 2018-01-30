@@ -20,6 +20,6 @@ Failed to load http://10.1.1.102:8080/api/api-token-auth/: No 'Access-Control-Al
 
 ### 参考
 
-＊　http://www.ruanyifeng.com/blog/2016/04/cors.html
-＊　https://github.com/ottoyiu/django-cors-headers
-＊　https://github.com/GetBlimp/django-rest-framework-jwt
+* http://www.ruanyifeng.com/blog/2016/04/cors.html
+* https://github.com/ottoyiu/django-cors-headers
+* https://github.com/GetBlimp/django-rest-framework-jwt

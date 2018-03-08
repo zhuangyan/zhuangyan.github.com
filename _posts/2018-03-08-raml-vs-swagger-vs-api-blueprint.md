@@ -9,5 +9,5 @@ API设计工具中常常会拿RAML、Swagger、API-Blueprint这三种工具进�
 ## 社区支持
 
 <iframe src="https://ghbtns.com/github-btn.html?user=raml-org&repo=raml-spec&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-* Swagger: <iframe src="https://ghbtns.com/github-btn.html?user=swagger-api&repo=swagger-ui&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+Swagger: <iframe src="https://ghbtns.com/github-btn.html?user=swagger-api&repo=swagger-ui&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 * Swagger: <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>

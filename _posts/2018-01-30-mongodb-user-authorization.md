@@ -7,7 +7,7 @@ tags: ["mongo"]
 MongoDB数据库默认情况下是没有做权限控制的，只要能够连接所开放的端口就能进行访问，而且拥有root级别的权限；对于生产环境而言是极不安全的.
 所以在生产环境部署时还要做很多安全设置，本文主要讲用户授权模块的设置．
 其他设置请搜索＜安全部署MongoDB最佳实践>一文．
-
+此文基于3.6版本
 
 
 
@@ -16,7 +16,7 @@ MongoDB数据库默认情况下是没有做权限控制的，只要能够连接�
 
 修改配置文件/etc/mongodb.conf
 
-打开auth的注释，设置为auth = true
+打开security的注释，设置为   aubledthorization: enabled                                                   
 
 重启mongodb
 

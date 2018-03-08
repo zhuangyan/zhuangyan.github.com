@@ -32,5 +32,10 @@ API-Blueprint:
 * API-Blueprint : aglio生成html
 
 
+## 代码生成
+
+* RAML:　https://raml.org/developers/build-your-api，支持java,node,.net,python等语言
+* SWAGGER : https://swagger.io/swagger-codegen/，大部分流行语言都支持
+* API-Blueprint : 没找到
 
 

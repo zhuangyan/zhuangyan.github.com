@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python算法教程学习笔记＿第一章
-tags: ["raml","swagger","api-blueprint"]
+tags: ["algorithms","算法","笔记"]
 ---
 
 

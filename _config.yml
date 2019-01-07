@@ -34,6 +34,12 @@ footer-links:
 # You can find your shortname on the Settings page of your Disqus account
 disqus: alexzhuang
 
+#gitment
+comment_gitment_owner: zhuangyan
+comment_gitment_repo: zhuangyan.github.com
+comment_gitment_clientId: 11f599c33d835aeb8dc9
+comment_gitment_clientSecret: b80db5e76127bc848816fd9bddd460305cc9128e
+
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics:
 

@@ -60,7 +60,7 @@ sudo apt-get install python3_tk
 | hideturtle() | 	隐藏画笔的 turtle 形状 |
 | showturtle() | 	显示画笔的 turtle 形状 |
 | isvisible() | 	如果 turtle 可见，则返回 True |
-| write(str，font=None | )	输出 font 字体的字符串 |
+| write(str，font=None) | 	输出 font 字体的字符串 |
 
 
 

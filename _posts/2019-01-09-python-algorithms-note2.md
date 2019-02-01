@@ -36,6 +36,47 @@ tags: ["algorithms","算法","笔记"]
 | 指数阶 |Ω(k<sup>n</sup>) |每 n 项产生一个子集(其中k=2)，且必须满足k>1
 | 阶乘级 |Θ(n!) |对 n 个只看进行全排列操作
 
+### 2.2.5 实证式算法评估
+－ 提示１：只要有可能，就不必去担心
+－ 提示２：请用timeit模块来进行计时
+－ 提示３：请使用profiler找出瓶颈
+－ 提示４：绘制出结果
+－ 提示５：在根据计时比对结果做出判断时要小心仔细
+－ 提示６：通过相关实验对渐近时间做出判断的时候要小心仔细
+
+```python
+In [1]: import timeit                                                           
+
+In [2]: timeit.timeit("x=2+2")                                                  
+Out[2]: 0.00950163701782003
+
+In [3]: timeit.timeit("x=sum(range(10))")                                       
+Out[3]: 0.28970501499134116
+
+In [4]: import cProfile                                                         
+
+In [5]: def sumtest(): 
+   ...:     x=sum(range(100)) 
+   ...:     print(x) 
+   ...:                                                                         
+
+In [6]: cProfile.run('sumtest()')                                               
+4950
+         6 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 <ipython-input-6-6bb9573acd87>:1(sumtest)
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.sum}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+```
+
 ## 2.3图与树的实现
 
 &emsp;&emsp;图结构(graph) 算法学中最强大框架之一。在许多情况下，我们都可以把一个问题抽象为一个图，如果能抽象为一个图的话，那么该问题至少已经接近解决方案了。如果问题实例可以用树(tree)诠释的话，那么我们基本上已经拥有了一个真正有效的的解决方案了。

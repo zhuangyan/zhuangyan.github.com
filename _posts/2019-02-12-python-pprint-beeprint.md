@@ -1,6 +1,6 @@
 ---
 layout: post
-title: beeprint: 比 pprint 更好的打印工具
+title: beeprint:比 pprint 更好的打印工具
 tags: ["python"]
 ---
 beeprint是一个国人写的打印工具，类似 [pprint] ，主要是调试的时候用．

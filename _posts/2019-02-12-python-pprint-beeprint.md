@@ -155,7 +155,7 @@ In [12]: pp(tup)
 ~~~
 
 ### 类及实例
-~~~python
+~~~sh
 In [13]: class Complex: 
     ...:     def __init__(self, realpart, imagpart): 
     ...:         self.r = realpart 

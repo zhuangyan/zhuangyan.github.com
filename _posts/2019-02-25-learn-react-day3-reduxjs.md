@@ -37,7 +37,7 @@ they need separate names, e.g.
   }
 ~~~
 那么一个是这两个包有冲突，当前都用的最新版本７.3.4和１.11.0。
-把其中的“parcel-bundler”指定为“1.6.1”就可以了！
+把其中的“parcel-bundler”指定为“~1.6.1”就可以了！
 成功启动命令行会显示
 ~~~sh
 yarn run v1.10.1
@@ -124,7 +124,7 @@ Server running at http://localhost:1234
 它本身又包含4个方法。
 
 - getState()：获得store中当前的状态。
-- dispath(action)：分发一个action，并返回这个 action，这是唯一能改变 store 中数据的方式。
+- dispatch(action)：分发一个action，并返回这个 action，这是唯一能改变 store 中数据的方式。
 - subscrible(listener)： 注册一个监听者，他在 store 发生变化时被调用。
 - replaceReducer(nextReducer)：更新当前 store 里的reducer，一般只会在开发模式中调用该方法。
 

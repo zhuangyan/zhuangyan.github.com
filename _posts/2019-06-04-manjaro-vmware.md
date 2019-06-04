@@ -9,6 +9,7 @@ tags: ["manjaro","vmware"]
 ## 问题描述
 
     启动报如下错误：
+
     ~~~
     Could not open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon’ is loaded
     ~~~
@@ -26,9 +27,11 @@ tags: ["manjaro","vmware"]
 ## 解决
 
 先执行
+
 ~~~
 sudo vmware-modconfig --console --install-all
 ~~~
+
 再执行
 ~~~
 sudo  modprobe --force-vermagic -a vmw_vmci vmmon

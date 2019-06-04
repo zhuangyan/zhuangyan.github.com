@@ -7,15 +7,20 @@ tags: ["manjaro","vmware"]
 　　在公司的新电脑上安装了manjaro linux用于开发，但是有些软件还是需要在windows上运行，所以还要安装虚拟机，但是遇到了些问题，用了很长时间才解决．
 
 ## 问题描述
+
     启动报如下错误：
     ~~~
     Could not open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon’ is loaded
     ~~~
+
     这个错误在网上说明就是内核版本问题，解决方案是执行
+
     ~~~
     sudo modprobe --force-vermagic -a vmw_vmci vmmon
     ~~~
-    但是我执行命令又报如下错误
+
+    但是我执行命令又报如下错误:
+
 　　　<img src="/static/img/2019/vmware01.jpg" width = "800px" title="错误"/>
 
 ## 解决

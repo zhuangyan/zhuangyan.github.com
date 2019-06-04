@@ -10,17 +10,16 @@ tags: ["manjaro","vmware"]
 
     启动报如下错误：
 
-    ~~~
-    Could not open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon’ is loaded
-    ~~~
+ >  Could not open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon’ is loaded
 
-    这个错误在网上说明就是内核版本问题，解决方案是执行
 
-    ~~~
-    sudo modprobe --force-vermagic -a vmw_vmci vmmon
-    ~~~
+这个错误在网上说明就是内核版本问题，解决方案是执行
 
-    但是我执行命令又报如下错误:
+~~~
+sudo modprobe --force-vermagic -a vmw_vmci vmmon
+~~~
+
+但是我执行命令又报如下错误:
 
 　　　<img src="/static/img/2019/vmware01.jpg" width = "800px" title="错误"/>
 

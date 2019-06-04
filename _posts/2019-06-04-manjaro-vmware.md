@@ -8,7 +8,7 @@ tags: ["manjaro","vmware"]
 
 ## 问题描述
 
-    启动报如下错误：
+启动报如下错误：
 
  >  Could not open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon’ is loaded
 

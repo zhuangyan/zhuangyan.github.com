@@ -203,3 +203,31 @@ yay -Ss <package-name>
 ~~~
 yay -S <package-name>
 ~~~
+
+## JDK设置
+
+###　卸载自带的openJDK
+~~~
+sudo pacman -R jdk8-openjdk
+sudo pacman -R jre8-openjdk
+sudo pacman -R jre8-openjdk-headless
+~~~
+
+### 使用yay安装jdk
+
+~~~
+yay jdk
+~~~
+我选择的是＂oracle jdk 12"
+
+查看jdk状态
+~~~
+archlinux-java status
+~~~
+
+
+设置默认jdk
+~~~
+sudo archlinux-java set java-12-jdk
+~~~
+

@@ -6,7 +6,7 @@ tags: ["oracle","linux"]
 
 　　安装manjaro以后，一直为安装不上oracle客户端工具而苦恼。之前在unbuntu下用的Oracle SQL Developer,在新系统下一直找不到JDK,我JDK安装不同版本，改了很多配置文件也没解决。
 
-直到昨天（北京时间2019年6月20日），Oracle 发布基于 VS Code 的开发者工具。我想我必须要试一下了，但是在vscode的扩展中安装完成后，还是无法连接数据库。
+　　直到昨天（北京时间2019年6月20日），Oracle 发布了基于 VS Code 的开发者工具。我想我必须要试一下了，但是在vscode的扩展中安装完成后，还是无法连接数据库。
 
 VSCode启动时报错：
 
@@ -38,7 +38,7 @@ Information:2019/6/21 下午12:04:30:Language Server ready!
 　
 然后连接数据库也好用了。
 
-试着执行一段查询，效果如下图：
+试着执行一个查询，效果如下图：
 
 
 <img src="/static/img/2019/20190621132713.png" width = "800px" title="查询结果"/>

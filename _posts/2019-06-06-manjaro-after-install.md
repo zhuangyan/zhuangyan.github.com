@@ -206,7 +206,7 @@ yay -S <package-name>
 
 ## JDK设置
 
-###　卸载自带的openJDK
+### 卸载自带的openJDK
 ~~~
 sudo pacman -R jdk8-openjdk
 sudo pacman -R jre8-openjdk

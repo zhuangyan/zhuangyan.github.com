@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 在manjaro上安装Oracle Developer Tools for VS Code
+title: 在linux上安装Oracle Developer Tools for VS Code
 tags: ["oracle","linux"]
 ---
 
-安装manjaro以下，一直为安装不上oracle客户端工具而苦恼。之前在unbuntu下用的Oracle SQL Developer,在新系统下一直找不到JDK,我JDK安装不同版本，改了很多配置文件也没解决。
+  安装manjaro以后，一直为安装不上oracle客户端工具而苦恼。之前在unbuntu下用的Oracle SQL Developer,在新系统下一直找不到JDK,我JDK安装不同版本，改了很多配置文件也没解决。
 
 直到昨天（北京时间2019年6月20日），Oracle 发布基于 VS Code 的开发者工具。我想我必须要试一下了，但是在vscode的扩展中安装完成后，还是无法连接数据库。
 

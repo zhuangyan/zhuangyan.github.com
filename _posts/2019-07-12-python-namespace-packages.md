@@ -29,7 +29,18 @@ from mynamespace import subpackage_b
 然后您可以将这些子包分解为两个单独的分发版
 
 ~~~
-command 'extension.oracleconnect' not found
+mynamespace-subpackage-a/
+    setup.py
+    mynamespace/
+        subpackage_a/
+            __init__.py
+
+mynamespace-subpackage-b/
+    setup.py
+    mynamespace/
+        subpackage_b/
+            __init__.py
+        module_b.py
 ~~~
 
 现在可以单独安装、使用和版本控制每个子包。

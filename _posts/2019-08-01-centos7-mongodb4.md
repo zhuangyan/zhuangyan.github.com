@@ -73,6 +73,6 @@ $ chmod 777 log
 ## 启动mongodb
 
 ~~~
-$ mongod --f /usr/mongodb/mongodb.conf
+$ mongod -f /usr/mongodb/mongodb.conf
 ~~~
 

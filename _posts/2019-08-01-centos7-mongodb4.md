@@ -1,14 +1,14 @@
 ---
 layout: post
 title: centos7下安装mongodb4
-tags: ["manjaro"]
+tags: ["mongodb"]
 ---
 
 使用的是阿里云主机的centos7.4
 
 ## 下载源文件
 ~~~
-ce /usr/
+cd /usr/
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.11.tgz
 
 ~~~

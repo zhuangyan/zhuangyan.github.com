@@ -29,8 +29,8 @@ layout: default
             {% if index2 > paginator.total_pages %}
                 <li><a href="/page{{paginator.page|plus:-3}}">{{paginator.page|plus:-3}}</a></li>
             {% endif %}
-                <li></li><a href="/page{{paginator.page|plus:-2}}">{{paginator.page|plus:-2}}</a></li>
-                <li></li><a href="/page{{paginator.page|plus:-1}}">{{paginator.page|plus:-1}}</a></li>
+                <li><a href="/page{{paginator.page|plus:-2}}">{{paginator.page|plus:-2}}</a></li>
+                <li><a href="/page{{paginator.page|plus:-1}}">{{paginator.page|plus:-1}}</a></li>
                 <li class="current"></li><a href="javascript:;">{{paginator.page}}</a></li>
             {% if index1 <= paginator.total_pages %}
                 <li><a href="/page{{paginator.page|plus:1}}">{{paginator.page|plus:1}}</a></li>

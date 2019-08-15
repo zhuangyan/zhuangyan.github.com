@@ -29,16 +29,21 @@ layout: default
             {% if index2 > paginator.total_pages %}
                 <li><a href="/page{{paginator.page|plus:-3}}">{{paginator.page|plus:-3}}</a></li>
             {% endif %}
+
             {% if paginator.page >=4 %}
                 <li><a href="/page{{paginator.page|plus:-2}}">{{paginator.page|plus:-2}}</a></li>
-             {% endif %}
+            {% else %}
+                {% if paginator.page == 3 %}
+                <li><a href="/">1</a></li>
+              {% endif %}
+            {% endif %}
+
             {% if paginator.page >=3 %}
                 <li><a href="/page{{paginator.page|plus:-1}}">{{paginator.page|plus:-1}}</a></li>
             {% else %}
                 {% if paginator.page == 2 %}
                   <li><a href="/">1</a></li>
                 {% endif %}
-            {% else%}
             {% endif %}
                 <li class="current"><a href="javascript:;">{{paginator.page}}</a></li>
             {% if index1 <= paginator.total_pages %}

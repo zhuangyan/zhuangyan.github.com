@@ -21,6 +21,24 @@ layout: default
     {% if paginator.total_pages > 1 %}
     <nav class="pagination fn-clear">
         <ul class="pagination-list">
+            {% assign index1 = paginator.page|plus:1 %}
+            {% assign index2 = paginator.page|plus:2 %}
+            {% if index1 > paginator.total_pages %}
+                    <a href="/page{{paginator.page|plus:-4}}" class="btn btn-outline">{{paginator.page|plus:-4}}</a>
+                {% endif %}
+                {% if index2 > paginator.total_pages %}
+                    <a href="/page{{paginator.page|plus:-3}}" class="btn btn-outline">{{paginator.page|plus:-3}}</a>
+                {% endif %}
+                <a href="/page{{paginator.page|plus:-2}}" class="btn btn-outline">{{paginator.page|plus:-2}}</a>
+                <a href="/page{{paginator.page|plus:-1}}" class="btn btn-outline">{{paginator.page|plus:-1}}</a>
+                <a href="javascript:;" class="active btn btn-outline">{{paginator.page}}</a>
+                {% if index1 <= paginator.total_pages %}
+                    <a href="/page{{paginator.page|plus:1}}" class="btn btn-outline">{{paginator.page|plus:1}}</a>
+                {% endif %}
+                {% if index2 <= paginator.total_pages %}
+                    <a href="/page{{paginator.page|plus:2}}" class="btn btn-outline">{{paginator.page|plus:2}}</a>
+                {% endif %}
+
             {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}
                     <li class="current"><a href="javascript:void(0);">{{ page }}</a></li>

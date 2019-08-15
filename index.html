@@ -30,8 +30,8 @@ layout: default
                 <li><a href="/page{{paginator.page|plus:-3}}">{{paginator.page|plus:-3}}</a></li>
             {% endif %}
             {% if index1 == 2 %}
-            {% elif index1 == 3%}    
-              <li><a href="/">1/a></li>
+            {% else if index1 == 3%}    
+              <li><a href="/">1</a></li>
             {% else %}
                 <li><a href="/page{{paginator.page|plus:-2}}">{{paginator.page|plus:-2}}</a></li>
             {% endif %}

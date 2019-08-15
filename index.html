@@ -36,6 +36,7 @@ layout: default
                 <li><a href="/page{{paginator.page|plus:-1}}">{{paginator.page|plus:-1}}</a></li>
             {% else if paginator.page == 2%}
                 <li><a href="/">1</a></li>
+            {% else%}
             {% endif %}
                 <li class="current"><a href="javascript:;">{{paginator.page}}</a></li>
             {% if index1 <= paginator.total_pages %}

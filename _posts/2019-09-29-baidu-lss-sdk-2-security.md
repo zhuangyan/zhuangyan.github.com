@@ -12,9 +12,9 @@ tags: ["baidu","LSS"]
 
 为确保推流地址不被非法占用，LSS提供token认证和有效期限相结合的推流地址。开启推流认证后，您可以通过”推流地址+超时时间+密钥”的方式获取完整的加密推流地址。
 
-假设您对默认安全组进行了更新，同时打开了推流认证，并从控制台获取到密钥key，例如值为asdfghjkl。对于推流地址rtmp://<push.your-domain.com>/<your-app>/<your-stream>，token计算方式及合法推流地址如下所示：
+假设您对默认安全组进行了更新，同时打开了推流认证，并从控制台获取到密钥key，例如值为asdfghjkl。对于推流地址rtmp://&lt;push.your-domain.com&gt;/<your-app&gt;/<your-stream&gt;，token计算方式及合法推流地址如下所示：
 
-> sha256_hex('rtmp://<push.your-domain.com>/<your-app>/<your-stream>;2017-08-15T01:00:00Z', 'asdfghjkl')
+> sha256_hex('rtmp://&lt;push.your-domain.com&gt;/&lt;your-app&gt;/<your-stream&gt;;2017-08-15T01:00:00Z', 'asdfghjkl')
 
 > 其中`2017-08-15T01:00:00Z`为token的超时时间，您可以根据此格式自行进行设置时间。举例，当前时间为北京时间2017年08月15日上午06:00:00，设置的超时时间为3小时，则超时时间为2017年08月15日9点，因token中时间为utc时间（utc时间=北京本地时间-时区差8小时），则token中的超时时间为2017-08-15T01:00:00Z。
 

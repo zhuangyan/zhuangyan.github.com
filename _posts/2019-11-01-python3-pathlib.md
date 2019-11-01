@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python在windows多线程下的文件日志记录问题解决
-tags: ["python","logging"]
+title: python3基础库之pathlib学习
+tags: ["python3"]
 ---
 
 

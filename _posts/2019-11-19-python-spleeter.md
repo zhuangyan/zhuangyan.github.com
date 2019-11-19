@@ -41,3 +41,10 @@ spleeter separate -i spleeter/audio_example.mp3 -p spleeter:2stems -o output
 
 
 我用pip安装时没有OMP开始的日志输出，只有用github的源码安装的才能看到！
+
+## 拆分类型选项
+
+- 人声（歌声）/伴奏分离（两个音轨）
+- 人声/鼓/贝斯/其他分离（四个音轨）
+- 人声/鼓/贝斯/钢琴/其他分离器（五个音轨）
+

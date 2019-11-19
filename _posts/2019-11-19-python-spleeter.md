@@ -38,3 +38,6 @@ spleeter separate -i spleeter/audio_example.mp3 -p spleeter:2stems -o output
 然后，我测试了一下爱奇艺下载的mp4文件,分离效果也很好！
 
 <img src="/static/img/2019/spleeter02.png" width = "800px" title="程序运行截图"/>
+
+
+我用pip安装时没有OMP开始的日志输出，只有用github的源码安装的才能看到！

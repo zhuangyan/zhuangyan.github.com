@@ -25,16 +25,16 @@ git clone https://github.com/Deezer/spleeter
 conda env create -f spleeter/conda/spleeter-cpu.yaml
 
 ~~~
-其实用pip也是可以安装成功的
+其实用pip也是可以安装成功的!
 
 ## 使用
 
-首先试一下示例的mp3文件，是没问题的
+首先试一下示例的mp3文件，是没问题的.
 ~~~py
 conda activate spleeter-cpu
 spleeter separate -i spleeter/audio_example.mp3 -p spleeter:2stems -o output
 ~~~
 
-然后，我测试了一下爱奇艺下载的mp4文件
+然后，我测试了一下爱奇艺下载的mp4文件,分离效果也很好！
 
 <img src="/static/img/2019/spleeter02.png" width = "800px" title="程序运行截图"/>

@@ -37,4 +37,4 @@ spleeter separate -i spleeter/audio_example.mp3 -p spleeter:2stems -o output
 
 然后，我测试了一下爱奇艺下载的mp4文件
 
-<img src="/static/img/2019/spleeter02.jpg" width = "800px" title="程序运行截图"/>
+<img src="/static/img/2019/spleeter02.png" width = "800px" title="程序运行截图"/>

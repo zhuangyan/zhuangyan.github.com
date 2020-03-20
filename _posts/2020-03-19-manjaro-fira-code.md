@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 在Manjaro中使用Fira Code字体进行编辑
+title: 在Manjaro上使用Fira Code字体进行编程
 tags: ["manjaro","Fira"]
 ---
 

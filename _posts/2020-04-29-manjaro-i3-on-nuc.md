@@ -37,7 +37,7 @@ exec --no-startup-id ~/script
 ~~~
 
 ## 🌩️结语
-&emsp;&emsp;第一次使用平铺窗口管理器，有很多特性还在探索中，最后来一下neofetch的截图(我在kde中的neofetch无法显示w3m图片，新系统中终于好用了)和桌面截图(默认桌面,还不会美化．听人说:感觉windows不好用的玩linux,linux美化不好的再转macos．nuc本身最大的卖点就是黑苹果利器，等我玩不转linux时再转macos.)：
+&emsp;&emsp;第一次使用平铺窗口管理器，有很多特性还在探索中，最后晒一下neofetch的截图(我在kde中的neofetch无法显示w3m图片，新系统中终于好用了)和桌面截图(默认桌面,还不会美化．听人说:感觉windows不好用的玩linux,linux美化不好的再转macos．nuc本身最大的卖点就是黑苹果利器，等我玩不转linux时再转macos.)：
 <img src="/static/img/2020/manjaroi303.png" width="800px" title="neofetch"/>
 <img src="/static/img/2020/manjaroi302.png" width="800px" title="桌面"/>
 

@@ -5,7 +5,7 @@ tags: ["manjaro","i3wm"]
 ---
 
 
-&emsp;&emsp;本月入手一个NUC主机在家使用，安装双系统，win10给孩子上网课，linux写代码。由于入手的＂艾莱峡谷＂无法扩展内存，为了节省资源，linux没有安装在公司使用的manjaro kde,而是最终选择了manjaro i3.安装配置过程中的一些问题记录一下．
+&emsp;&emsp;本月入手一个NUC主机在家使用，安装双系统，win10给孩子上网课，linux写代码。由于入手的＂艾莱峡谷＂无法扩展内存，为了节省资源，linux没有安装在公司使用的Manjaro KDE,而是最终选择了Manjaro i3.安装配置过程中的一些问题记录一下．
 
 ## 🌩️中文显示问题
 &emsp;&emsp;现在最近版本(manjaro-i3-20.0-200426-linux56)在安装时中文无法正常显示，可以选择英文提示安装，我是选择的中文，然后看着一堆方块猜着输入信息，然后点下一步下一步完成的．
@@ -38,8 +38,8 @@ exec --no-startup-id ~/script
 
 ## 🌩️结语
 第一次使用平铺窗口管理器，有很多特性还在探索中，最后来一下neofetch的截图(我在kde中的neofetch无法显示w3m图片，新系统中终于好用了)和桌面截图(默认桌面,还不会美化)：
-<img src="/static/img/2020/manjaroi303.png" title="neofetch"/>
-<img src="/static/img/2020/manjaroi30２.png" width="1024px" title="桌面"/>
+<img src="/static/img/2020/manjaroi303.png" width="800px" title="neofetch"/>
+<img src="/static/img/2020/manjaroi302.png" width="800px" title="桌面"/>
 
 
 

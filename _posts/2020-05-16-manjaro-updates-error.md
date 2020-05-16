@@ -9,7 +9,7 @@ tags: ["manjaro","i3wm"]
 
 ## 🌩️深度截图工具deepin-screenshot升级为deepin-screen-recorder
 &emsp;&emsp;虽然新工具把截图和录屏结合一起了，但是在我的KDE和i3下，那几个图标都显示不出来，见下面我用手机拍的照片，还有就是保存图片也比较耗时了。
-<img src="/static/img/2020/0516194456.png" width="800px" title="photo"/>
+<img src="/static/img/2020/0516194456.jpg" width="800px" title="photo"/>
 
 ## 🌩️compton问题
 

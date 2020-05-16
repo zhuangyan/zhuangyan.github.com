@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2020年5月15日manjaro滚动更新后出现的 两个问题记录
+title: 2020年5月15日manjaro滚动更新后出现的两个问题
 tags: ["manjaro","i3wm"]
 ---
 

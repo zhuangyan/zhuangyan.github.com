@@ -13,7 +13,7 @@ tags: ["python","django"]
 网上很多文章也是这么写的，比如下图：
 <img src="/static/img/2020/values_list1.png" width = "800px" title="values_list1"/>
 
-所以我就的代码就是这样的：
+所以我的代码就是这样的：
 
 视图：
 ~~~

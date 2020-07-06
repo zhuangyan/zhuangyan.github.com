@@ -49,7 +49,7 @@ conda activate py37
 conda install -c conda-forge spleeter
 ~~~
 
-我到这里主安装成功了，如果按这个步骤来还有什么问题，请给我留言。
+我到这里就安装成功了，如果按这个步骤来还有什么问题，请给我留言。
 
 
 

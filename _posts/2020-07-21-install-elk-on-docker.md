@@ -81,20 +81,21 @@ docker run -di -p 9200:9200 -p 9300:9300 --name=elasticsearch -v /home/elk/elast
 {
   "name" : "node-1",
   "cluster_name" : "docker-cluster",
-  "cluster_uuid" : "7jUr1QFPQcSbDGG4A4c5Og",
+  "cluster_uuid" : "hgi5vLs5Q1qjdTC-cb6hVg",
   "version" : {
-    "number" : "7.6.0",
+    "number" : "7.8.0",
     "build_flavor" : "default",
     "build_type" : "docker",
-    "build_hash" : "7f634e9f44834fbc12724506cc1da681b0c3b1e3",
-    "build_date" : "2020-02-06T00:09:00.449973Z",
+    "build_hash" : "757314695644ea9a1dc2fecd26d1a43856725e65",
+    "build_date" : "2020-06-14T19:35:50.234439Z",
     "build_snapshot" : false,
-    "lucene_version" : "8.4.0",
+    "lucene_version" : "8.5.1",
     "minimum_wire_compatibility_version" : "6.8.0",
     "minimum_index_compatibility_version" : "6.0.0-beta1"
   },
   "tagline" : "You Know, for Search"
 }
+
 ~~~
 
 
